@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<title>HYROX · Pablo · Oct 2026</title>
+<style>
+:root {
+  --bg:#F2F1ED; --bg2:#E8E7E2; --bg3:#DDDCD7;
+  --card:#FFFFFF; --card2:#FAFAF8;
+  --border:#E2E1DB; --border2:#D4D3CC;
+  --text:#1A1917; --text2:#6B6A65; --text3:#A8A79F;
+  --accent:#E8570A; --accent-l:#FEF0E8; --accent-m:#F4A574;
+  --blue:#1A6FDB; --blue-l:#EBF2FD;
+  --green:#1C8A48; --green-l:#E8F5ED;
+  --red:#C0392B; --red-l:#FDECEA;
+  --yellow:#CC8209; --yellow-l:#FDF5E3;
+  --purple:#7C3AED; --purple-l:#F3EFFE;
+  --teal:#0E7EC2; --teal-l:#EDF6FF;
+  --r:14px; --r-sm:10px; --r-xs:6px;
+  --shadow:0 1px 3px rgba(0,0,0,0.07),0 4px 12px rgba(0,0,0,0.04);
+  --shadow-sm:0 1px 2px rgba(0,0,0,0.05);
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+html,body{height:100%;overflow:hidden;}
+body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.5;}
+.app{display:flex;flex-direction:column;height:100vh;height:100dvh;}
+.header{padding:52px 20px 12px;background:var(--card);border-bottom:1px solid var(--border);flex-shrink:0;box-shadow:var(--shadow-sm);}
+@supports(padding-top:env(safe-area-inset-top)){
+  .header{padding-top:max(52px,calc(env(safe-area-inset-top)+12px));}
+  .bottom-nav{padding-bottom:max(18px,env(safe-area-inset-bottom));}
+}
+.header-row{display:flex;align-items:center;justify-content:space-between;}
+.header-title{font-size:24px;font-weight:700;letter-spacing:-.4px;color:var(--text);}
+.header-title span{color:var(--accent);}
+.header-sub{font-size:12px;color:var(--text3);margin-top:2px;}
+.cd-pill{background:var(--accent);color:#fff;font-size:11px;font-weight:700;padding:5px 11px;border-radius:99px;white-space:nowrap;}
+.scroll{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+.tab-body{display:none;padding-bottom:100px;}
+.tab-body.active{display:block;}
+.bottom-nav{display:flex;background:var(--card);border-top:1px solid var(--border);padding:8px 0 18px;flex-shrink:0;}
+.nav-btn{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:5px 0;background:none;border:none;color:var(--text3);font-size:10px;font-weight:500;cursor:pointer;transition:color .15s;}
+.nav-btn.active{color:var(--accent);}
+.nav-icon{font-size:20px;line-height:1;}
+/* SECTION */
+.section-label{font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;padding:18px 20px 8px;}
+.section-label:first-child{padding-top:14px;}
+/* METRICS */
+.metrics-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:14px 16px 4px;}
+.metric{background:var(--card);border:1px solid var(--border);border-radius:var(--r-sm);padding:10px 8px;text-align:center;box-shadow:var(--shadow-sm);}
+.metric-val{font-size:17px;font-weight:700;color:var(--accent);line-height:1.1;}
+.metric-unit{font-size:9px;color:var(--text2);font-weight:500;}
+.metric-lbl{font-size:10px;color:var(--text3);margin-top:2px;}
+/* WEEK SCROLL */
+.week-scroll{display:flex;overflow-x:auto;gap:6px;padding:8px 16px 10px;scrollbar-width:none;}
+.week-scroll::-webkit-scrollbar{display:none;}
+.wchip{flex-shrink:0;padding:7px 13px;border-radius:99px;background:var(--card);border:1px solid var(--border);color:var(--text2);font-size:12px;font-weight:500;cursor:pointer;white-space:nowrap;transition:all .15s;box-shadow:var(--shadow-sm);}
+.wchip.active{background:var(--accent);border-color:var(--accent);color:#fff;}
+.wchip.deload{border-color:var(--purple);}
+.wchip.deload.active{background:var(--purple);border-color:var(--purple);}
+/* BANNER */
+.phase-banner{margin:0 16px 6px;padding:10px 14px;border-radius:var(--r-sm);border-left:3px solid;font-size:13px;}
+/* INFO BOX */
+.info-box{background:var(--card);border:1px solid var(--border);border-radius:var(--r-sm);margin:4px 16px 8px;padding:11px 14px;box-shadow:var(--shadow-sm);}
+.info-box-title{font-size:11px;font-weight:600;color:var(--text2);margin-bottom:3px;}
+.info-box-text{font-size:13px;color:var(--text2);line-height:1.5;}
+/* DAYS */
+.day-item{display:flex;align-items:flex-start;gap:12px;padding:13px 16px;border-bottom:1px solid var(--border);cursor:pointer;background:var(--card);}
+.day-item:active{background:var(--bg2);}
+.day-item:last-of-type{border-bottom:none;}
+.day-dot{width:8px;height:8px;border-radius:50%;margin-top:5px;flex-shrink:0;}
+.day-main{flex:1;}
+.day-name{font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:1px;}
+.day-type{font-size:15px;font-weight:600;margin-bottom:5px;color:var(--text);}
+.day-meta{display:flex;flex-wrap:wrap;gap:5px;align-items:center;}
+.pill{display:inline-flex;align-items:center;font-size:11px;font-weight:600;padding:2px 9px;border-radius:99px;}
+.pill-run{background:var(--blue-l);color:var(--blue);}
+.pill-strength{background:var(--green-l);color:var(--green);}
+.pill-hyrox{background:var(--accent-l);color:var(--accent);}
+.pill-cardio{background:var(--teal-l);color:var(--teal);}
+.pill-rest{background:var(--bg2);color:var(--text3);}
+.rpe-mini{display:flex;align-items:center;margin-top:5px;}
+.rpe-dots{display:flex;gap:2px;margin:0 4px;}
+.rpe-dot{width:7px;height:7px;border-radius:50%;background:var(--bg3);}
+/* EXPAND */
+.day-expand{display:none;padding:0 16px 14px 36px;background:var(--card2);}
+.day-expand.open{display:block;}
+.wu-box{background:var(--green-l);border-radius:var(--r-sm);padding:9px 12px;margin-bottom:9px;}
+.wu-box-title{font-size:11px;font-weight:600;color:var(--green);margin-bottom:3px;}
+.wu-box-text{font-size:12px;color:#2D6B40;line-height:1.5;}
+.ex-item{padding:8px 0;border-bottom:1px solid var(--border);}
+.ex-item:last-child{border-bottom:none;}
+.ex-row{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;}
+.ex-name{font-size:14px;font-weight:600;color:var(--text);}
+.ex-params{font-size:12px;color:var(--accent);font-weight:700;white-space:nowrap;flex-shrink:0;}
+.ex-notes{font-size:12px;color:var(--text2);margin-top:2px;line-height:1.4;}
+.cd-box{background:var(--teal-l);border-radius:var(--r-sm);padding:9px 12px;margin-top:9px;}
+.cd-box-title{font-size:11px;font-weight:600;color:var(--teal);margin-bottom:3px;}
+/* NUTRITION */
+.macro-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);margin:0 16px 10px;padding:14px 16px;box-shadow:var(--shadow-sm);}
+.macro-title{font-size:13px;font-weight:600;color:var(--text2);margin-bottom:11px;}
+.macro-row-item{display:flex;align-items:center;gap:10px;margin-bottom:9px;}
+.macro-row-item:last-child{margin-bottom:0;}
+.macro-name-col{font-size:12px;color:var(--text2);width:88px;flex-shrink:0;}
+.macro-bar-bg{flex:1;height:6px;background:var(--bg2);border-radius:99px;overflow:hidden;}
+.macro-bar-fill{height:100%;border-radius:99px;}
+.macro-g-col{font-size:12px;font-weight:700;color:var(--text);width:65px;text-align:right;}
+.hydration-card{background:var(--teal-l);border:1px solid rgba(14,126,194,.2);border-radius:var(--r);margin:0 16px 10px;padding:13px 16px;}
+.hydration-title{font-size:14px;font-weight:600;color:var(--teal);margin-bottom:8px;}
+.hydration-row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(14,126,194,.12);font-size:13px;}
+.hydration-row:last-child{border-bottom:none;}
+.hydration-moment{color:var(--text2);}
+.hydration-amount{color:var(--teal);font-weight:600;text-align:right;max-width:56%;}
+.menu-tabs{display:flex;overflow-x:auto;gap:6px;padding:6px 16px 10px;scrollbar-width:none;}
+.menu-tabs::-webkit-scrollbar{display:none;}
+.menu-tab-btn{flex-shrink:0;padding:7px 14px;border-radius:99px;background:var(--card);border:1px solid var(--border);color:var(--text2);font-size:13px;cursor:pointer;transition:all .15s;}
+.menu-tab-btn.active{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600;}
+.menu-day-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);margin:0 16px 8px;overflow:hidden;box-shadow:var(--shadow-sm);}
+.menu-day-header{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;cursor:pointer;}
+.menu-day-name{font-size:14px;font-weight:600;color:var(--text);}
+.menu-day-kcal{font-size:12px;color:var(--accent);font-weight:700;}
+.menu-day-body{display:none;border-top:1px solid var(--border);}
+.menu-day-body.open{display:block;}
+.meal-row{display:flex;gap:8px;padding:9px 16px;border-bottom:1px solid var(--border);align-items:flex-start;}
+.meal-row:last-child{border-bottom:none;}
+.meal-label{font-size:11px;font-weight:600;color:var(--text3);width:72px;flex-shrink:0;padding-top:1px;text-transform:uppercase;letter-spacing:.04em;}
+.meal-food{font-size:13px;color:var(--text2);flex:1;line-height:1.5;}
+.supp-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);margin:0 16px 8px;padding:13px 16px;box-shadow:var(--shadow-sm);}
+.supp-title{font-size:14px;font-weight:600;color:var(--text);margin-bottom:8px;}
+.supp-row{display:flex;justify-content:space-between;align-items:flex-start;padding:7px 0;border-bottom:1px solid var(--border);gap:8px;}
+.supp-row:last-child{border-bottom:none;}
+.supp-name{font-size:13px;font-weight:600;color:var(--text);flex:1;}
+.supp-dose{font-size:12px;color:var(--accent);font-weight:700;white-space:nowrap;}
+.supp-note{font-size:11px;color:var(--text3);margin-top:2px;}
+/* PHASES */
+.timeline-container{margin:0 16px 14px;}
+.timeline-bar{height:7px;border-radius:99px;overflow:hidden;display:flex;margin-bottom:8px;}
+.tl-ph{height:100%;}
+.timeline-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--text3);}
+.deload-card{background:var(--purple-l);border:1px solid rgba(124,58,237,.2);border-radius:var(--r-sm);padding:12px 14px;margin:0 16px 10px;}
+.deload-title{font-size:13px;font-weight:600;color:var(--purple);margin-bottom:4px;}
+.deload-text{font-size:13px;color:#5B3FA0;line-height:1.5;}
+.phase-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);margin:0 16px 10px;overflow:hidden;box-shadow:var(--shadow-sm);}
+.phase-header{padding:13px 16px;border-left:3px solid;}
+.phase-title{font-size:16px;font-weight:700;}
+.phase-weeks{font-size:12px;color:var(--text2);margin-top:1px;}
+.phase-body{padding:12px 16px;}
+.phase-desc{font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:9px;}
+.phase-goals-title{font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px;}
+.phase-goal{display:flex;gap:7px;font-size:13px;padding:3px 0;color:var(--text);}
+.phase-goal-dot{color:var(--accent);font-weight:700;}
+/* DAY LIST CARD WRAP */
+.days-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);margin:0 16px;overflow:hidden;box-shadow:var(--shadow-sm);}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="header">
+    <div class="header-row">
+      <div>
+        <div class="header-title">HYROX <span>Pablo</span></div>
+        <div class="header-sub">18 Oct 2026 · 22 semanas · Objetivo 3:50/km</div>
+      </div>
+      <div class="cd-pill" id="cdPill">...</div>
+    </div>
+  </div>
+
+  <div class="scroll">
+
+    <!-- PLAN -->
+    <div id="tab-plan" class="tab-body active">
+      <div class="metrics-row">
+        <div class="metric"><div class="metric-val">3:50</div><div class="metric-unit">/km</div><div class="metric-lbl">Objetivo</div></div>
+        <div class="metric"><div class="metric-val">4:45</div><div class="metric-unit">/km</div><div class="metric-lbl">Actual</div></div>
+        <div class="metric"><div class="metric-val">22</div><div class="metric-unit">sem</div><div class="metric-lbl">Duración</div></div>
+        <div class="metric"><div class="metric-val">5–6</div><div class="metric-unit">ses</div><div class="metric-lbl">Semana</div></div>
+      </div>
+      <div class="week-scroll" id="weekChips"></div>
+      <div id="phaseBanner" class="phase-banner"></div>
+      <div id="fcInfo"></div>
+      <div class="days-card" id="dayList"></div>
+    </div>
+
+    <!-- NUTRICIÓN -->
+    <div id="tab-nutricion" class="tab-body">
+      <div class="section-label">Macros diarios · ~75 kg</div>
+      <div class="macro-card">
+        <div class="macro-title">Día entrenamiento intenso · 3000–3200 kcal</div>
+        <div class="macro-row-item"><span class="macro-name-col">Proteína</span><div class="macro-bar-bg"><div class="macro-bar-fill" style="width:24%;background:var(--blue)"></div></div><span class="macro-g-col">185g · 24%</span></div>
+        <div class="macro-row-item"><span class="macro-name-col">Carbohidratos</span><div class="macro-bar-bg"><div class="macro-bar-fill" style="width:47%;background:var(--accent)"></div></div><span class="macro-g-col">350g · 47%</span></div>
+        <div class="macro-row-item"><span class="macro-name-col">Grasas</span><div class="macro-bar-bg"><div class="macro-bar-fill" style="width:29%;background:var(--yellow)"></div></div><span class="macro-g-col">97g · 29%</span></div>
+      </div>
+      <div class="macro-card">
+        <div class="macro-title">Día descanso · 2400–2500 kcal</div>
+        <div class="macro-row-item"><span class="macro-name-col">Proteína</span><div class="macro-bar-bg"><div class="macro-bar-fill" style="width:29%;background:var(--blue)"></div></div><span class="macro-g-col">175g · 29%</span></div>
+        <div class="macro-row-item"><span class="macro-name-col">Carbohidratos</span><div class="macro-bar-bg"><div class="macro-bar-fill" style="width:39%;background:var(--accent)"></div></div><span class="macro-g-col">235g · 39%</span></div>
+        <div class="macro-row-item"><span class="macro-name-col">Grasas</span><div class="macro-bar-bg"><div class="macro-bar-fill" style="width:32%;background:var(--yellow)"></div></div><span class="macro-g-col">92g · 32%</span></div>
+      </div>
+      <div class="hydration-card">
+        <div class="hydration-title">💧 Hidratación y electrolitos</div>
+        <div class="hydration-row"><span class="hydration-moment">Al despertar</span><span class="hydration-amount">500 ml agua + sal + limón</span></div>
+        <div class="hydration-row"><span class="hydration-moment">Pre-entreno</span><span class="hydration-amount">500 ml, 30–45 min antes</span></div>
+        <div class="hydration-row"><span class="hydration-moment">Sesión &lt;60 min</span><span class="hydration-amount">Agua sola</span></div>
+        <div class="hydration-row"><span class="hydration-moment">Sesión &gt;60 min</span><span class="hydration-amount">500 ml/h + gel c/35 min</span></div>
+        <div class="hydration-row"><span class="hydration-moment">Post-entreno</span><span class="hydration-amount">750 ml en 1h · agua + sodio</span></div>
+        <div class="hydration-row"><span class="hydration-moment">Total día entreno</span><span class="hydration-amount">3–3.5 L</span></div>
+        <div class="hydration-row"><span class="hydration-moment">Caseros</span><span class="hydration-amount">Agua + limón + sal + miel</span></div>
+      </div>
+      <div class="section-label">Menús semanales</div>
+      <div class="menu-tabs" id="menuTabs"></div>
+      <div id="menuContent"></div>
+      <div class="section-label">Suplementación</div>
+      <div class="supp-card">
+        <div class="supp-title">Básica · Todo el año</div>
+        <div class="supp-row"><div><div class="supp-name">Creatina monohidrato</div><div class="supp-note">Con comida. Sin fase de carga.</div></div><span class="supp-dose">5 g/día</span></div>
+        <div class="supp-row"><div><div class="supp-name">Magnesio bisglicinato</div><div class="supp-note">Nocturno. Sueño y recuperación muscular.</div></div><span class="supp-dose">400 mg noche</span></div>
+        <div class="supp-row"><div><div class="supp-name">Vitamina D3 + K2</div><div class="supp-note">Con grasa. Déficit frecuente en interior.</div></div><span class="supp-dose">3000 UI/día</span></div>
+        <div class="supp-row"><div><div class="supp-name">Omega-3 EPA+DHA</div><div class="supp-note">Antiinflamatorio. Con comida principal.</div></div><span class="supp-dose">2–3 g/día</span></div>
+        <div class="supp-row"><div><div class="supp-name">Whey o proteína arroz</div><div class="supp-note">Solo si no llegas a 185 g proteína/día.</div></div><span class="supp-dose">1–2 tomas</span></div>
+      </div>
+      <div class="supp-card">
+        <div class="supp-title">Rendimiento · Fases 2 y 3</div>
+        <div class="supp-row"><div><div class="supp-name">Cafeína</div><div class="supp-note">30–45 min antes. No después de las 14h.</div></div><span class="supp-dose">3–4 mg/kg</span></div>
+        <div class="supp-row"><div><div class="supp-name">Beta-alanina</div><div class="supp-note">Reduce acidez. Hormigueos son normales.</div></div><span class="supp-dose">3.2–6 g/día</span></div>
+        <div class="supp-row"><div><div class="supp-name">Geles energéticos</div><div class="supp-note">Sesiones y simulacros de más de 60 min.</div></div><span class="supp-dose">1 gel/35 min</span></div>
+      </div>
+    </div>
+
+    <!-- FASES -->
+    <div id="tab-fases" class="tab-body">
+      <div class="section-label">Línea de tiempo · 22 semanas</div>
+      <div class="timeline-container">
+        <div class="timeline-bar">
+          <div class="tl-ph" style="flex:7;background:var(--blue)"></div>
+          <div class="tl-ph" style="flex:6;background:var(--green)"></div>
+          <div class="tl-ph" style="flex:5;background:var(--accent)"></div>
+          <div class="tl-ph" style="flex:4;background:var(--red)"></div>
+        </div>
+        <div class="timeline-labels"><span>Mayo</span><span>Jun–Jul</span><span>Ago–Sep</span><span>Oct</span></div>
+      </div>
+      <div class="deload-card">
+        <div class="deload-title">⚡ Semanas de descarga (deload)</div>
+        <div class="deload-text">Semanas 4, 8, 13 y 17: reduce volumen 40–50 % manteniendo algo de intensidad. Son las semanas más importantes del plan: el fitness crece en la recuperación, no en el entrenamiento. No las saltes aunque te sientas bien.</div>
+      </div>
+      <div id="phaseCards"></div>
+      <div class="section-label">Gestión de cargas</div>
+      <div class="info-box"><div class="info-box-title">Progresión semanal</div><div class="info-box-text">Máximo +8–10 % de volumen por semana. Cada 4.ª semana: deload obligatorio. Si notas FC en reposo elevada (+5 ppm sobre tu media), rinde peor 2 días seguidos o duermes mal, aplica deload inmediatamente.</div></div>
+      <div class="info-box"><div class="info-box-title">Km de carrera por fase</div><div class="info-box-text">Fase 1: 38–46 km/sem · Fase 2: 44–52 km/sem · Fase 3: 48–55 km/sem · Deloads: −40 % · Tapering: 25 → 12 → competición</div></div>
+      <div class="info-box"><div class="info-box-title">Señales de sobreentrenamiento</div><div class="info-box-text">FC reposo >5 ppm sobre tu media · Sueño alterado · Irritabilidad · Rendimiento cayendo 2 sesiones · Dolor muscular persistente >72h. Con 3 o más señales: semana de recuperación completa.</div></div>
+    </div>
+
+  </div>
+
+  <div class="bottom-nav">
+    <button class="nav-btn active" onclick="showTab('plan',this)"><span class="nav-icon">📅</span><span>Plan</span></button>
+    <button class="nav-btn" onclick="showTab('nutricion',this)"><span class="nav-icon">🥗</span><span>Nutrición</span></button>
+    <button class="nav-btn" onclick="showTab('fases',this)"><span class="nav-icon">📈</span><span>Fases</span></button>
+  </div>
+</div>
+
+<script>
+// COUNTDOWN
+(function(){
+  const comp=new Date('2026-10-18T09:00:00'),diff=comp-new Date();
+  if(diff<=0){document.getElementById('cdPill').textContent='🏁 HOY';return;}
+  document.getElementById('cdPill').textContent=Math.floor(diff/86400000/7)+' sem';
+})();
+
+// DATA - 22 weeks, each unique
+const W={
+1:{phase:1,name:'Sem 1 · Activación base',col:'#1A6FDB',deload:false,
+fc:'Z2 todo el día (131–152 ppm). Si sube de 152, anda hasta recuperar.',
+days:[
+{n:'Lunes',t:'Carrera Z2 + Core',p:'run',c:'#1A6FDB',rpe:5,dur:'80 min',wu:'8 min trote suave + movilidad tobillo y cadera.',ex:[{n:'Carrera Z2',s:'40 min · 5:00–5:15/km',o:'FC 131–152. Puedes hablar. El ritmo es secundario; la FC es el objetivo.'},{n:'Plancha frontal',s:'3×50 s',o:'Glúteos apretados, caderas niveladas.'},{n:'Plancha lateral',s:'3×35 s c/l',o:'Cuerpo en línea recta. No dejes caer la cadera.'},{n:'Dead bug',s:'3×10 c/l',o:'Zona lumbar pegada al suelo siempre.'}],cd:'5 min trote Z1 + estiramientos: isquios, psoas, gemelo.'},
+{n:'Martes',t:'Fuerza base · Pierna',p:'strength',c:'#1C8A48',rpe:6,dur:'75 min',wu:'Activación glúteo con banda 2×15 + sentadilla peso corporal 2×10.',ex:[{n:'Sentadilla goblet',s:'4×12 · KB 20 kg',o:'Pausa 1 s abajo. Rodillas hacia fuera. Pecho alto.'},{n:'Peso muerto rumano',s:'4×12 · 55 kg',o:'Bisagra de cadera. Sin redondear lumbar.'},{n:'Step-up con KB',s:'3×10 c/p · KB 16 kg c/u',o:'Cajón 40 cm. Empuja desde el talón de la pierna de arriba.'},{n:'Puente de glúteo',s:'3×15',o:'Pausa 2 s arriba. Activa glúteo, no lumbar.'}],cd:'Foam roller cuádriceps e isquios 8 min.'},
+{n:'Miércoles',t:'Cardio Z2 · Remo ergómetro',p:'cardio',c:'#0E7EC2',rpe:3,dur:'55 min',wu:'Movilidad articular global 5 min.',ex:[{n:'Remo ergómetro Z2',s:'45 min · 140–150 ppm',o:'Secuencia siempre: piernas → torso → brazos. Cadencia ~22 s/min.'},{n:'Movilidad cadera',s:'10 min',o:'90/90, paloma, mariposa. 60 s cada posición.'}],cd:'Estiramientos suaves.'},
+{n:'Jueves',t:'Técnica de carrera + Drills',p:'run',c:'#1A6FDB',rpe:5,dur:'60 min',wu:'Movilidad dinámica: círculos de cadera, skipping bajo.',ex:[{n:'A-drill (rodillas)',s:'4×30 m',o:'Frecuencia de contacto con el suelo, no altura.'},{n:'B-drill (talones)',s:'4×30 m',o:'Extensión completa de cadera en el apoyo.'},{n:'Carioca',s:'4×30 m c/l',o:'Caderas abiertas, brazos coordinados.'},{n:'Fartlek suave',s:'30 min · 2 min Z3 / 3 min Z2',o:'Por sensaciones. Aprende a distinguir zonas internamente.'}],cd:'Trote 5 min + estiramientos gemelo y psoas.'},
+{n:'Viernes',t:'Fuerza base · Tren superior',p:'strength',c:'#1C8A48',rpe:6,dur:'70 min',wu:'Rotación hombros, apertura pectoral, 2×8 press vacío.',ex:[{n:'Press banca',s:'4×10 · 65 kg',o:'Escápulas retraídas y bajas. Sin despegar pies.'},{n:'Remo con barra',s:'4×10 · 60 kg',o:'Torso a 45°. Codo hacia atrás.'},{n:'Press militar',s:'3×10 · 50 kg',o:'Core activo. Sin hiperlordosis.'},{n:'Farmer carry intro',s:'4×30 m · KB 24 kg c/u',o:'Hombros abajo y atrás. Grip firme.'}],cd:'Foam roller dorsal y apertura pectoral.'},
+{n:'Sábado',t:'Carrera larga Z2',p:'run',c:'#1A6FDB',rpe:5,dur:'75 min',wu:'10 min progresivo hasta Z2.',ex:[{n:'Carrera continua Z2',s:'60 min · 5:00–5:20/km',o:'Sesión más importante de la semana. Si FC sube de 152, anda 1 min y retoma. Respiración nasal.'}],cd:'10 min trote Z1 + estiramientos globales.'},
+{n:'Domingo',t:'Descanso activo',p:'rest',c:'#A8A79F',rpe:1,dur:'30 min',wu:'',ex:[{n:'Caminar o movilidad',s:'30 min libre',o:'Sin FC objetivo. Asimila la semana.'}],cd:''}
+]},
+2:{phase:1,name:'Sem 2 · Volumen +8 %',col:'#1A6FDB',deload:false,
+fc:'Z2 en largas. Z3 en drills. Aprende a distinguir las zonas internamente.',
+days:[
+{n:'Lunes',t:'Carrera Z2 + Abdomen',p:'run',c:'#1A6FDB',rpe:5,dur:'85 min',wu:'8 min trote progresivo.',ex:[{n:'Carrera Z2',s:'45 min · 4:55–5:10/km',o:'Respiración nasal siempre que puedas. FC 135–148.'},{n:'Hollow hold',s:'3×40 s',o:'Lumbares pegadas al suelo.'},{n:'V-up',s:'3×12',o:'Controlado. Sin impulso.'},{n:'Russian twist',s:'3×15 c/l · KB 10 kg',o:'Pies elevados.'}],cd:'Estiramientos isquio y psoas.'},
+{n:'Martes',t:'Fuerza pierna + Sled intro',p:'strength',c:'#1C8A48',rpe:6,dur:'80 min',wu:'Activación glúteo + goblet 2×10.',ex:[{n:'Sentadilla con barra',s:'4×10 · 70 kg',o:'Primera semana con barra. Pecho alto, rodillas alineadas.'},{n:'Peso muerto convencional',s:'4×8 · 80 kg',o:'Barra sobre mediopié, agarre doble prono.'},{n:'Sled push técnico',s:'5×20 m · 40 kg',o:'Carga ligera. Aprende el ángulo (45°) y los pasos cortos.'},{n:'Hip thrust',s:'3×12 · 60 kg',o:'Pausa 2 s arriba. Escápulas sobre el banco.'}],cd:'Foam roller cuádriceps 8 min.'},
+{n:'Miércoles',t:'Bici Z2 + Movilidad torácica',p:'cardio',c:'#0E7EC2',rpe:3,dur:'60 min',wu:'5 min bici muy suave.',ex:[{n:'Bici estática Z2',s:'45 min · 140–152 ppm',o:'Cadencia 80–90 rpm.'},{n:'Movilidad torácica',s:'10 min',o:'Foam roller torácico, cat-cow, apertura rotacional.'}],cd:'Estiramientos suaves.'},
+{n:'Jueves',t:'Intervalos cortos + Drills',p:'run',c:'#1A6FDB',rpe:6,dur:'65 min',wu:'Drills A y B · 2×30 m.',ex:[{n:'Striders',s:'6×100 m · 85 %',o:'Recupera 60 s andando. Foco en frecuencia de zancada.'},{n:'4×600 m',s:'4:25/km · pausa 90 s',o:'Primer contacto con ritmo rápido.'}],cd:'Estiramientos gemelo y cuádriceps.'},
+{n:'Viernes',t:'Fuerza superior + Farmer carry',p:'strength',c:'#1C8A48',rpe:6,dur:'75 min',wu:'Rotación manguito + 2×8 press vacío.',ex:[{n:'Press banca',s:'4×10 · 67.5 kg',o:'+2.5 kg vs sem 1.'},{n:'Dominadas',s:'4×6–8',o:'Agarre prono. Usa banda si no llegas a 6.'},{n:'Remo con mancuerna',s:'4×10 c/b · 28 kg',o:'Codo pegado. Rango completo.'},{n:'Farmer carry',s:'4×40 m · KB 24 kg c/u',o:'+10 m vs sem 1.'}],cd:'Apertura pectoral y foam roller dorsal.'},
+{n:'Sábado',t:'Carrera Z2 + Estaciones intro',p:'hyrox',c:'#E8570A',rpe:5,dur:'90 min',wu:'10 min progresivo.',ex:[{n:'Carrera Z2',s:'35 min · 5:00/km',o:''},{n:'Ski erg técnico',s:'4×1 min · pausa 2 min',o:'Mecánica: cadera baja, todo el cuerpo. No solo brazos.'},{n:'Wall ball intro',s:'4×12 · 9 kg a 9 m',o:'Squat → lanzar en subida → atrapar sin parar.'},{n:'Carrera Z2 regreso',s:'15 min',o:'Nota cómo cambia la carrera después de estaciones.'}],cd:'10 min trote Z1 + estiramientos.'},
+{n:'Domingo',t:'Descanso activo',p:'rest',c:'#A8A79F',rpe:1,dur:'30 min',wu:'',ex:[{n:'Caminar o nadar suave',s:'30–40 min',o:''}],cd:''}
+]},
+3:{phase:1,name:'Sem 3 · Tempo + Simulacro parcial',col:'#1A6FDB',deload:false,
+fc:'Z2 en base. Z3 en tempo. No superes Z4.',
+days:[
+{n:'Lunes',t:'Carrera tempo suave',p:'run',c:'#1A6FDB',rpe:6,dur:'75 min',wu:'10 min progresivo hasta Z3.',ex:[{n:'Calentamiento Z2',s:'10 min',o:''},{n:'Tempo continuo',s:'20 min · 4:35–4:40/km',o:'Z3 inferior. Ritmo cómodo-incómodo. 2 pasos inspira / 2 espira.'},{n:'Vuelta a calma',s:'10 min Z1–Z2',o:''}],cd:'Foam roller gemelo + estiramientos.'},
+{n:'Martes',t:'Fuerza pierna · Carga progresiva',p:'strength',c:'#1C8A48',rpe:7,dur:'80 min',wu:'Activación glúteo + goblet 2×10.',ex:[{n:'Sentadilla con barra',s:'4×8 · 77.5 kg',o:'+7.5 kg vs sem 1. Velocidad de subida explosiva.'},{n:'Peso muerto',s:'4×6 · 90 kg',o:'Carga creciente. 3 min descanso.'},{n:'Bulgarian split squat',s:'3×10 c/p · KB 16 kg c/u',o:'Pie trasero en banco. Rodilla delantera sobre tobillo.'},{n:'Sled push',s:'6×20 m · 60 kg',o:'+20 kg vs sem 2. Mantén ángulo 45°.'}],cd:'Foam roller cuádriceps y glúteo.'},
+{n:'Miércoles',t:'Ski erg Z2 + Remo Z2',p:'cardio',c:'#0E7EC2',rpe:4,dur:'65 min',wu:'5 min movilidad hombros y cadera.',ex:[{n:'Ski erg Z2',s:'22 min · 140–150 ppm',o:'Todo el cuerpo. No solo brazos.'},{n:'Remo Z2',s:'22 min · 140–150 ppm',o:'Secuencia piernas-torso-brazos. Sin cambiarla.'},{n:'Movilidad dinámica',s:'10 min',o:'Cadera, rotación torácica, hip flexor.'}],cd:''},
+{n:'Jueves',t:'Intervalos 800 m',p:'run',c:'#1A6FDB',rpe:7,dur:'70 min',wu:'Drills A, B y carioca + 2 striders.',ex:[{n:'5×800 m',s:'4:15/km · pausa 2 min',o:'Las últimas no deben bajar más de 5 s/km vs la primera.'}],cd:'Estiramientos isquio y cuádriceps.'},
+{n:'Viernes',t:'Fuerza superior · Potencia',p:'strength',c:'#1C8A48',rpe:7,dur:'75 min',wu:'Activación manguito + press vacío 2×8.',ex:[{n:'Press banca',s:'5×6 · 75 kg',o:'Menos reps, más carga. Velocidad de subida máxima.'},{n:'Remo con barra',s:'5×6 · 70 kg',o:'Explosivo en tirón. Controlado en bajada.'},{n:'Push press',s:'4×6 · 55 kg',o:'Impulso de piernas. Específico para ski erg.'},{n:'Farmer carry',s:'4×50 m · KB 26 kg c/u',o:'+2 kg y +10 m vs sem 2.'}],cd:'Foam roller dorsal + pectoral.'},
+{n:'Sábado',t:'Simulacro parcial · 4 estaciones',p:'hyrox',c:'#E8570A',rpe:6,dur:'95 min',wu:'10 min trote Z2.',ex:[{n:'1 km · 4:35/km + Ski erg 1000 m',s:'transición directa',o:''},{n:'1 km · 4:35/km + Remo 1000 m',s:'',o:''},{n:'1 km · 4:35/km + Sled push 50 m · 80 kg',s:'',o:'Primera vez con sled en simulacro.'},{n:'1 km · 4:35/km + Farmer carry 200 m · KB 24 kg c/u',s:'',o:'Anota tiempos.'}],cd:'10 min Z1 + estiramientos.'},
+{n:'Domingo',t:'Descanso activo',p:'rest',c:'#A8A79F',rpe:1,dur:'30 min',wu:'',ex:[{n:'Piscina suave o caminar',s:'30 min',o:''}],cd:''}
+]},
+4:{phase:1,name:'Sem 4 · DELOAD ⚡',col:'#7C3AED',deload:true,
+fc:'Todo Z1–Z2. FC máx 148 ppm en cualquier sesión.',
+days:[
+{n:'Lunes',t:'Carrera Z2 reducida',p:'run',c:'#1A6FDB',rpe:3,dur:'45 min',wu:'',ex:[{n:'Carrera Z2',s:'30 min · 5:10–5:25/km',o:'DELOAD: volumen −50 %. El fitness crece en el descanso.'}],cd:''},
+{n:'Martes',t:'Fuerza reducida · −30 % carga',p:'strength',c:'#1C8A48',rpe:4,dur:'50 min',wu:'',ex:[{n:'Sentadilla goblet',s:'3×8 · KB 20 kg',o:'Técnica perfecta sin fatiga.'},{n:'Peso muerto rumano',s:'3×8 · 50 kg',o:'Ligero. Sin llegar al fallo.'},{n:'Press banca',s:'3×8 · 55 kg',o:''}],cd:'Foam roller suave.'},
+{n:'Miércoles',t:'Yoga atlético + Movilidad',p:'rest',c:'#A8A79F',rpe:2,dur:'40 min',wu:'',ex:[{n:'Movilidad global',s:'40 min',o:'Cadera, torácica, tobillos.'}],cd:''},
+{n:'Jueves',t:'Trote suave + Drills básicos',p:'run',c:'#1A6FDB',rpe:3,dur:'40 min',wu:'',ex:[{n:'Drills básicos',s:'10 min',o:'Sin intensidad.'},{n:'Trote Z1–Z2',s:'25 min',o:'FC máx 148.'}],cd:''},
+{n:'Viernes',t:'Fuerza ligera · Técnica',p:'strength',c:'#1C8A48',rpe:4,dur:'45 min',wu:'',ex:[{n:'Patrones básicos técnicos',s:'3×8 c/u · −30 % carga',o:'Sentadilla, peso muerto, press. Esta semana consolida.'}],cd:''},
+{n:'Sábado',t:'Simulacro muy suave',p:'hyrox',c:'#E8570A',rpe:4,dur:'55 min',wu:'',ex:[{n:'2 km · 5:00/km + Ski erg 500 m',s:'',o:'Sin presión. Consolida la mecánica.'},{n:'2 km · 5:00/km + Wall ball 30 reps',s:'',o:''}],cd:''},
+{n:'Domingo',t:'Descanso total',p:'rest',c:'#A8A79F',rpe:0,dur:'Libre',wu:'',ex:[{n:'Descanso completo',s:'',o:'Duerme, come bien, asimila 4 semanas.'}],cd:''}
+]},
+5:{phase:1,name:'Sem 5 · Reactivación post-deload',col:'#1A6FDB',deload:false,
+fc:'Z2 en continuas. Z3–Z4 en series. Notarás más frescura que la sem 3.',
+days:[
+{n:'Lunes',t:'Carrera Z2 + Core avanzado',p:'run',c:'#1A6FDB',rpe:5,dur:'85 min',wu:'10 min progresivo.',ex:[{n:'Carrera Z2',s:'48 min · 4:55/km',o:'Piernas frescas post-deload. No te aceleres.'},{n:'Rueda de abdominales',s:'3×8',o:'Desde rodillas. Lumbar controlada.'},{n:'Plancha con desplazamiento',s:'3×10 c/l',o:'En plancha, lleva rodilla al codo alternando.'}],cd:''},
+{n:'Martes',t:'Fuerza pierna · 5×5 Potencia',p:'strength',c:'#1C8A48',rpe:7,dur:'80 min',wu:'Activación glúteo + goblet 2×10.',ex:[{n:'Sentadilla con barra',s:'5×5 · 82.5 kg',o:'Esquema 5×5. 3 min descanso. Subida explosiva.'},{n:'Peso muerto',s:'4×5 · 97.5 kg',o:'Carga máxima hasta ahora.'},{n:'Box jump',s:'4×5 · caja 50 cm',o:'Potencia pura. Aterriza suave.'},{n:'Sled push',s:'6×20 m · 75 kg',o:'Carga creciente.'}],cd:'Foam roller.'},
+{n:'Miércoles',t:'Carrera Z2 + Estaciones Z2',p:'cardio',c:'#0E7EC2',rpe:4,dur:'70 min',wu:'',ex:[{n:'Carrera Z2',s:'20 min · 5:00/km',o:''},{n:'Remo Z2',s:'20 min · 140–150 ppm',o:''},{n:'Ski erg Z2',s:'15 min',o:'Mecánica perfecta a baja intensidad.'}],cd:''},
+{n:'Jueves',t:'Intervalos 1000 m',p:'run',c:'#1A6FDB',rpe:7,dur:'70 min',wu:'Drills + 2 striders.',ex:[{n:'5×1000 m',s:'4:10/km · pausa 2 min',o:'Primer contacto cercano al pace objetivo. Consistencia.'}],cd:'Estiramientos.'},
+{n:'Viernes',t:'Fuerza superior · Volumen',p:'strength',c:'#1C8A48',rpe:6,dur:'75 min',wu:'Rotación hombro + press vacío.',ex:[{n:'Press banca',s:'4×8 · 72.5 kg',o:''},{n:'Dominadas',s:'4×8',o:'+1–2 reps vs sem 3.'},{n:'Remo con barra',s:'4×8 · 72.5 kg',o:''},{n:'Farmer carry',s:'5×50 m · KB 28 kg c/u',o:''}],cd:''},
+{n:'Sábado',t:'Simulacro 6 estaciones',p:'hyrox',c:'#E8570A',rpe:7,dur:'100 min',wu:'10 min trote Z2.',ex:[{n:'6×(1 km + 1 estación) · pace 4:30/km',s:'',o:'Ski erg · Remo · Sled push · Farmer carry · Wall ball 80 reps · Burpee 60 reps. Anota tiempo total.'}],cd:'10 min Z1 + estiramientos.'},
+{n:'Domingo',t:'Descanso activo',p:'rest',c:'#A8A79F',rpe:1,dur:'30 min',wu:'',ex:[{n:'Caminar o movilidad',s:'30 min',o:''}],cd:''}
+]},
+6:{phase:1,name:'Sem 6 · Tempo + HYROX completo',col:'#1A6FDB',deload:false,
+fc:'Z2–Z3 en tempo. Z4 en últimas series de intervalo.',
+days:[
+{n:'Lunes',t:'Tempo 30 min',p:'run',c:'#1A6FDB',rpe:6,dur:'60 min',wu:'12 min progresivo hasta Z3.',ex:[{n:'Tempo continuo',s:'30 min · 4:25–4:30/km',o:'Z3 sostenido. Más exigente que sem 3.'}],cd:'8 min Z1 + estiramientos.'},
+{n:'Martes',t:'Fuerza pierna · Carga alta',p:'strength',c:'#1C8A48',rpe:8,dur:'85 min',wu:'Activación glúteo + sentadilla 2×8 progresiva.',ex:[{n:'Sentadilla con barra',s:'5×4 · 87.5 kg',o:'Carga máxima fase 1. 3 min descanso.'},{n:'Peso muerto',s:'4×4 · 105 kg',o:'Setup perfecto.'},{n:'Sled push',s:'8×20 m · 82.5 kg',o:'Acercándose a carga comp (102 kg).'},{n:'Hip thrust con barra',s:'4×10 · 80 kg',o:'Potencia glúteo → mejora sled push.'}],cd:'Foam roller 10 min.'},
+{n:'Miércoles',t:'Carrera Z2 larga suave',p:'cardio',c:'#0E7EC2',rpe:4,dur:'70 min',wu:'',ex:[{n:'Carrera Z2',s:'55 min · 5:05/km',o:'Recovery tras pierna dura. FC máx 150.'}],cd:'Estiramientos 10 min.'},
+{n:'Jueves',t:'Intervalos mixtos',p:'run',c:'#1A6FDB',rpe:8,dur:'75 min',wu:'Drills + 3 striders.',ex:[{n:'3×1200 m',s:'4:05/km · pausa 2:30',o:''},{n:'4×400 m',s:'3:50/km · pausa 90 s',o:'Primer contacto real con el pace objetivo.'}],cd:'10 min Z1 + estiramientos.'},
+{n:'Viernes',t:'Fuerza superior · Fuerza máx',p:'strength',c:'#1C8A48',rpe:7,dur:'75 min',wu:'Activación hombro + dominadas asistidas 2×8.',ex:[{n:'Press banca',s:'5×5 · 77.5 kg',o:''},{n:'Dominadas lastre',s:'4×5 · +5 kg',o:''},{n:'Push press',s:'4×5 · 60 kg',o:''},{n:'Farmer carry velocidad',s:'4×50 m · KB 28 kg c/u · rápido',o:''}],cd:'Foam roller dorsal + pectoral.'},
+{n:'Sábado',t:'HYROX completo al 70 %',p:'hyrox',c:'#E8570A',rpe:7,dur:'105 min',wu:'10 min trote.',ex:[{n:'HYROX completo · 8 estaciones · 8 km',s:'pace 4:20/km',o:'Primera vez con las 8 estaciones. Conservador. Termina con buena forma. Anota cada km y cada estación.'}],cd:'10 min Z1 + estiramientos completos.'},
+{n:'Domingo',t:'Descanso activo',p:'rest',c:'#A8A79F',rpe:1,dur:'30 min',wu:'',ex:[{n:'Piscina suave o caminata',s:'30 min',o:''}],cd:''}
+]},
+7:{phase:1,name:'Sem 7 · Cierre fase 1 · Test',col:'#1A6FDB',deload:false,
+fc:'Z3 en tempo. Z4 en últimas series.',
+days:[
+{n:'Lunes',t:'Carrera Z2 + Strides',p:'run',c:'#1A6FDB',rpe:6,dur:'75 min',wu:'10 min progresivo.',ex:[{n:'Carrera Z2',s:'45 min · 4:50/km',o:'Pace mejorando naturalmente.'},{n:'Striders finales',s:'5×100 m · 90 %',o:''}],cd:'Estiramientos.'},
+{n:'Martes',t:'Fuerza pierna · Test RMs',p:'strength',c:'#1C8A48',rpe:9,dur:'85 min',wu:'Activación completa + progresión al 80 %.',ex:[{n:'Sentadilla · RM estimado',s:'1×RM o 3×3 al máximo',o:'Test fin de fase. Anota el resultado para cargas de fase 2.'},{n:'Peso muerto · RM estimado',s:'1×RM o 3×3 al máximo',o:'Registra.'},{n:'Sled push',s:'5×20 m · 90 kg',o:''}],cd:'Foam roller completo.'},
+{n:'Miércoles',t:'Carrera Z2 recovery',p:'cardio',c:'#0E7EC2',rpe:3,dur:'55 min',wu:'',ex:[{n:'Carrera Z2 suave',s:'45 min · 5:10/km',o:'Recovery tras el test. FC máx 148.'}],cd:''},
+{n:'Jueves',t:'Intervalos · Pace objetivo',p:'run',c:'#1A6FDB',rpe:8,dur:'70 min',wu:'Drills + 3 striders.',ex:[{n:'6×800 m',s:'3:55/km · pausa 90 s',o:'Muy cercano al objetivo final.'}],cd:'10 min Z1 + estiramientos.'},
+{n:'Viernes',t:'Fuerza superior · Volumen + Carry',p:'strength',c:'#1C8A48',rpe:7,dur:'80 min',wu:'',ex:[{n:'Press banca',s:'4×10 · 72.5 kg',o:''},{n:'Remo con barra',s:'5×8 · 75 kg',o:''},{n:'Press militar',s:'4×8 · 55 kg',o:''},{n:'Farmer carry',s:'5×60 m · KB 30 kg c/u',o:'Máxima distancia y carga en fase 1.'}],cd:''},
+{n:'Sábado',t:'HYROX completo · Test fin F1',p:'hyrox',c:'#E8570A',rpe:8,dur:'110 min',wu:'12 min trote Z2.',ex:[{n:'HYROX completo al 85 %',s:'8 km · objetivo 4:10/km',o:'Anota TODOS los tiempos. Marcador de salida para fase 2.'}],cd:'10 min Z1 + estiramientos + análisis.'},
+{n:'Domingo',t:'Descanso activo',p:'rest',c:'#A8A79F',rpe:1,dur:'30 min',wu:'',ex:[{n:'Caminar + foam roller',s:'30+10 min',o:'¿Qué estación hay que atacar en fase 2?'}],cd:''}
+]},
+8:{phase:2,name:'Sem 8 · DELOAD ⚡ · Inicio F2',col:'#1C8A48',deload:true,
+fc:'Todo Z1–Z2. Consolida la fase 1 completa.',
+days:[
+{n:'Lunes',t:'Carrera Z2 corta',p:'run',c:'#1A6FDB',rpe:3,dur:'40 min',wu:'',ex:[{n:'Carrera Z2',s:'28 min · 5:15/km',o:'DELOAD.'}],cd:''},
+{n:'Martes',t:'Fuerza deload · Técnica',p:'strength',c:'#1C8A48',rpe:4,dur:'50 min',wu:'',ex:[{n:'Sentadilla',s:'3×5 · 70 % RM',o:''},{n:'Peso muerto',s:'3×5 · 70 % RM',o:''},{n:'Sled push técnico',s:'4×20 m · 50 kg',o:'Repasa mecánica.'}],cd:''},
+{n:'Miércoles',t:'Yoga atlético',p:'rest',c:'#A8A79F',rpe:2,dur:'40 min',wu:'',ex:[{n:'Movilidad global',s:'40 min',o:'Hip flexor, torácica, tobillo, hombro.'}],cd:''},
+{n:'Jueves',t:'Trote suave',p:'run',c:'#1A6FDB',rpe:3,dur:'35 min',wu:'',ex:[{n:'Trote Z1–Z2',s:'25 min',o:''}],cd:''},
+{n:'Viernes',t:'Fuerza ligera superior',p:'strength',c:'#1C8A48',rpe:4,dur:'45 min',wu:'',ex:[{n:'Press y remo ligero',s:'3×8 · 65 % RM',o:'Mantenimiento.'}],cd:''},
+{n:'Sábado',t:'Mini-simulacro activación',p:'hyrox',c:'#E8570A',rpe:4,dur:'50 min',wu:'',ex:[{n:'Mini-simulacro',s:'3 km + 3 estaciones · muy suave',o:'Solo activar. Pace 5:00/km.'}],cd:''},
+{n:'Domingo',t:'Descanso total',p:'rest',c:'#A8A79F',rpe:0,dur:'Libre',wu:'',ex:[{n:'Descanso completo',s:'',o:'Asimila 7 semanas.'}],cd:''}
+]},
+9:{phase:2,name:'Sem 9 · Fuerza máxima inicio',col:'#1C8A48',deload:false,
+fc:'Días fuerza: FC no prioritaria. Días carrera: Z3–Z4 en series.',
+days:[
+{n:'Lunes',t:'Fuerza máxima · Pierna',p:'strength',c:'#1C8A48',rpe:8,dur:'85 min',wu:'Activación completa + progresión.',ex:[{n:'Sentadilla con barra',s:'5×3 · 87 % RM',o:'3–4 min descanso. Subida máxima velocidad.'},{n:'Peso muerto',s:'5×3 · 87 % RM',o:''},{n:'Hip thrust',s:'4×8 · 90 kg',o:''},{n:'Sled push',s:'8×20 m · 90 kg',o:'−12 kg vs comp.'}],cd:'Foam roller cuádriceps + isquios.'},
+{n:'Martes',t:'Carrera · Intervalos 1200 m',p:'run',c:'#1A6FDB',rpe:8,dur:'75 min',wu:'Drills + 3 striders.',ex:[{n:'5×1200 m',s:'4:00/km · pausa 2:30',o:'Consistencia entre series. El deload ayudó.'}],cd:'Estiramientos.'},
+{n:'Miércoles',t:'Estaciones Z2 + Cardio',p:'cardio',c:'#0E7EC2',rpe:4,dur:'75 min',wu:'5 min movilidad.',ex:[{n:'Ski erg Z2',s:'25 min',o:'Impulso desde cadera. No brazos solos.'},{n:'Remo Z2',s:'25 min',o:'Técnica limpia.'},{n:'Movilidad + foam roller',s:'15 min',o:''}],cd:''},
+{n:'Jueves',t:'Fuerza · Empuje + Sled pull',p:'strength',c:'#1C8A48',rpe:8,dur:'80 min',wu:'Activación hombro + core.',ex:[{n:'Press militar',s:'5×4 · 70 % RM',o:'Fuerza máxima hombro. Aplicable al ski erg.'},{n:'Push press',s:'4×4 · 75 % RM',o:''},{n:'Sled pull',s:'6×25 m · 85 kg',o:'Cadena tensa todo el tiempo.'},{n:'Farmer carry',s:'5×50 m · KB 30 kg c/u',o:''}],cd:'Foam roller + estiramientos hombro.'},
+{n:'Viernes',t:'Carrera tempo + Post-fatiga',p:'run',c:'#1A6FDB',rpe:7,dur:'70 min',wu:'10 min progresivo.',ex:[{n:'Tempo',s:'25 min · 4:10/km',o:'Z3 firme.'},{n:'Post-fatiga: 4×200 m',s:'3:50/km · pausa 60 s',o:'Pace objetivo tras fatiga de tempo.'}],cd:'8 min Z1 + estiramientos.'},
+{n:'Sábado',t:'HYROX simulacro · 85 %',p:'hyrox',c:'#E8570A',rpe:8,dur:'110 min',wu:'12 min trote Z2.',ex:[{n:'HYROX completo al 85 %',s:'8 km · objetivo 4:05/km',o:'Primer simulacro fase 2. Compara con sem 7.'}],cd:'10 min Z1 + análisis.'},
+{n:'Domingo',t:'Descanso activo',p:'rest',c:'#A8A79F',rpe:1,dur:'30 min',wu:'',ex:[{n:'Natación suave',s:'30 min',o:''}],cd:''}
+]},
+10:{phase:2,name:'Sem 10 · Resistencia muscular',col:'#1C8A48',deload:false,
+fc:'Z3–Z4 en intervalos. Z2 en continuas.',
+days:[
+{n:'Lunes',t:'Carrera · Volumen Z2 largo',p:'run',c:'#1A6FDB',rpe:5,dur:'80 min',wu:'10 min progresivo.',ex:[{n:'Carrera Z2 larga',s:'65 min · 4:50/km',o:'Volumen de carrera sube. FC controlada.'}],cd:'Estiramientos.'},
+{n:'Martes',t:'Resistencia muscular · Estaciones',p:'hyrox',c:'#E8570A',rpe:7,dur:'90 min',wu:'8 min movilidad + activación.',ex:[{n:'Wall ball',s:'5×25 · 9 kg · pausa 90 s',o:'25 reps sin parar. La técnica se rompe al fatigarte: trabájalo.'},{n:'Burpee over bar',s:'5×15 · pausa 90 s',o:'Cadencia sostenible. Mantén el ritmo en las 5 series.'},{n:'Sandbag lunges',s:'5×25 m · 20 kg',o:'Sin parar. Torso erguido.'},{n:'KB swing',s:'4×15 · KB 32 kg',o:'Potencia de cadera.'}],cd:'Foam roller isquios y glúteo.'},
+{n:'Miércoles',t:'Carrera Z2 + Drills',p:'run',c:'#1A6FDB',rpe:4,dur:'65 min',wu:'',ex:[{n:'Drills técnicos',s:'15 min completo',o:'A, B, carioca, striders.'},{n:'Carrera Z2',s:'40 min · 4:50/km',o:'Recovery tras martes duro.'}],cd:'Estiramientos.'},
+{n:'Jueves',t:'Fuerza pierna + Sled máximo',p:'strength',c:'#1C8A48',rpe:9,dur:'85 min',wu:'Activación + progresión al 80 %.',ex:[{n:'Sentadilla',s:'5×3 · 90 % RM',o:''},{n:'Peso muerto',s:'5×3 · 90 % RM',o:''},{n:'Sled push',s:'10×20 m · 95 kg',o:'−7 kg vs comp.'},{n:'Sled pull',s:'6×25 m · 90 kg',o:''}],cd:'Foam roller completo.'},
+{n:'Viernes',t:'Intervalos · Race pace',p:'run',c:'#1A6FDB',rpe:8,dur:'70 min',wu:'Drills + 3 striders.',ex:[{n:'3×2000 m',s:'3:55/km · pausa 3 min',o:'La última debe estar a ≤4:00/km.'}],cd:'10 min Z1 + estiramientos.'},
+{n:'Sábado',t:'Estaciones + Carrera entrelazada',p:'hyrox',c:'#E8570A',rpe:8,dur:'90 min',wu:'10 min trote.',ex:[{n:'Ski erg 1000 m + 1 km · 3:55/km',s:'×3 · pausa 2 min',o:''},{n:'Remo 1000 m + 1 km · 3:55/km',s:'×3 · pausa 2 min',o:''}],cd:'10 min Z1 + estiramientos.'},
+{n:'Domingo',t:'Descanso activo',p:'rest',c:'#A8A79F',rpe:1,dur:'30 min',wu:'',ex:[{n:'Piscina o caminar',s:'30 min',o:''}],cd:''}
+]},
+11:{phase:2,name:'Sem 11 · Acumulación alta carga',col:'#1C8A48',deload:false,
+fc:'Z4 en intervalos. Z2 estricto en continuas.',
+days:[
+{n:'Lunes',t:'Tempo largo 40 min',p:'run',c:'#1A6FDB',rpe:7,dur:'80 min',wu:'12 min progresivo.',ex:[{n:'Tempo largo',s:'40 min · 4:12/km',o:'Máximo tempo de fase 2. Respiración rítmica constante.'}],cd:'8 min Z1 + estiramientos.'},
+{n:'Martes',t:'Fuerza pierna · Variantes avanzadas',p:'strength',c:'#1C8A48',rpe:8,dur:'85 min',wu:'Activación + progresión.',ex:[{n:'Sentadilla con pausa',s:'4×4 · 85 % RM · 2 s abajo',o:'Elimina el rebote. Fuerza pura.'},{n:'Peso muerto déficit',s:'4×4 · 80 % RM · +5 cm',o:'Mayor rango. Específico para arranque del sled.'},{n:'Sled push',s:'10×20 m · 98 kg',o:''},{n:'Hip thrust',s:'4×10 · 95 kg',o:''}],cd:'Foam roller cuádriceps e isquios.'},
+{n:'Miércoles',t:'Z2 + Estaciones acumulación',p:'hyrox',c:'#E8570A',rpe:5,dur:'80 min',wu:'',ex:[{n:'Ski erg Z2',s:'20 min',o:''},{n:'Wall ball · 100 reps totales',s:'9 kg',o:'Divididas como quieras. Acumula 100 reps con buena técnica.'},{n:'Farmer carry',s:'6×50 m · KB 30 kg c/u',o:''},{n:'Remo Z2',s:'20 min',o:''}],cd:''},
+{n:'Jueves',t:'Intervalos cortos · Velocidad',p:'run',c:'#1A6FDB',rpe:9,dur:'65 min',wu:'Drills + 4 striders.',ex:[{n:'10×400 m',s:'3:48/km · pausa 75 s',o:'Primer contacto por debajo del objetivo. Hoy duele. En 6 semanas no.'}],cd:'10 min Z1 + estiramientos.'},
+{n:'Viernes',t:'Fuerza superior · Carga máxima',p:'strength',c:'#1C8A48',rpe:9,dur:'80 min',wu:'',ex:[{n:'Press banca',s:'5×3 · 88 % RM',o:''},{n:'Dominadas lastre',s:'5×4 · +10 kg',o:''},{n:'Push press',s:'5×3 · 80 % RM',o:''},{n:'Farmer carry sprint',s:'4×30 m · KB 32 kg c/u · max velocidad',o:'Carga comp a velocidad máxima.'}],cd:''},
+{n:'Sábado',t:'HYROX al 90 %',p:'hyrox',c:'#E8570A',rpe:9,dur:'115 min',wu:'12 min trote Z2.',ex:[{n:'HYROX completo al 90 %',s:'8 km · objetivo 4:00/km',o:'Estaciones sin parar en ningún momento.'}],cd:'10 min Z1 + análisis.'},
+{n:'Domingo',t:'Descanso activo',p:'rest',c:'#A8A79F',rpe:1,dur:'30 min',wu:'',ex:[{n:'Natación suave',s:'30 min',o:''}],cd:''}
+]},
+12:{phase:2,name:'Sem 12 · Carga pico fase 2',col:'#1C8A48',deload:false,
+fc:'Z4 en intervalos y últimos km de simulacro.',
+days:[
+{n:'Lunes',t:'Carrera larga + Calidad final',p:'run',c:'#1A6FDB',rpe:7,dur:'90 min',wu:'12 min progresivo.',ex:[{n:'Carrera mixta',s:'14 km · km 1–9 Z2 · km 10–14 a 3:55/km',o:'Los últimos 5 km al pace objetivo: el punto clave.'}],cd:'8 min Z1 + estiramientos.'},
+{n:'Martes',t:'Fuerza · Carga completa sled',p:'strength',c:'#1C8A48',rpe:9,dur:'90 min',wu:'Activación completa.',ex:[{n:'Sled push',s:'10×20 m · 102 kg',o:'CARGA DE COMPETICIÓN por primera vez. Anota cómo se siente.'},{n:'Sled pull',s:'8×25 m · 102 kg',o:'La cadena nunca se afloja.'},{n:'Sentadilla',s:'4×3 · 90 % RM',o:''},{n:'Hip thrust',s:'4×8 · 100 kg',o:''}],cd:'Foam roller 10 min.'},
+{n:'Miércoles',t:'Cardio Z2 · Recovery',p:'cardio',c:'#0E7EC2',rpe:3,dur:'65 min',wu:'',ex:[{n:'Remo o bici Z2',s:'55 min · máx 150 ppm',o:'FC manda.'}],cd:'Movilidad 10 min.'},
+{n:'Jueves',t:'Estaciones · Máx carga y volumen',p:'hyrox',c:'#E8570A',rpe:9,dur:'90 min',wu:'8 min activación.',ex:[{n:'Wall ball',s:'4×25 sin pausa · 9 kg',o:'100 reps totales. Ritmo competición.'},{n:'Burpee over bar',s:'4×20 · ritmo sostenible',o:'80 reps totales.'},{n:'Sandbag lunges',s:'4×25 m · 20 kg',o:'100 m totales.'},{n:'Farmer carry',s:'4×50 m · KB 32 kg c/u',o:'200 m totales.'}],cd:'Foam roller + estiramientos.'},
+{n:'Viernes',t:'Intervalos · Sub race pace',p:'run',c:'#1A6FDB',rpe:9,dur:'70 min',wu:'Drills + 4 striders.',ex:[{n:'6×1000 m',s:'3:50/km · pausa 2 min',o:'Pace objetivo exacto. Serie 6 = serie 1. Si cae >5 s: paras.'}],cd:'10 min Z1 + estiramientos.'},
+{n:'Sábado',t:'HYROX al 95 % · Race pace',p:'hyrox',c:'#E8570A',rpe:9,dur:'115 min',wu:'12 min trote.',ex:[{n:'HYROX completo al 95 %',s:'8 km · objetivo 3:55/km',o:'Tiempo objetivo total: sub-90 min.'}],cd:'10 min Z1 + análisis detallado.'},
+{n:'Domingo',t:'Descanso activo',p:'rest',c:'#A8A79F',rpe:1,dur:'30 min',wu:'',ex:[{n:'Caminar + análisis',s:'30 min',o:'Identifica los 2 puntos débiles para fase 3.'}],cd:''}
+]},
+13:{phase:2,name:'Sem 13 · DELOAD ⚡',col:'#7C3AED',deload:true,
+fc:'Todo Z1–Z2. Consolida 5 semanas de carga máxima.',
+days:[
+{n:'Lunes',t:'Carrera Z2 corta',p:'run',c:'#1A6FDB',rpe:3,dur:'40 min',wu:'',ex:[{n:'Carrera Z2',s:'28 min · 5:10/km',o:'DELOAD.'}],cd:''},
+{n:'Martes',t:'Fuerza deload',p:'strength',c:'#1C8A48',rpe:4,dur:'50 min',wu:'',ex:[{n:'Sled push',s:'4×20 m · 60 kg',o:'Solo técnica.'},{n:'Sentadilla',s:'3×5 · 70 % RM',o:''},{n:'Peso muerto',s:'3×5 · 70 % RM',o:''}],cd:''},
+{n:'Miércoles',t:'Movilidad completa',p:'rest',c:'#A8A79F',rpe:2,dur:'40 min',wu:'',ex:[{n:'Movilidad global',s:'40 min',o:''}],cd:''},
+{n:'Jueves',t:'Trote suave',p:'run',c:'#1A6FDB',rpe:3,dur:'35 min',wu:'',ex:[{n:'Trote Z1',s:'25 min',o:''}],cd:''},
+{n:'Viernes',t:'Fuerza ligera',p:'strength',c:'#1C8A48',rpe:4,dur:'45 min',wu:'',ex:[{n:'Fuerza superior ligera',s:'3×8 · 65 % RM',o:''}],cd:''},
+{n:'Sábado',t:'Mini-HYROX suave',p:'hyrox',c:'#E8570A',rpe:4,dur:'50 min',wu:'',ex:[{n:'4 km + 4 estaciones suaves',s:'pace 4:40/km',o:''}],cd:''},
+{n:'Domingo',t:'Descanso total',p:'rest',c:'#A8A79F',rpe:0,dur:'Libre',wu:'',ex:[{n:'Descanso completo',s:'',o:''}],cd:''}
+]},
+14:{phase:3,name:'Sem 14 · Inicio F3 · Alta int.',col:'#E8570A',deload:false,
+fc:'Z4 objetivo en intervalos (167–178 ppm). Z2 en continuas.',
+days:[
+{n:'Lunes',t:'Carrera Z2 + Explosividad',p:'run',c:'#1A6FDB',rpe:6,dur:'80 min',wu:'10 min progresivo.',ex:[{n:'Carrera Z2',s:'50 min · 4:45/km',o:'El pace Z2 es ahora 4:45, no 5:10. Fase 1 y 2 funcionando.'},{n:'Striders finales',s:'6×100 m · 95 %',o:''}],cd:'Estiramientos.'},
+{n:'Martes',t:'Fuerza · Máxima fase 3',p:'strength',c:'#1C8A48',rpe:9,dur:'90 min',wu:'Activación completa.',ex:[{n:'Sentadilla con barra',s:'6×2 · 93 % RM',o:'Máxima carga del programa. 4 min descanso.'},{n:'Peso muerto',s:'5×2 · 93 % RM',o:''},{n:'Sled push',s:'12×20 m · 102 kg',o:''},{n:'Sled pull',s:'8×25 m · 102 kg',o:''}],cd:'Foam roller 12 min.'},
+{n:'Miércoles',t:'Estaciones · Puntos débiles',p:'hyrox',c:'#E8570A',rpe:7,dur:'80 min',wu:'8 min activación.',ex:[{n:'Estación débil 1 · doble volumen',s:'3 series al ritmo comp',o:'Basado en análisis sem 12.'},{n:'Estación débil 2 · doble volumen',s:'3 series',o:''},{n:'Ski erg',s:'4×1000 m · pausa 3 min',o:'Consistencia entre series.'}],cd:''},
+{n:'Jueves',t:'Intervalos · Velocidad máxima',p:'run',c:'#1A6FDB',rpe:9,dur:'70 min',wu:'Drills + 4 striders al 95 %.',ex:[{n:'12×400 m',s:'3:45/km · pausa 75 s',o:'Si una serie baja de 3:55: fin de sesión.'}],cd:'10 min Z1 + estiramientos.'},
+{n:'Viernes',t:'Fuerza superior + Carry sprint',p:'strength',c:'#1C8A48',rpe:8,dur:'80 min',wu:'',ex:[{n:'Press banca',s:'5×4 · 88 % RM',o:''},{n:'Dominadas lastre',s:'5×5 · +12 kg',o:''},{n:'Remo explosivo',s:'4×5 · 82 % RM',o:''},{n:'Farmer carry · pace race',s:'6×40 m · KB 32 kg c/u · max velocidad',o:''}],cd:''},
+{n:'Sábado',t:'HYROX 100 % · Test 1',p:'hyrox',c:'#E8570A',rpe:10,dur:'~90 min',wu:'12 min trote Z2 + activación.',ex:[{n:'HYROX completo al 100 %',s:'8 km · objetivo 3:52/km',o:'Primer test al máximo. Sub-88 min. Km 1 a 4:00, luego progresivo.'}],cd:'10 min Z1 + análisis completo.'},
+{n:'Domingo',t:'Descanso total',p:'rest',c:'#A8A79F',rpe:0,dur:'Libre',wu:'',ex:[{n:'Descanso completo',s:'',o:''}],cd:''}
+]},
+15:{phase:3,name:'Sem 15 · Especificidad máxima',col:'#E8570A',deload:false,
+fc:'Máximo en días duros. Z2 en recovery.',
+days:[
+{n:'Lunes',t:'Carrera recovery + Strides',p:'run',c:'#1A6FDB',rpe:4,dur:'55 min',wu:'',ex:[{n:'Carrera Z2 recovery',s:'40 min · 5:00/km',o:''},{n:'Striders suaves',s:'4×80 m · 80 %',o:''}],cd:''},
+{n:'Martes',t:'Fuerza · Potencia específica',p:'strength',c:'#1C8A48',rpe:9,dur:'85 min',wu:'',ex:[{n:'Sled push · velocidad',s:'10×20 m · 102 kg · max velocidad',o:'No volumen, velocidad. 3 min pausa.'},{n:'Sentadilla jump lastrada',s:'4×5 · 30 % RM',o:''},{n:'Hip thrust explosivo',s:'5×8 · 95 kg',o:''},{n:'Sled pull · velocidad',s:'8×20 m · 102 kg',o:''}],cd:'Foam roller.'},
+{n:'Miércoles',t:'Carrera Z2 + Remo 5000 m',p:'cardio',c:'#0E7EC2',rpe:5,dur:'80 min',wu:'',ex:[{n:'Carrera Z2',s:'30 min · 4:45/km',o:''},{n:'Remo · 5000 m constante',s:'pace sostenible · sin parar',o:'Aprende a mantener el pace de remo 5000 m.'}],cd:''},
+{n:'Jueves',t:'Intervalos 2000 m · Race pace',p:'run',c:'#1A6FDB',rpe:9,dur:'75 min',wu:'Drills + 4 striders.',ex:[{n:'4×2000 m',s:'3:50/km · pausa 3 min',o:'La 4.ª igual que la 1.ª.'}],cd:'10 min Z1 + estiramientos.'},
+{n:'Viernes',t:'Estaciones · Todo completo',p:'hyrox',c:'#E8570A',rpe:9,dur:'90 min',wu:'10 min trote.',ex:[{n:'Wall ball · 100 reps seguidas',s:'9 kg · sin parar si puedes',o:''},{n:'Burpee over bar · 80 reps',s:'tu cadencia de competición',o:''},{n:'Sandbag lunges · 100 m',s:'20 kg',o:''},{n:'Farmer carry · 200 m',s:'KB 32 kg c/u · sin soltar',o:''}],cd:'Foam roller + estiramientos.'},
+{n:'Sábado',t:'Carrera larga · Máximo volumen',p:'run',c:'#1A6FDB',rpe:7,dur:'95 min',wu:'10 min progresivo.',ex:[{n:'Carrera mixta',s:'16 km · km 1–10 Z2 · km 11–16 a 3:50/km',o:'Volumen más largo del programa. Prueba los geles.'}],cd:'8 min Z1 + estiramientos.'},
+{n:'Domingo',t:'Descanso activo',p:'rest',c:'#A8A79F',rpe:1,dur:'30 min',wu:'',ex:[{n:'Caminar o nadar',s:'30 min',o:''}],cd:''}
+]},
+16:{phase:3,name:'Sem 16 · Pico máximo · Test final',col:'#E8570A',deload:false,
+fc:'Semana más exigente. Z4–Z5 en días duros.',
+days:[
+{n:'Lunes',t:'Carrera · Tempo máximo',p:'run',c:'#1A6FDB',rpe:8,dur:'75 min',wu:'12 min progresivo hasta Z4.',ex:[{n:'Tempo máximo',s:'30 min · 4:02/km',o:'El tempo más rápido del programa.'}],cd:'8 min Z1 + estiramientos.'},
+{n:'Martes',t:'Fuerza · Mantenimiento + Sled vol',p:'strength',c:'#1C8A48',rpe:8,dur:'85 min',wu:'Activación.',ex:[{n:'Sentadilla',s:'4×3 · 90 % RM',o:''},{n:'Peso muerto',s:'4×3 · 90 % RM',o:''},{n:'Sled push',s:'12×20 m · 102 kg',o:''},{n:'Sled pull',s:'10×20 m · 102 kg',o:''}],cd:'Foam roller.'},
+{n:'Miércoles',t:'Z2 recovery',p:'cardio',c:'#0E7EC2',rpe:3,dur:'60 min',wu:'',ex:[{n:'Bici o remo Z2',s:'50 min · máx 148 ppm',o:''}],cd:''},
+{n:'Jueves',t:'Intervalos · Volumen máximo',p:'run',c:'#1A6FDB',rpe:9,dur:'80 min',wu:'Drills + 4 striders.',ex:[{n:'3×3000 m',s:'3:50/km · pausa 4 min',o:'9 km de calidad al pace objetivo.'}],cd:'10 min Z1 + estiramientos.'},
+{n:'Viernes',t:'Estaciones débiles + Fuerza',p:'hyrox',c:'#E8570A',rpe:9,dur:'90 min',wu:'',ex:[{n:'Punto débil 1 · triple volumen',s:'3 series · máx esfuerzo',o:''},{n:'Punto débil 2 · triple volumen',s:'3 series',o:''},{n:'Farmer carry sprint',s:'5×50 m · 32 kg c/u',o:''},{n:'Fuerza superior mantenimiento',s:'4×5 press · 85 % + dominadas lastre',o:''}],cd:''},
+{n:'Sábado',t:'HYROX 100 % · Test FINAL',p:'hyrox',c:'#E8570A',rpe:10,dur:'~85 min',wu:'12 min trote Z2 + activación.',ex:[{n:'HYROX completo al 100 %',s:'8 km · objetivo 3:50/km',o:'EL simulacro más importante. Sub-85 min. Km 1 a 4:00, luego baja. REGISTRA TODO.'}],cd:'10 min Z1 + análisis completo.'},
+{n:'Domingo',t:'Descanso total',p:'rest',c:'#A8A79F',rpe:0,dur:'Libre',wu:'',ex:[{n:'Descanso absoluto',s:'',o:'La semana más dura del programa.'}],cd:''}
+]},
+17:{phase:3,name:'Sem 17 · DELOAD ⚡ + Ajustes',col:'#7C3AED',deload:true,
+fc:'Z1–Z2 toda la semana. Recupera completamente.',
+days:[
+{n:'Lunes',t:'Carrera Z2 reducida',p:'run',c:'#1A6FDB',rpe:3,dur:'40 min',wu:'',ex:[{n:'Carrera Z2',s:'28 min · 5:00/km',o:'DELOAD.'}],cd:''},
+{n:'Martes',t:'Fuerza deload + Técnica sled',p:'strength',c:'#1C8A48',rpe:4,dur:'50 min',wu:'',ex:[{n:'Sled push técnico',s:'5×20 m · 60 kg',o:'Repasa mecánica.'},{n:'Sentadilla',s:'3×5 · 70 % RM',o:''},{n:'Peso muerto',s:'3×5 · 70 % RM',o:''}],cd:''},
+{n:'Miércoles',t:'Movilidad profunda',p:'rest',c:'#A8A79F',rpe:2,dur:'40 min',wu:'',ex:[{n:'Movilidad global',s:'40 min',o:''}],cd:''},
+{n:'Jueves',t:'Trote suave + Aceleraciones',p:'run',c:'#1A6FDB',rpe:3,dur:'40 min',wu:'',ex:[{n:'Trote Z1',s:'20 min',o:''},{n:'4×100 m · 80 %',s:'',o:''}],cd:''},
+{n:'Viernes',t:'Estaciones suaves · Técnica',p:'hyrox',c:'#E8570A',rpe:4,dur:'50 min',wu:'',ex:[{n:'Estaciones al 50 % · técnica pura',s:'2 series cada una',o:''}],cd:''},
+{n:'Sábado',t:'Mini-HYROX activación',p:'hyrox',c:'#E8570A',rpe:4,dur:'55 min',wu:'',ex:[{n:'4 km + 4 estaciones suaves',s:'pace 4:30/km',o:''}],cd:''},
+{n:'Domingo',t:'Descanso total',p:'rest',c:'#A8A79F',rpe:0,dur:'Libre',wu:'',ex:[{n:'Descanso completo',s:'',o:''}],cd:''}
+]},
+18:{phase:3,name:'Sem 18 · Pre-tapering',col:'#E8570A',deload:false,
+fc:'Última semana de alta intensidad. Z4 en series.',
+days:[
+{n:'Lunes',t:'Carrera · Intervalos race pace',p:'run',c:'#1A6FDB',rpe:9,dur:'75 min',wu:'Drills + 4 striders.',ex:[{n:'8×1000 m',s:'3:48/km · pausa 2 min',o:'2 s bajo el objetivo. Que el día de la prueba se sienta cómodo.'}],cd:'10 min Z1 + estiramientos.'},
+{n:'Martes',t:'Fuerza · Mantenimiento',p:'strength',c:'#1C8A48',rpe:8,dur:'80 min',wu:'',ex:[{n:'Sled push',s:'10×20 m · 102 kg',o:''},{n:'Sentadilla',s:'4×4 · 85 % RM',o:''},{n:'Farmer carry',s:'5×50 m · KB 32 kg c/u',o:''},{n:'Wall ball',s:'3×25 · 9 kg',o:''}],cd:''},
+{n:'Miércoles',t:'Z2 + Remo largo',p:'cardio',c:'#0E7EC2',rpe:4,dur:'70 min',wu:'',ex:[{n:'Carrera Z2',s:'25 min · 4:45/km',o:''},{n:'Remo Z2',s:'35 min',o:''}],cd:''},
+{n:'Jueves',t:'Estaciones · Simulacro parcial',p:'hyrox',c:'#E8570A',rpe:8,dur:'80 min',wu:'8 min activación.',ex:[{n:'4 km · 3:50/km + Ski erg 1000m + Remo 1000m',s:'',o:''},{n:'4 km · 3:50/km + Sled push 50m + Sled pull 50m',s:'',o:''}],cd:'10 min Z1 + estiramientos.'},
+{n:'Viernes',t:'Fuerza superior ligera',p:'strength',c:'#1C8A48',rpe:6,dur:'60 min',wu:'',ex:[{n:'Press banca',s:'3×8 · 75 % RM',o:''},{n:'Dominadas',s:'3×8 sin lastre',o:''},{n:'Remo mancuerna',s:'3×10 · 28 kg c/b',o:''}],cd:''},
+{n:'Sábado',t:'Carrera larga + Estaciones',p:'hyrox',c:'#E8570A',rpe:7,dur:'90 min',wu:'10 min trote.',ex:[{n:'10 km Z2–Z3 + 4 estaciones al 85 %',s:'pace 4:10/km',o:'Última sesión larga antes del tapering.'}],cd:'10 min Z1 + análisis.'},
+{n:'Domingo',t:'Descanso activo',p:'rest',c:'#A8A79F',rpe:1,dur:'30 min',wu:'',ex:[{n:'Caminar + movilidad',s:'30 min',o:''}],cd:''}
+]},
+19:{phase:4,name:'Sem 19 · Tapering inicio',col:'#C0392B',deload:false,
+fc:'Z2 en continuas. Series al pace comp. Acumula frescura.',
+days:[
+{n:'Lunes',t:'Carrera · Reducción volumen',p:'run',c:'#1A6FDB',rpe:5,dur:'60 min',wu:'8 min progresivo.',ex:[{n:'Carrera mixta',s:'45 min · Z2 + 4×200 m a 3:50/km al final',o:'Volumen −30 % vs sem 18.'}],cd:'Estiramientos.'},
+{n:'Martes',t:'Fuerza · Reducción carga',p:'strength',c:'#1C8A48',rpe:6,dur:'65 min',wu:'',ex:[{n:'Sled push',s:'6×20 m · 90 kg',o:''},{n:'Sentadilla',s:'3×4 · 80 % RM',o:''},{n:'Wall ball',s:'3×20 · 9 kg',o:''},{n:'Farmer carry',s:'4×40 m · KB 32 kg c/u',o:''}],cd:''},
+{n:'Miércoles',t:'Z2 · Recovery',p:'rest',c:'#A8A79F',rpe:3,dur:'45 min',wu:'',ex:[{n:'Bici o remo Z2',s:'35 min',o:''}],cd:''},
+{n:'Jueves',t:'Intervalos cortos · Mantenimiento',p:'run',c:'#1A6FDB',rpe:7,dur:'55 min',wu:'Drills + 3 striders.',ex:[{n:'6×600 m',s:'3:48/km · pausa 90 s',o:'Mantener sensación de velocidad, no acumular fatiga.'}],cd:''},
+{n:'Viernes',t:'Activación HYROX',p:'hyrox',c:'#E8570A',rpe:5,dur:'50 min',wu:'',ex:[{n:'Mini-simulacro activación',s:'4 km + 4 estaciones · 75 % esfuerzo',o:''}],cd:''},
+{n:'Sábado',t:'Descanso activo',p:'rest',c:'#A8A79F',rpe:2,dur:'30 min',wu:'',ex:[{n:'Caminar + movilidad',s:'30 min',o:'Empieza a aumentar carbohidratos en cenas.'}],cd:''},
+{n:'Domingo',t:'Descanso total',p:'rest',c:'#A8A79F',rpe:0,dur:'Libre',wu:'',ex:[{n:'Descanso completo',s:'',o:''}],cd:''}
+]},
+20:{phase:4,name:'Sem 20 · Tapering profundo',col:'#C0392B',deload:false,
+fc:'Todo Z1–Z2. FC máx 150. El fitness ya está. Acumulas frescura.',
+days:[
+{n:'Lunes',t:'Carrera corta + Aceleraciones',p:'run',c:'#1A6FDB',rpe:4,dur:'40 min',wu:'',ex:[{n:'Carrera Z2',s:'25 min · 4:50/km',o:'Volumen −50 % vs sem 16.'},{n:'4×100 m · 90 %',s:'',o:''}],cd:''},
+{n:'Martes',t:'Fuerza mínima · Mantenimiento',p:'strength',c:'#1C8A48',rpe:5,dur:'50 min',wu:'',ex:[{n:'Sentadilla',s:'2×3 · 80 % RM',o:''},{n:'Sled push',s:'4×20 m · 80 kg',o:''},{n:'Wall ball',s:'2×15 · 9 kg',o:''}],cd:''},
+{n:'Miércoles',t:'Descanso activo',p:'rest',c:'#A8A79F',rpe:1,dur:'30 min',wu:'',ex:[{n:'Caminar + movilidad',s:'30 min',o:''}],cd:''},
+{n:'Jueves',t:'Activación pace objetivo',p:'run',c:'#1A6FDB',rpe:4,dur:'35 min',wu:'',ex:[{n:'Trote suave + 4×200 m a 3:50/km',s:'pausa 90 s',o:'Sentir el pace con piernas frescas.'}],cd:''},
+{n:'Viernes',t:'Mini-HYROX sensaciones',p:'hyrox',c:'#E8570A',rpe:4,dur:'35 min',wu:'',ex:[{n:'2 km · 3:50/km + 2 estaciones al 60 %',s:'',o:'Terminar con muy buenas sensaciones.'}],cd:''},
+{n:'Sábado',t:'Descanso · Carga carbos',p:'rest',c:'#A8A79F',rpe:1,dur:'30 min',wu:'',ex:[{n:'Paseo 30 min + cena pasta abundante',s:'',o:'Carbohidratos +20 % hoy.'}],cd:''},
+{n:'Domingo',t:'Descanso total · Logística',p:'rest',c:'#A8A79F',rpe:0,dur:'Libre',wu:'',ex:[{n:'Descanso + preparación material',s:'',o:'Bolsa: zapatillas, ropa, geles, electrolitos, dorsal. Visualiza la carrera.'}],cd:''}
+]},
+21:{phase:4,name:'Sem 21 · Pre-competición',col:'#C0392B',deload:false,
+fc:'Todo Z1. Frescura total.',
+days:[
+{n:'Lunes',t:'Activación muy suave',p:'run',c:'#1A6FDB',rpe:3,dur:'30 min',wu:'',ex:[{n:'Trote Z1 + 4×80 m · 75 %',s:'',o:''}],cd:''},
+{n:'Martes',t:'Movimiento mínimo',p:'rest',c:'#A8A79F',rpe:2,dur:'20 min',wu:'',ex:[{n:'Bici Z1',s:'15 min',o:''}],cd:''},
+{n:'Miércoles',t:'Descanso · Carga carbos máxima',p:'rest',c:'#A8A79F',rpe:0,dur:'Libre',wu:'',ex:[{n:'Descanso + carbohidratos +30 %',s:'',o:'Arroz, pasta, plátano. 3.5 L agua. 8h+ sueño.'}],cd:''},
+{n:'Jueves',t:'Activación brevísima',p:'hyrox',c:'#E8570A',rpe:2,dur:'20 min',wu:'',ex:[{n:'Trote 8 min + 2 reps cada estación · 40 %',s:'',o:'Solo patrón motor.'}],cd:''},
+{n:'Viernes',t:'Descanso + Viaje / Logística',p:'rest',c:'#A8A79F',rpe:0,dur:'Libre',wu:'',ex:[{n:'Descanso total',s:'',o:'Cena 19:30h: 300g pasta + tomate + 150g pollo. Sin fibra ni grasa alta. Duerme antes de las 22h.'}],cd:''},
+{n:'Sábado',t:'Descanso pre-competición',p:'rest',c:'#A8A79F',rpe:0,dur:'Libre',wu:'',ex:[{n:'Descanso absoluto',s:'',o:'Cena igual que viernes pero más ligera. Alarma 2.5h antes. Confía en 21 semanas de trabajo.'}],cd:''},
+{n:'Domingo',t:'Descanso',p:'rest',c:'#A8A79F',rpe:0,dur:'Libre',wu:'',ex:[{n:'Descanso',s:'',o:'Mañana es el día.'}],cd:''}
+]},
+22:{phase:4,name:'Sem 22 · 🏁 COMPETICIÓN',col:'#C0392B',deload:false,
+fc:'Semana de competición. El domingo FC al máximo.',
+days:[
+{n:'Lunes',t:'Activación final',p:'run',c:'#1A6FDB',rpe:3,dur:'25 min',wu:'',ex:[{n:'Trote muy suave + 4×100 m · 75 %',s:'',o:''}],cd:''},
+{n:'Martes',t:'Descanso activo',p:'rest',c:'#A8A79F',rpe:1,dur:'20 min',wu:'',ex:[{n:'Bici Z1 · 15 min · movilidad',s:'',o:''}],cd:''},
+{n:'Miércoles',t:'Descanso · Carga carbos',p:'rest',c:'#A8A79F',rpe:0,dur:'Libre',wu:'',ex:[{n:'Descanso + carbohidratos máximos',s:'',o:''}],cd:''},
+{n:'Jueves',t:'Activación mínima',p:'hyrox',c:'#E8570A',rpe:2,dur:'15 min',wu:'',ex:[{n:'Trote 8 min + 2 reps cada estación · 30 %',s:'',o:''}],cd:''},
+{n:'Viernes',t:'Descanso total',p:'rest',c:'#A8A79F',rpe:0,dur:'Libre',wu:'',ex:[{n:'Descanso + cena de carga',s:'',o:'Pasta abundante. Duerme 8–9h.'}],cd:''},
+{n:'Sábado',t:'Descanso pre-carrera',p:'rest',c:'#A8A79F',rpe:0,dur:'Libre',wu:'',ex:[{n:'Descanso absoluto',s:'',o:'Cena: 300g arroz blanco + 180g pollo + poco aceite. Sin fibra. Duerme temprano.'}],cd:''},
+{n:'Domingo 18 Oct',t:'🏁 HYROX · COMPETICIÓN',p:'hyrox',c:'#E8570A',rpe:10,dur:'~85 min',wu:'30 min antes: trote 10 min + movilidad + 3 aceleraciones cortas.',ex:[{n:'3h antes: desayuno',s:'80g avena + plátano + miel + café solo',o:'Sin fibra alta ni grasas. Digestión fácil.'},{n:'45 min antes: gel cafeína',s:'100 mg + 300 ml agua',o:''},{n:'Estrategia pace · km 1',s:'4:00/km · no te pases',o:'La adrenalina engaña. Sal 10 s más lento. Km 2–5: 3:52/km. Km 6–8: todo lo que tengas.'},{n:'Durante: gel c/35 min',s:'Agua en cada punto',o:'Aunque no tengas sed.'},{n:'Transiciones',s:'<10 s carrera→estación',o:'No te pares. Entra directo.'},{n:'🎉 Post: batido 40g proteína',s:'+ carbos rápidos en 30 min',o:'22 semanas trabajadas. Celebra.'}],cd:''}
+]}
+};
+
+const menuData={
+train:{label:'Fuerza',title:'Día fuerza · ~3100 kcal · IF',items:[
+{name:'Al despertar',kcal:'0 kcal',meals:[{l:'Hidratación',f:'500 ml agua + sal marina + zumo ½ limón'},{l:'Café',f:'Café solo o americano (sin azúcar)'}]},
+{name:'1.ª Comida · 12:00 · post-entreno',kcal:'~850 kcal',meals:[{l:'Proteína',f:'200g pechuga pollo plancha o 180g atún fresco'},{l:'Carbos',f:'180g arroz integral cocido + 1 plátano maduro'},{l:'Grasa',f:'½ aguacate + 1 cda AOVE'},{l:'Verdura',f:'Ensalada grande: lechuga, tomate, pepino, zanahoria'}]},
+{name:'2.ª Comida · 15:30',kcal:'~780 kcal',meals:[{l:'Proteína',f:'200g salmón al horno o 250g merluza'},{l:'Carbos',f:'300g boniato asado + yogur griego 200g'},{l:'Extra',f:'30g nueces o almendras'}]},
+{name:'Merienda · 18:30',kcal:'~420 kcal',meals:[{l:'Opción A',f:'80g avena + 200ml leche + 2 cdas mantequilla cacahuete + canela'},{l:'Opción B',f:'150g requesón + 40g frutos secos + miel + fruta'}]},
+{name:'Cena · 21:00',kcal:'~820 kcal',meals:[{l:'Opción A',f:'200g ternera + 200g pasta integral + tomate casero + parmesano'},{l:'Opción B',f:'3 huevos + 150g pavo + 200g arroz blanco + verduras salteadas'},{l:'Antes dormir',f:'200g cottage cheese + canela'}]}
+]},
+run:{label:'Carrera',title:'Día carrera · ~2850 kcal · IF',items:[
+{name:'Pre-entreno (si es mañana)',kcal:'Opcional',meals:[{l:'Café',f:'Café solo 30 min antes'},{l:'>60 min',f:'1–2 dátiles o gel. <60 min: en ayunas está bien.'}]},
+{name:'1.ª Comida · post-carrera · ~12:00',kcal:'~820 kcal',meals:[{l:'Proteína',f:'200g pechuga + 3 huevos o 200g atún'},{l:'Carbos',f:'160g arroz basmati + 1 plátano'},{l:'Electrolitos',f:'500ml agua + limón + sal + miel'}]},
+{name:'2.ª Comida · 15:00',kcal:'~700 kcal',meals:[{l:'Proteína',f:'200g lubina o dorada al horno'},{l:'Carbos',f:'260g patata cocida o 150g arroz'},{l:'Grasa',f:'20ml AOVE sobre pescado y verdura'}]},
+{name:'Merienda · 18:00',kcal:'~360 kcal',meals:[{l:'Opción',f:'Fruta + 30g almendras + batido proteína 20g'}]},
+{name:'Cena · 21:00',kcal:'~720 kcal',meals:[{l:'Proteína',f:'160g pollo o pavo al horno'},{l:'Carbos',f:'200g quinoa + pimiento + maíz + aguacate'},{l:'Antes dormir',f:'200g requesón + canela + nueces'}]}
+]},
+rest:{label:'Descanso',title:'Día descanso · ~2450 kcal · IF',items:[
+{name:'1.ª Comida · 13:00',kcal:'~700 kcal',meals:[{l:'Proteína',f:'200g sardinas, caballa o atún al natural'},{l:'Verdura',f:'Ensalada grande: rúcula, tomate, pepino, cebolla morada'},{l:'Legumbre',f:'100g lentejas o garbanzos'}]},
+{name:'2.ª Comida · 16:30',kcal:'~610 kcal',meals:[{l:'Proteína',f:'2 huevos + 150g salmón ahumado'},{l:'Carbos',f:'2 rebanadas pan centeno + 1 plátano'},{l:'Grasa',f:'½ aguacate'}]},
+{name:'Merienda · 19:00',kcal:'~300 kcal',meals:[{l:'Opción',f:'200g yogur griego + frutas del bosque + 15g semillas cáñamo + canela'}]},
+{name:'Cena · 21:30',kcal:'~720 kcal',meals:[{l:'Proteína',f:'250g pollo o pavo al horno'},{l:'Verdura',f:'Berenjena, calabacín, pimiento asados + AOVE'},{l:'Carbos',f:'100g arroz (reducido: no necesitas tanta energía)'}]}
+]},
+comp:{label:'Competición',title:'Semana competición · Carga carbos · 18 Oct',items:[
+{name:'Lun–Mié · Carga progresiva · +30 % carbos',kcal:'~3200 kcal',meals:[{l:'Aumenta',f:'Arroz, pasta, boniato, avena, plátano, pan de calidad'},{l:'Mantén',f:'Proteína 185g. Reduce grasas ligeramente.'},{l:'Evita',f:'Alimentos nuevos. Sin experimentos.'}]},
+{name:'Jue–Vie · Carga máxima',kcal:'~3400 kcal',meals:[{l:'Cena jue',f:'300g pasta + tomate + 200g carne magra + pan'},{l:'Cena vie',f:'300g arroz blanco + 200g pollo + poco AOVE'},{l:'Reduce',f:'Fibra y grasas. Sin legumbres ni verdura cruda.'}]},
+{name:'Mañana competición · 3h antes',kcal:'~700 kcal',meals:[{l:'3h antes',f:'80g avena + plátano + miel + café solo'},{l:'45 min',f:'Gel cafeína 100mg + 300ml agua o 3–4 dátiles'},{l:'Evita',f:'Fibra alta, grasas, lácteos, zumo de naranja.'}]},
+{name:'Durante la prueba · cada 35 min',kcal:'Según duración',meals:[{l:'Geles',f:'1 gel c/35 min si >75 min. Practica antes.'},{l:'Agua',f:'En cada punto aunque no tengas sed.'},{l:'Electrolitos',f:'Bebida isotónica si la hay.'}]},
+{name:'🎉 Post-competición',kcal:'Sin restricción',meals:[{l:'30 min',f:'Batido 40g proteína + carbos rápidos'},{l:'2–3h',f:'Comida completa normal.'},{l:'Celebra',f:'22 semanas trabajadas. Come lo que quieras.'}]}
+]}
+};
+
+const phaseCards=[
+{phase:'Fase 1 · Base aeróbica',weeks:'Semanas 1–7 · Mayo–Junio',color:'#1A6FDB',
+desc:'El 70% de toda la carrera en Zona 2. El error más común es ir siempre demasiado duro. La base aeróbica es el motor que lo permite todo. Los simulacros empiezan en la semana 3 (parciales) y semana 6 (completo).',
+goals:['Volumen carrera: 38–46 km/sem progresivos','Bajar pace Z2 de 5:15 a 4:45/km','Técnica 8 estaciones desde la sem 2','Fuerza base: sentadilla, peso muerto, press, remo','Deload en semana 4']},
+{phase:'Fase 2 · Fuerza + Específico HYROX',weeks:'Semanas 8–13 · Jul–Ago',color:'#1C8A48',
+desc:'Combinas máxima intensidad de fuerza (87–93% RM) con simulacros HYROX completos. El pace baja a 3:55–4:00/km. La carga de sled llega a la de competición (102 kg) en la semana 12.',
+goals:['Fuerza máxima: sled push/pull al 100% carga comp.','Simulacros completos cada sábado','Pace carrera 4:00/km en simulacro (sem 11)','Resistencia muscular: 100 wall ball, 80 burpees seguidos','Deloads en semanas 8 y 13']},
+{phase:'Fase 3 · Intensidad máxima',weeks:'Semanas 14–18 · Sep–Oct',color:'#E8570A',
+desc:'Alcanzar y dominar el pace 3:50/km. Tests HYROX al 100% en semanas 14 y 16. Ataque a los puntos débiles. La semana 16 es la más dura del programa.',
+goals:['Llegar a 3:50/km en simulacro completo (sem 16)','Tests HYROX al 100% semanas 14 y 16','Intervalos a 3:45/km (bajo el objetivo)','Ataque a puntos débiles con doble volumen','Deload en semana 17']},
+{phase:'Fase 4 · Tapering',weeks:'Semanas 19–22 · Oct',color:'#C0392B',
+desc:'Menos es más. El fitness ya está construido. Reducción progresiva del volumen acumulando frescura. Carga de carbohidratos los últimos 4 días. El 18 de octubre el cuerpo debe estar al 100%.',
+goals:['Volumen −30% sem 19 · −50% sem 20 · −70% sem 21','Mantener sensación de velocidad con series cortas','Carga carbos: +30% los 4 días anteriores','Hidratación 3.5 L/día últimos 3 días','Llegar descansado, confiado y con hambre de competir']}
+];
+
+// ── RENDER ─────────────────────────────────────────────────────────
+function showTab(n,btn){
+  document.querySelectorAll('.tab-body').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+n).classList.add('active');
+  btn.classList.add('active');
+  document.querySelector('.scroll').scrollTop=0;
+}
+
+const weekKeys=Object.keys(W).map(Number);
+function initChips(){
+  const c=document.getElementById('weekChips');
+  c.innerHTML=weekKeys.map(k=>{
+    const w=W[k];
+    const d=w.deload?' deload':'';
+    return`<div class="wchip${d}" id="chip-${k}" onclick="selectWeek(${k})">${w.name}</div>`;
+  }).join('');
+  selectWeek(1,true);
+}
+
+function selectWeek(k,init){
+  document.querySelectorAll('.wchip').forEach(c=>c.classList.remove('active'));
+  const chip=document.getElementById('chip-'+k);
+  if(chip){chip.classList.add('active');if(!init)chip.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});}
+  renderWeek(k);
+}
+
+function renderWeek(k){
+  const w=W[k];
+  const banner=document.getElementById('phaseBanner');
+  banner.style.borderColor=w.col;
+  banner.style.background=w.col+'15';
+  banner.innerHTML=`<span style="font-size:13px;font-weight:600;color:${w.col}">${w.name}</span>${w.deload?' <span style="font-size:11px;color:var(--purple);margin-left:8px;font-weight:600">⚡ Semana deload</span>':''}`;
+  document.getElementById('fcInfo').innerHTML=`<div class="info-box"><div class="info-box-title">🎯 FC objetivo esta semana</div><div class="info-box-text">${w.fc}</div></div>`;
+  const list=document.getElementById('dayList');
+  list.innerHTML=w.days.map((d,i)=>{
+    const dotC=d.c;
+    const pillL={run:'Carrera',strength:'Fuerza',hyrox:'HYROX',cardio:'Cardio Z2',rest:'Descanso'}[d.p];
+    const rpeC=d.rpe>=8?'var(--red)':d.rpe>=6?'var(--accent)':d.rpe>=4?'var(--yellow)':'var(--green)';
+    const dots=Array.from({length:10},(_,j)=>`<div class="rpe-dot"${j<d.rpe?` style="background:${rpeC}"`:''}>​</div>`).join('');
+    const wuH=d.wu?`<div class="wu-box"><div class="wu-box-title">🔥 Calentamiento</div><div class="wu-box-text">${d.wu}</div></div>`:'';
+    const cdH=d.cd?`<div class="cd-box"><div class="cd-box-title">❄️ Vuelta a la calma</div><div class="wu-box-text" style="color:#1A6B8A">${d.cd}</div></div>`:'';
+    const exH=d.ex.map(e=>`<div class="ex-item"><div class="ex-row"><span class="ex-name">${e.n}</span>${e.s?`<span class="ex-params">${e.s}</span>`:''}</div>${e.o?`<div class="ex-notes">${e.o}</div>`:''}</div>`).join('');
+    return`<div class="day-item" onclick="toggleDay(${i})"><div class="day-dot" style="background:${dotC}"></div><div class="day-main"><div class="day-name">${d.n}</div><div class="day-type">${d.t}</div><div class="day-meta"><span class="pill pill-${d.p}">${pillL}</span><span style="font-size:11px;color:var(--text3)">${d.dur}</span></div><div class="rpe-mini"><span style="font-size:11px;color:var(--text3)">RPE</span><div class="rpe-dots">${dots}</div><span style="font-size:11px;color:${rpeC};font-weight:700;margin-left:2px">${d.rpe}/10</span></div></div></div><div class="day-expand" id="dexp-${i}">${wuH}${exH}${cdH}</div>`;
+  }).join('');
+}
+
+function toggleDay(i){
+  const el=document.getElementById('dexp-'+i);
+  const isOpen=el.classList.contains('open');
+  document.querySelectorAll('.day-expand').forEach(e=>e.classList.remove('open'));
+  if(!isOpen)el.classList.add('open');
+}
+
+// NUTRITION
+function initMenu(){
+  const tabs=document.getElementById('menuTabs');
+  tabs.innerHTML=Object.keys(menuData).map(k=>`<button class="menu-tab-btn${k==='train'?' active':''}" onclick="selectMenu('${k}',this)">${menuData[k].label}</button>`).join('');
+  renderMenu('train');
+}
+function selectMenu(k,btn){
+  document.querySelectorAll('.menu-tab-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderMenu(k);
+}
+function renderMenu(k){
+  const m=menuData[k];
+  document.getElementById('menuContent').innerHTML=`<div style="font-size:13px;font-weight:600;color:var(--text2);padding:0 16px 10px">${m.title}</div>`+m.items.map((item,i)=>`<div class="menu-day-card"><div class="menu-day-header" onclick="toggleMI(${i})"><span class="menu-day-name">${item.name}</span><span class="menu-day-kcal">${item.kcal}</span></div><div class="menu-day-body" id="mi-${i}">${item.meals.map(ml=>`<div class="meal-row"><span class="meal-label">${ml.l}</span><span class="meal-food">${ml.f}</span></div>`).join('')}</div></div>`).join('');
+}
+function toggleMI(i){document.getElementById('mi-'+i).classList.toggle('open');}
+
+// PHASES
+function renderPhases(){
+  document.getElementById('phaseCards').innerHTML=phaseCards.map(p=>`<div class="phase-card"><div class="phase-header" style="border-color:${p.color};background:${p.color}12"><div class="phase-title" style="color:${p.color}">${p.phase}</div><div class="phase-weeks">${p.weeks}</div></div><div class="phase-body"><div class="phase-desc">${p.desc}</div><div class="phase-goals-title">Objetivos</div>${p.goals.map(g=>`<div class="phase-goal"><span class="phase-goal-dot">·</span><span>${g}</span></div>`).join('')}</div></div>`).join('');
+}
+
+initChips();
+initMenu();
+renderPhases();
+</script>
+</body>
+</html>
