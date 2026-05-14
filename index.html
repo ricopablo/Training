@@ -190,57 +190,17 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif;backg
         <div class="legend-item"><div class="legend-dot" style="background:var(--purple)"></div>Deload ⚡</div>
         <div class="legend-item"><div class="legend-dot" style="background:var(--pink)"></div>Pliometría</div>
       </div>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:5px;padding:0 16px 8px;">
+        <div style="background:#EDF6FF;border-radius:8px;padding:7px 3px;text-align:center;border:1px solid #BDE0F9;"><div style="font-size:10px;font-weight:700;color:#0E7EC2">Z1</div><div style="font-size:11px;font-weight:700;color:#0E7EC2">93–112</div><div style="font-size:9px;color:#5BA3C9">Recovery</div></div>
+        <div style="background:#E8F5ED;border-radius:8px;padding:7px 3px;text-align:center;border:1px solid #A8D9BB;"><div style="font-size:10px;font-weight:700;color:#1C8A48">Z2</div><div style="font-size:11px;font-weight:700;color:#1C8A48">113–130</div><div style="font-size:9px;color:#4CAF77">Base</div></div>
+        <div style="background:#FDF5E3;border-radius:8px;padding:7px 3px;text-align:center;border:1px solid #F0D090;"><div style="font-size:10px;font-weight:700;color:#CC8209">Z3</div><div style="font-size:11px;font-weight:700;color:#CC8209">131–149</div><div style="font-size:9px;color:#D49A30">Tempo</div></div>
+        <div style="background:#FEF0E8;border-radius:8px;padding:7px 3px;text-align:center;border:1px solid #F4A574;"><div style="font-size:10px;font-weight:700;color:#E8570A">Z4</div><div style="font-size:11px;font-weight:700;color:#E8570A">150–167</div><div style="font-size:9px;color:#F07040">Umbral</div></div>
+        <div style="background:#FDECEA;border-radius:8px;padding:7px 3px;text-align:center;border:1px solid #F0A0A0;"><div style="font-size:10px;font-weight:700;color:#C0392B">Z5</div><div style="font-size:11px;font-weight:700;color:#C0392B">168–186</div><div style="font-size:9px;color:#D06050">Máximo</div></div>
+      </div>
       <div class="week-scroll" id="weekChips"></div>
       <div id="phaseBanner" class="phase-banner"></div>
       <div id="fcInfo"></div>
       <div class="days-card" id="dayList"></div>
-    </div>
-
-    <!-- NUTRICIÓN -->
-    <div id="tab-nutricion" class="tab-body">
-      <div class="section-label">Macros diarios · ~75 kg</div>
-      <div class="macro-card">
-        <div class="macro-title">Día entrenamiento intenso · 3000–3200 kcal</div>
-        <div class="macro-row-item"><span class="macro-name-col">Proteína</span><div class="macro-bar-bg"><div class="macro-bar-fill" style="width:24%;background:var(--blue)"></div></div><span class="macro-g-col">185g · 24%</span></div>
-        <div class="macro-row-item"><span class="macro-name-col">Carbohidratos</span><div class="macro-bar-bg"><div class="macro-bar-fill" style="width:47%;background:var(--accent)"></div></div><span class="macro-g-col">350g · 47%</span></div>
-        <div class="macro-row-item"><span class="macro-name-col">Grasas</span><div class="macro-bar-bg"><div class="macro-bar-fill" style="width:29%;background:var(--yellow)"></div></div><span class="macro-g-col">97g · 29%</span></div>
-      </div>
-      <div class="macro-card">
-        <div class="macro-title">Día descanso · 2400–2500 kcal</div>
-        <div class="macro-row-item"><span class="macro-name-col">Proteína</span><div class="macro-bar-bg"><div class="macro-bar-fill" style="width:29%;background:var(--blue)"></div></div><span class="macro-g-col">175g · 29%</span></div>
-        <div class="macro-row-item"><span class="macro-name-col">Carbohidratos</span><div class="macro-bar-bg"><div class="macro-bar-fill" style="width:39%;background:var(--accent)"></div></div><span class="macro-g-col">235g · 39%</span></div>
-        <div class="macro-row-item"><span class="macro-name-col">Grasas</span><div class="macro-bar-bg"><div class="macro-bar-fill" style="width:32%;background:var(--yellow)"></div></div><span class="macro-g-col">92g · 32%</span></div>
-      </div>
-      <div class="hydration-card">
-        <div class="hydration-title">💧 Hidratación y electrolitos</div>
-        <div class="hydration-row"><span class="hydration-moment">Al despertar</span><span class="hydration-amount">500 ml agua + sal + limón</span></div>
-        <div class="hydration-row"><span class="hydration-moment">Pre-entreno</span><span class="hydration-amount">500 ml, 30–45 min antes</span></div>
-        <div class="hydration-row"><span class="hydration-moment">Sesión &lt;60 min</span><span class="hydration-amount">Agua sola</span></div>
-        <div class="hydration-row"><span class="hydration-moment">Sesión &gt;60 min</span><span class="hydration-amount">500 ml/h + gel c/35 min</span></div>
-        <div class="hydration-row"><span class="hydration-moment">Post-entreno</span><span class="hydration-amount">750 ml en 1h · agua + sodio</span></div>
-        <div class="hydration-row"><span class="hydration-moment">Total día entreno</span><span class="hydration-amount">3–3.5 L</span></div>
-        <div class="hydration-row"><span class="hydration-moment">Caseros</span><span class="hydration-amount">Agua + limón + sal + miel</span></div>
-      </div>
-      <div class="section-label">Menús semanales</div>
-      <div class="menu-tabs" id="menuTabs"></div>
-      <div id="menuContent"></div>
-      <div class="section-label">Suplementación</div>
-      <div class="supp-card">
-        <div class="supp-title">Básica · Todo el año</div>
-        <div class="supp-row"><div><div class="supp-name">Creatina monohidrato</div><div class="supp-note">Con comida. Sin fase de carga.</div></div><span class="supp-dose">5 g/día</span></div>
-        <div class="supp-row"><div><div class="supp-name">Magnesio bisglicinato</div><div class="supp-note">Nocturno. Sueño y recuperación muscular.</div></div><span class="supp-dose">400 mg noche</span></div>
-        <div class="supp-row"><div><div class="supp-name">Vitamina D3 + K2</div><div class="supp-note">Con grasa. Déficit frecuente.</div></div><span class="supp-dose">3000 UI/día</span></div>
-        <div class="supp-row"><div><div class="supp-name">Omega-3 EPA+DHA</div><div class="supp-note">Antiinflamatorio. Con comida principal.</div></div><span class="supp-dose">2–3 g/día</span></div>
-        <div class="supp-row"><div><div class="supp-name">Colágeno + Vit C</div><div class="supp-note">30 min antes de sesión de fuerza. Tendones.</div></div><span class="supp-dose">10–15 g</span></div>
-        <div class="supp-row"><div><div class="supp-name">Whey o proteína arroz</div><div class="supp-note">Solo si no llegas a 185 g proteína/día.</div></div><span class="supp-dose">1–2 tomas</span></div>
-      </div>
-      <div class="supp-card">
-        <div class="supp-title">Rendimiento · Fases 2 y 3</div>
-        <div class="supp-row"><div><div class="supp-name">Cafeína</div><div class="supp-note">30–45 min antes. No después de las 14h.</div></div><span class="supp-dose">3–4 mg/kg</span></div>
-        <div class="supp-row"><div><div class="supp-name">Beta-alanina</div><div class="supp-note">Reduce acidez. Hormigueos normales.</div></div><span class="supp-dose">3.2–6 g/día</span></div>
-        <div class="supp-row"><div><div class="supp-name">Bicarbonato sódico</div><div class="supp-note">60–90 min antes de simulacros. Potente.</div></div><span class="supp-dose">0.3 g/kg</span></div>
-        <div class="supp-row"><div><div class="supp-name">Geles energéticos</div><div class="supp-note">Sesiones y simulacros de más de 60 min.</div></div><span class="supp-dose">1 gel/35 min</span></div>
-      </div>
     </div>
 
     <!-- FASES -->
@@ -263,7 +223,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif;backg
       <div class="section-label">Nuevos bloques en v4</div>
       <div class="info-box"><div class="info-box-title">🔵 Core progresivo por fases</div><div class="info-box-text">Fase 1: plancha, dead bug, hollow hold. Fase 2: ab wheel, pallof press, L-sit. Fase 3: dragon flag, ab wheel de pie, stir the pot. El core es la base de la postura en carrera post-fatiga.</div></div>
       <div class="info-box"><div class="info-box-title">🟢 Tren superior completo</div><div class="info-box-text">Añadidos: face pulls (equilibrio escapular), remo en polea (tracción horizontal), remo pronación (dorsales), dead hang y farmer carry en pronación (grip). Volumen de tracción = volumen de empuje.</div></div>
-      <div class="info-box"><div class="info-box-title">🟠 Técnica de carrera bajo fatiga</div><div class="info-box-text">Sesiones específicas post-estación en fases 2 y 3. Protocolo de cadencia con metrónomo a 178–182 ppm. Objetivo: mantener la mecánica cuando las piernas están destrozadas.</div></div>
+      <div class="info-box"><div class="info-box-title">🟠 Técnica de carrera bajo fatiga</div><div class="info-box-text">Sesiones específicas post-estación en fases 2 y 3. Protocolo de control de FC con pulsómetro a Z2–Z3 (113–149 ppm). Objetivo: mantener la mecánica cuando las piernas están destrozadas.</div></div>
       <div class="info-box"><div class="info-box-title">🩷 Pliometría y economía de carrera</div><div class="info-box-text">Desde sem 5: bounds, single-leg hops, skipping con resistencia. Mejoran la stiffness del tendón de Aquiles y reducen el coste energético por zancada. La diferencia entre un plan intermedio y uno avanzado.</div></div>
       <div class="info-box"><div class="info-box-title">🟡 Grip y antebrazo específico</div><div class="info-box-text">Desde fase 2: dead hang, towel pull-up, wrist roller, farmer carry en pronación. El grip es el limitante invisible en farmer carry, sled pull y burpees en competición.</div></div>
       <div class="section-label">Gestión de cargas</div>
@@ -274,7 +234,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif;backg
   </div>
   <div class="bottom-nav">
     <button class="nav-btn active" onclick="showTab('plan',this)"><span class="nav-icon">📅</span><span>Plan</span></button>
-    <button class="nav-btn" onclick="showTab('nutricion',this)"><span class="nav-icon">🥗</span><span>Nutrición</span></button>
     <button class="nav-btn" onclick="showTab('fases',this)"><span class="nav-icon">📈</span><span>Fases</span></button>
   </div>
 </div>
@@ -287,950 +246,942 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif;backg
 })();
 
 const W={
-1:{phase:1,name:'Sem 1 · Base + Técnica carrera',col:'#1A6FDB',deload:false,
-fc:'Z2 todo (131–152 ppm). Cadencia objetivo: 178 ppm. Usa metrónomo los últimos 10 min.',
+
+1:{phase:1,name:'Sem 1 · Activación base',col:'#1A6FDB',deload:false,
+fc:'Z2 (113–130 ppm) en todas las carreras. Si superas 130 ppm, anda hasta recuperar.',
 days:[
-{n:'Lunes',t:'Carrera Z2 + Core fase 1',p:'run',c:'#1A6FDB',rpe:5,dur:'80 min',
-wu:'8 min trote suave + movilidad tobillo, cadera, rotación torácica.',
+{n:'Lunes',t:'Carrera Z2 + Core',p:'run',c:'#1A6FDB',rpe:5,dur:'70 min',
+wu:'5 min trote suave + movilidad: círculos cadera ×10, tobillo ×10 c/p, rotación torácica ×8.',
 ex:[
-{cat:'cat-run',n:'Carrera Z2',s:'40 min · 5:00–5:15/km',o:'FC 131–152. Los últimos 10 min activa metrónomo a 178 ppm. Siente la diferencia de cadencia.'},
-{cat:'cat-core',n:'Plancha frontal',s:'3×50 s',o:'Glúteos apretados, caderas niveladas. Sin dejar caer la cadera.'},
-{cat:'cat-core',n:'Dead bug',s:'3×10 c/l',o:'Lumbar pegada al suelo. Extensión contralateral controlada.'},
-{cat:'cat-core',n:'Plancha lateral con elevación de cadera',s:'3×12 c/l',o:'Eleva y baja la cadera sin tocar el suelo. Activa el oblicuo.'}
-],cd:'5 min Z1 + estiramientos isquios, psoas, gemelo.'},
-{n:'Martes',t:'Fuerza full body · Base',p:'strength',c:'#1C8A48',rpe:6,dur:'85 min',
-wu:'Activación glúteo banda 2×15, sentadilla PC 2×10, rotación hombro 2×10.',
+{cat:'cat-run',n:'Carrera Z2',s:'45 min · 5:00–5:15/km',o:'FC 113–130 ppm. Puedes hablar con frases completas. El ritmo es secundario, la FC es el objetivo.'},
+{cat:'cat-core',n:'Plancha frontal',s:'3×45 s',o:'Glúteos y cuádriceps apretados. Caderas niveladas.'},
+{cat:'cat-core',n:'Bird dog',s:'3×10 c/l',o:'LUMBAR. Desde cuadrupedia, extiende brazo y pierna opuestos. Columna neutra todo el tiempo. Activa lumbar y glúteo simultáneamente.'},
+{cat:'cat-core',n:'Dead bug',s:'3×10 c/l',o:'Lumbar pegada al suelo. Extensión contralateral lenta y controlada.'},
+{cat:'cat-core',n:'Superman',s:'3×12',o:'LUMBAR. Boca abajo, eleva brazos y piernas simultáneamente. Pausa 2 s arriba. Trabaja toda la cadena posterior.'}
+],cd:'5 min trote Z1 + estiramientos: isquios 45 s, psoas 45 s, gemelo 30 s c/p.'},
+{n:'Martes',t:'Fuerza pierna · Base',p:'strength',c:'#1C8A48',rpe:6,dur:'75 min',
+wu:'Activación glúteo con banda: clamshell 2×15, puente 2×12. Sentadilla PC 2×10 progresiva.',
 ex:[
-{cat:'cat-lower',n:'Sentadilla goblet',s:'4×12 · KB 20 kg',o:'Pausa 1 s abajo. Rodillas hacia fuera. Pecho alto.'},
-{cat:'cat-lower',n:'Peso muerto rumano',s:'4×12 · 55 kg',o:'Bisagra de cadera. Sin redondear lumbar.'},
-{cat:'cat-upper',n:'Press banca',s:'4×10 · 65 kg',o:'Escápulas retraídas y bajas. Sin despegar pies.'},
-{cat:'cat-upper',n:'Remo en polea baja',s:'4×12 · moderado',o:'NUEVO. Tracción horizontal. Codos pegados, escápulas al final del recorrido. Equilibra el press banca.'},
-{cat:'cat-upper',n:'Face pulls',s:'3×15 · cable o banda',o:'NUEVO. Rotación externa de hombro. Protege el manguito. Codos altos, lleva las manos a las orejas.'},
-{cat:'cat-core',n:'Hollow hold',s:'3×40 s',o:'Lumbar en el suelo. Si fallas, dobla rodillas.'}
-],cd:'Foam roller cuádriceps, dorsales 8 min.'},
+{cat:'cat-lower',n:'Sentadilla goblet',s:'4×12 · KB 20 kg',o:'Pausa 1 s abajo. Rodillas hacia fuera. Pecho alto. Descanso 75 s.'},
+{cat:'cat-lower',n:'Peso muerto rumano',s:'4×10 · 55 kg',o:'Bisagra de cadera. Espalda neutra siempre. No es una sentadilla.'},
+{cat:'cat-lower',n:'Hip thrust',s:'3×12 · 60 kg',o:'Escápulas sobre el banco. Pausa 2 s arriba. Activa glúteo, no lumbar.'},
+{cat:'cat-core',n:'Back extension en banco romano',s:'3×12',o:'LUMBAR. Rango completo: baja el torso y sube hasta posición neutra. No hiperextiendas. Añade carga cuando domines el movimiento.'},
+{cat:'cat-core',n:'Bird dog lastrado',s:'3×8 c/l · 2 kg tobillera',o:'Progresión del bird dog. Más demanda lumbar y glútea.'}
+],cd:'Foam roller: cuádriceps 60 s c/p, dorsales 60 s.'},
 {n:'Miércoles',t:'Cardio Z2 · Remo técnica',p:'cardio',c:'#0E7EC2',rpe:3,dur:'60 min',
 wu:'Movilidad global 5 min.',
 ex:[
-{cat:'cat-run',n:'Remo ergómetro Z2',s:'45 min · 140–150 ppm',o:'Secuencia: piernas → torso → brazos. Cadencia 22 s/min. NUNCA solo brazos.'},
-{cat:'cat-core',n:'Movilidad cadera',s:'10 min',o:'90/90, paloma, mariposa. 60 s cada posición.'}
-],cd:'Estiramientos suaves.'},
-{n:'Jueves',t:'Técnica de carrera · Drills avanzados',p:'run',c:'#1A6FDB',rpe:5,dur:'65 min',
-wu:'Movilidad dinámica: círculos cadera, skipping bajo, tobillo.',
+{cat:'cat-hyrox',n:'Remo ergómetro Z2',s:'45 min · FC 113–125 ppm',o:'Secuencia: piernas → torso → brazos. Cadencia 22–24 s/min. No solo brazos.'},
+{cat:'cat-core',n:'Movilidad cadera + columna',s:'10 min',o:'90/90: 60 s c/l. Cat-cow ×10. Rotación torácica en cuadrupedia ×8 c/l.'}
+],cd:'Estiramientos estáticos 5 min.'},
+{n:'Jueves',t:'Técnica de carrera · Drills',p:'run',c:'#1A6FDB',rpe:5,dur:'65 min',
+wu:'Movilidad dinámica: skipping bajo 2×20 m, círculos cadera ×10.',
 ex:[
-{cat:'cat-run',n:'A-drill · rodillas',s:'4×30 m',o:'Frecuencia de contacto, no altura.'},
-{cat:'cat-run',n:'B-drill · extensión',s:'4×30 m',o:'Extensión completa de cadera en el apoyo.'},
-{cat:'cat-run',n:'Carioca lateral',s:'4×30 m c/l',o:'Caderas abiertas, brazos coordinados.'},
-{cat:'cat-run',n:'Skipping alto con resistencia',s:'4×20 m · banda elástica',o:'NUEVO. Banda en la cintura. Rodillas altas contra la resistencia. Mejora la stiffness del tendón y la potencia de cadera.'},
-{cat:'cat-cadence',n:'Protocolo cadencia · metrónomo',s:'15 min · 178→182 ppm',o:'NUEVO. App de metrónomo en el móvil. 5 min a 178, 5 min a 180, 5 min a 182. Foco en frecuencia de zancada, no en velocidad.'},
-{cat:'cat-run',n:'Fartlek suave',s:'20 min · 2 min Z3 / 3 min Z2',o:'Mantén la cadencia alta incluso en Z2.'}
-],cd:'Trote 5 min + estiramientos gemelo y psoas.'},
-{n:'Viernes',t:'Fuerza tren superior completo',p:'strength',c:'#1C8A48',rpe:6,dur:'75 min',
-wu:'Rotación hombros, apertura pectoral, band pull-apart 2×15.',
+{cat:'cat-run',n:'A-drill (rodillas altas)',s:'4×30 m',o:'Frecuencia de contacto, no altura. El pie cae bajo la cadera.'},
+{cat:'cat-run',n:'B-drill (extensión)',s:'4×30 m',o:'Extensión completa de cadera. Siente el impulso hacia atrás.'},
+{cat:'cat-run',n:'Carioca lateral',s:'4×30 m c/l',o:'Caderas abiertas. Brazos coordinados.'},
+{cat:'cat-run',n:'Fartlek suave',s:'20 min · Z2–Z3',o:'2 min FC 131–140 ppm / 3 min FC 113–130 ppm. Por sensaciones.'},
+{cat:'cat-run',n:'FC por zonas · activación',s:'10 min · FC 113–125 ppm',o:'Trota manteniendo FC en ese rango. 5 min mirando el reloj, 5 min por sensaciones.'}
+],cd:'Trote 5 min Z1 + estiramientos gemelo y psoas.'},
+{n:'Viernes',t:'Fuerza tren superior · Base',p:'strength',c:'#1C8A48',rpe:6,dur:'75 min',
+wu:'Band pull-apart 2×15, rotación hombro con banda 2×10 c/l.',
 ex:[
-{cat:'cat-upper',n:'Press militar',s:'3×10 · 50 kg',o:'Core activo. Sin hiperlordosis.'},
-{cat:'cat-upper',n:'Dominadas',s:'4×6–8',o:'Agarre prono. Pecho al bar. Usa banda si no llegas a 6.'},
-{cat:'cat-upper',n:'Remo con mancuerna pronación',s:'4×10 c/b · 28 kg',o:'NUEVO. Agarre prono (palmas hacia abajo). Activa más el dorsal y el romboides que el agarre supino.'},
-{cat:'cat-grip',n:'Dead hang',s:'3×max · barra',o:'NUEVO. Cuelga de la barra con grip abierto hasta el fallo. Desarrolla grip y descomprime la columna.'},
-{cat:'cat-lower',n:'Farmer carry intro',s:'4×30 m · KB 24 kg c/u',o:'Hombros abajo y atrás. Grip firme.'}
-],cd:'Foam roller dorsal y apertura pectoral.'},
+{cat:'cat-upper',n:'Press banca',s:'4×10 · 65 kg',o:'Escápulas retraídas y bajas. Pies en el suelo.'},
+{cat:'cat-upper',n:'Remo en polea baja',s:'4×12',o:'Tracción horizontal. Codos hacia atrás, escápulas al final. Equilibra el press.'},
+{cat:'cat-upper',n:'Press militar',s:'3×10 · 50 kg',o:'Core activo. Sin hiperlordosis lumbar.'},
+{cat:'cat-upper',n:'Dominadas',s:'4×6',o:'Agarre prono. Pecho hacia la barra. Usa banda si no llegas.'},
+{cat:'cat-upper',n:'Face pulls',s:'3×15 · banda/cable',o:'Codos altos. Manos hacia orejas con rotación externa. Protege el manguito.'},
+{cat:'cat-core',n:'Good morning',s:'3×12 · barra vacía',o:'LUMBAR. Bisagra de cadera con barra en hombros. Sin carga hasta que la técnica sea perfecta. Fortalece toda la cadena posterior lumbar.'},
+{cat:'cat-grip',n:'Dead hang',s:'3×max (objetivo 30 s)',o:'Hombros activos, no dejes que suban a las orejas.'}
+],cd:'Foam roller dorsal + apertura pectoral.'},
 {n:'Sábado',t:'Carrera larga Z2',p:'run',c:'#1A6FDB',rpe:5,dur:'75 min',
 wu:'10 min progresivo.',
 ex:[
-{cat:'cat-run',n:'Carrera continua Z2',s:'60 min · 5:00–5:20/km',o:'Sesión más importante de la semana. Últimos 15 min con metrónomo a 178 ppm. Si FC sube de 152, anda 1 min.'}
-],cd:'10 min Z1 + estiramientos globales 10 min.'},
-{n:'Domingo',t:'Descanso activo',p:'rest',c:'#A8A79F',rpe:1,dur:'30 min',wu:'',
-ex:[{cat:'',n:'Caminar o movilidad',s:'30 min',o:'Sin FC objetivo.'}],cd:''}
+{cat:'cat-run',n:'Carrera continua Z2',s:'60 min · 5:00–5:20/km',o:'FC máx 130 ppm. Si sube, anda 1 min y retoma. Sesión más importante de la semana.'}
+],cd:'10 min Z1 + estiramientos completos.'}
 ]},
-2:{phase:1,name:'Sem 2 · Volumen +8 % · Pliometría intro',col:'#1A6FDB',deload:false,
-fc:'Z2 en largas. Metrónomo 178 ppm en últimos 10 min de cada carrera.',
+
+2:{phase:1,name:'Sem 2 · Volumen +8 % · Pliometría',col:'#1A6FDB',deload:false,
+fc:'Z2 (113–130 ppm) en continuas. Z3 (131–149 ppm) en drills.',
 days:[
-{n:'Lunes',t:'Carrera Z2 + Core',p:'run',c:'#1A6FDB',rpe:5,dur:'85 min',
-wu:'8 min progresivo + movilidad tobillo.',
+{n:'Lunes',t:'Carrera Z2 + Core',p:'run',c:'#1A6FDB',rpe:5,dur:'80 min',
+wu:'8 min progresivo.',
 ex:[
-{cat:'cat-run',n:'Carrera Z2',s:'45 min · 4:55–5:10/km',o:'Respiración nasal. FC 135–148. Metrónomo últimos 10 min a 178 ppm.'},
-{cat:'cat-core',n:'Hollow hold',s:'3×40 s',o:''},
-{cat:'cat-core',n:'V-up',s:'3×12',o:'Controlado. Sin impulso.'},
-{cat:'cat-core',n:'Russian twist',s:'3×15 c/l · KB 10 kg',o:'Pies elevados.'}
+{cat:'cat-run',n:'Carrera Z2',s:'50 min · 4:55–5:10/km · FC 113–130 ppm',o:'Respiración nasal siempre que puedas.'},
+{cat:'cat-core',n:'Hollow hold',s:'3×40 s',o:'Lumbares en el suelo.'},
+{cat:'cat-core',n:'Bird dog',s:'3×12 c/l',o:'+2 reps. Columna neutra.'},
+{cat:'cat-core',n:'Back extension',s:'3×15',o:'LUMBAR. +3 reps vs sem 1.'},
+{cat:'cat-core',n:'Pallof press',s:'3×10 c/l · banda',o:'Antirotación. Brazos extendidos 2 s.'}
 ],cd:'Estiramientos isquio y psoas.'},
-{n:'Martes',t:'Fuerza + Pliometría intro',p:'strength',c:'#1C8A48',rpe:6,dur:'85 min',
-wu:'Activación glúteo + goblet 2×10.',
+{n:'Martes',t:'Fuerza pierna + Pliometría intro',p:'strength',c:'#1C8A48',rpe:6,dur:'80 min',
+wu:'Activación glúteo + goblet 2×10 progresivo.',
 ex:[
-{cat:'cat-lower',n:'Sentadilla con barra',s:'4×10 · 70 kg',o:'Pecho alto, rodillas alineadas.'},
-{cat:'cat-lower',n:'Peso muerto convencional',s:'4×8 · 80 kg',o:'Barra sobre mediopié.'},
-{cat:'cat-plyo',n:'Box jump',s:'4×5 · caja 40 cm',o:'NUEVO. Pliometría intro. Aterriza suave amortiguando con rodillas. 2 min descanso. Explota en la subida.'},
-{cat:'cat-plyo',n:'Broad jump',s:'4×4',o:'NUEVO. Salto horizontal máximo. Aterriza con rodillas flexionadas. Mide la distancia y progrésala.'},
-{cat:'cat-upper',n:'Remo en polea baja',s:'4×12',o:'Tracción horizontal. Escápulas activas.'},
-{cat:'cat-upper',n:'Face pulls',s:'3×15',o:'Codos altos. Rotación externa.'}
-],cd:'Foam roller 8 min.'},
-{n:'Miércoles',t:'Bici Z2 + Movilidad torácica',p:'cardio',c:'#0E7EC2',rpe:3,dur:'60 min',
-wu:'',
+{cat:'cat-lower',n:'Sentadilla con barra',s:'4×10 · 70 kg',o:'Pecho alto, rodillas alineadas. Descanso 90 s.'},
+{cat:'cat-lower',n:'Peso muerto convencional',s:'4×8 · 80 kg',o:'Barra sobre mediopié, agarre doble prono.'},
+{cat:'cat-lower',n:'Hip thrust',s:'3×12 · 70 kg',o:'+10 kg. Pausa 2 s arriba.'},
+{cat:'cat-plyo',n:'Box jump',s:'4×5 · caja 40 cm',o:'Explosión máxima. Aterriza suave. 2 min descanso.'},
+{cat:'cat-plyo',n:'Broad jump',s:'4×4',o:'Salto horizontal máximo. Aterriza estable. Mide la distancia.'},
+{cat:'cat-upper',n:'Remo en polea baja',s:'4×12',o:'Siempre al final de pierna. Equilibrio escapular.'},
+{cat:'cat-upper',n:'Face pulls',s:'3×15',o:''},
+{cat:'cat-core',n:'Good morning',s:'3×12 · 20 kg',o:'Primera carga ligera. Bisagra de cadera con barra.'}
+],cd:'Foam roller cuádriceps 60 s c/p.'},
+{n:'Miércoles',t:'Ski erg + Remo Z2',p:'cardio',c:'#0E7EC2',rpe:4,dur:'65 min',
+wu:'5 min movilidad hombros.',
 ex:[
-{cat:'cat-run',n:'Bici estática Z2',s:'45 min · 140–152 ppm',o:'Cadencia 80–90 rpm.'},
-{cat:'cat-core',n:'Movilidad torácica',s:'10 min',o:'Foam roller torácico, cat-cow, apertura rotacional T4.'}
-],cd:''},
-{n:'Jueves',t:'Intervalos + Técnica cadencia',p:'run',c:'#1A6FDB',rpe:6,dur:'70 min',
-wu:'Drills A, B + skipping alto 2×20 m.',
+{cat:'cat-hyrox',n:'Ski erg Z2',s:'22 min · FC 113–125 ppm',o:'Cuerpo entero. No solo brazos.'},
+{cat:'cat-hyrox',n:'Remo Z2',s:'22 min · FC 113–125 ppm',o:'Secuencia piernas-torso-brazos.'},
+{cat:'cat-core',n:'Movilidad torácica',s:'10 min',o:'Foam roller torácico, cat-cow ×10, rotación T4.'}
+],cd:'Estiramientos suaves.'},
+{n:'Jueves',t:'Intervalos cortos + FC zonas',p:'run',c:'#1A6FDB',rpe:6,dur:'70 min',
+wu:'Drills A y B 2×30 m + striders 2×60 m.',
 ex:[
-{cat:'cat-cadence',n:'Protocolo cadencia',s:'10 min · metrónomo 180 ppm',o:'Antes de los intervalos. Fija la cadencia en el sistema nervioso.'},
-{cat:'cat-run',n:'Striders',s:'6×100 m · 85 %',o:'Mantén 180 ppm incluso en los striders.'},
-{cat:'cat-run',n:'4×600 m',s:'4:25/km · pausa 90 s',o:'Comprueba que mantienes la cadencia alta incluso cuando estás cansado.'}
+{cat:'cat-run',n:'FC por zonas · activación',s:'8 min · FC 120–130 ppm',o:'Fija la FC de trabajo antes de los intervalos.'},
+{cat:'cat-run',n:'Striders',s:'6×100 m · 85% · FC 131–145 ppm',o:'Recupera 60 s andando.'},
+{cat:'cat-run',n:'4×600 m',s:'4:20/km · pausa 90 s · FC 140–155 ppm',o:'Primer contacto con ritmo rápido.'}
 ],cd:'Estiramientos gemelo y cuádriceps.'},
-{n:'Viernes',t:'Fuerza superior + Grip',p:'strength',c:'#1C8A48',rpe:6,dur:'75 min',
-wu:'Rotación manguito + band pull-apart 2×15.',
+{n:'Viernes',t:'Fuerza superior + Sled intro',p:'strength',c:'#1C8A48',rpe:6,dur:'75 min',
+wu:'Band pull-apart 2×15.',
 ex:[
 {cat:'cat-upper',n:'Press banca',s:'4×10 · 67.5 kg',o:'+2.5 kg vs sem 1.'},
-{cat:'cat-upper',n:'Dominadas',s:'4×6–8',o:'Progresión: suma 1 rep vs sem 1.'},
-{cat:'cat-upper',n:'Remo con mancuerna pronación',s:'4×10 c/b · 28 kg',o:'Agarre prono.'},
-{cat:'cat-grip',n:'Dead hang',s:'3×max',o:'+5 s vs sem 1 como objetivo.'},
-{cat:'cat-lower',n:'Farmer carry',s:'4×40 m · KB 24 kg c/u',o:'+10 m vs sem 1.'}
-],cd:'Apertura pectoral y foam roller dorsal.'},
-{n:'Sábado',t:'Carrera Z2 + Estaciones intro',p:'hyrox',c:'#E8570A',rpe:5,dur:'90 min',
+{cat:'cat-upper',n:'Remo Pendlay',s:'4×8 · 60 kg',o:'NUEVO. Barra al suelo entre reps. Tirón explosivo desde abajo. Más potente que el remo convencional. Directo al ski erg.'},
+{cat:'cat-upper',n:'Dominadas',s:'4×7',o:'+1 rep.'},
+{cat:'cat-upper',n:'Face pulls',s:'3×15',o:''},
+{cat:'cat-grip',n:'Dead hang',s:'3×max',o:'+5 s objetivo.'},
+{cat:'cat-hyrox',n:'Sled push técnico',s:'5×20 m · 40 kg',o:'Aprende ángulo 45° y pasos cortos. Carga ligera.'},
+{cat:'cat-grip',n:'Farmer carry',s:'4×40 m · KB 22 kg c/u',o:''}
+],cd:'Foam roller dorsal.'},
+{n:'Sábado',t:'Carrera Z2 + Estaciones intro',p:'hyrox',c:'#E8570A',rpe:5,dur:'80 min',
 wu:'10 min progresivo.',
 ex:[
-{cat:'cat-run',n:'Carrera Z2',s:'35 min · 5:00/km',o:''},
-{cat:'cat-run',n:'Ski erg técnico',s:'4×1 min · pausa 2 min',o:'Todo el cuerpo. No solo brazos.'},
-{cat:'cat-run',n:'Wall ball intro',s:'4×12 · 9 kg',o:'Squat profundo → lanzar en subida → atrapar sin parar.'},
-{cat:'cat-run',n:'Carrera Z2 regreso',s:'15 min · metrónomo 178 ppm',o:'Nota la cadencia después de las estaciones.'}
-],cd:'10 min Z1 + estiramientos.'},
-{n:'Domingo',t:'Descanso activo',p:'rest',c:'#A8A79F',rpe:1,dur:'30 min',wu:'',
-ex:[{cat:'',n:'Caminar o nadar suave',s:'30 min',o:''}],cd:''}
+{cat:'cat-run',n:'Carrera Z2',s:'35 min · FC 113–130 ppm',o:''},
+{cat:'cat-hyrox',n:'Ski erg técnico',s:'4×1 min · pausa 2 min',o:'Todo el cuerpo. No solo brazos.'},
+{cat:'cat-hyrox',n:'Wall ball intro',s:'4×12 · 9 kg',o:'Squat profundo → lanzar al subir → atrapar sin parar.'},
+{cat:'cat-run',n:'Carrera Z2 regreso',s:'15 min · FC 113–130 ppm',o:'¿Cómo cambia la carrera tras las estaciones? ¿Sube la FC?'}
+],cd:'10 min Z1 + estiramientos.'}
 ]},
-3:{phase:1,name:'Sem 3 · Tempo + Pliometría',col:'#1A6FDB',deload:false,
-fc:'Z2 en base. Z3 en tempo. Cadencia 180 ppm en todas las carreras.',
+
+3:{phase:1,name:'Sem 3 · Tempo + Simulacro parcial',col:'#1A6FDB',deload:false,
+fc:'Z2 (113–130 ppm) base. Z3 (131–149 ppm) en tempo.',
 days:[
-{n:'Lunes',t:'Tempo + Core progresivo',p:'run',c:'#1A6FDB',rpe:6,dur:'75 min',
+{n:'Lunes',t:'Tempo + Core lumbar',p:'run',c:'#1A6FDB',rpe:6,dur:'70 min',
 wu:'10 min progresivo hasta Z3.',
 ex:[
-{cat:'cat-run',n:'Calentamiento Z2',s:'10 min',o:''},
-{cat:'cat-cadence',n:'Activación cadencia',s:'5 min · metrónomo 180 ppm',o:'Fija la cadencia antes del tempo.'},
-{cat:'cat-run',n:'Tempo continuo',s:'20 min · 4:35–4:40/km',o:'Z3. Mantén 180 ppm de cadencia. 2 pasos inspira / 2 espira.'},
-{cat:'cat-run',n:'Vuelta a calma',s:'10 min Z1–Z2',o:''}
+{cat:'cat-run',n:'Tempo continuo',s:'20 min · 4:35–4:40/km · FC 131–149 ppm',o:'Ritmo cómodo-incómodo. Si superas 149 ppm, reduce el pace.'},
+{cat:'cat-core',n:'Jefferson curl',s:'3×8 · barra vacía',o:'LUMBAR + MOVILIDAD. De pie en step, baja la barra vértebra a vértebra doblando hacia delante. Sube igual. Desarrolla movilidad y fuerza lumbar de forma única.'},
+{cat:'cat-core',n:'Ab wheel desde rodillas',s:'3×10',o:'Progresión desde hollow hold. Lumbar controlada.'},
+{cat:'cat-core',n:'Bird dog',s:'3×12 c/l',o:''}
 ],cd:'Foam roller gemelo + estiramientos.'},
-{n:'Martes',t:'Fuerza + Pliometría avanzada',p:'strength',c:'#1C8A48',rpe:7,dur:'85 min',
+{n:'Martes',t:'Fuerza pierna · Carga progresiva',p:'strength',c:'#1C8A48',rpe:7,dur:'80 min',
 wu:'Activación glúteo + goblet 2×10.',
 ex:[
 {cat:'cat-lower',n:'Sentadilla con barra',s:'4×8 · 77.5 kg',o:'Velocidad de subida explosiva.'},
-{cat:'cat-lower',n:'Peso muerto',s:'4×6 · 90 kg',o:'Setup perfecto. 3 min descanso.'},
-{cat:'cat-plyo',n:'Depth jump',s:'4×4 · caja 40 cm',o:'NUEVO. Baja del cajón, aterriza y salta inmediatamente. Tiempo de contacto mínimo. El ejercicio más eficaz para la stiffness del tendón.'},
-{cat:'cat-plyo',n:'Single-leg hop',s:'3×6 c/p',o:'NUEVO. Salto unilateral hacia delante. Aterriza estable. Trabaja la potencia y el equilibrio específicos para la carrera.'},
-{cat:'cat-lower',n:'Sled push',s:'6×20 m · 60 kg',o:'Ángulo 45°, pasos cortos.'}
+{cat:'cat-lower',n:'Trap bar deadlift',s:'4×8 · 90 kg',o:'NUEVO. Agarre neutro con trap bar. Postura más erguida que el peso muerto convencional, más específico para la postura del sled push. Si no hay trap bar, peso muerto con agarre neutro en mancuernas.'},
+{cat:'cat-lower',n:'Hip thrust con pausa',s:'3×10 · 80 kg · 3 s arriba',o:'La pausa elimina el rebote y maximiza la activación del glúteo.'},
+{cat:'cat-plyo',n:'Depth jump',s:'4×4 · caja 40 cm',o:'Contacto mínimo con el suelo. Reactivo. 2 min descanso.'},
+{cat:'cat-plyo',n:'Single-leg hop',s:'3×6 c/p',o:'Salto unilateral hacia delante. Aterriza estable.'},
+{cat:'cat-hyrox',n:'Sled push',s:'6×20 m · 60 kg',o:''},
+{cat:'cat-upper',n:'Face pulls',s:'3×15',o:''},
+{cat:'cat-core',n:'Back extension',s:'3×15 · 5 kg placa',o:'+carga vs sem 2.'}
 ],cd:'Foam roller cuádriceps y glúteo.'},
-{n:'Miércoles',t:'Ski erg Z2 + Remo Z2',p:'cardio',c:'#0E7EC2',rpe:4,dur:'65 min',
-wu:'5 min movilidad hombros y cadera.',
+{n:'Miércoles',t:'Ski erg + Remo Z2',p:'cardio',c:'#0E7EC2',rpe:4,dur:'65 min',
+wu:'',
 ex:[
-{cat:'cat-run',n:'Ski erg Z2',s:'22 min · 140–150 ppm',o:'Todo el cuerpo. Ritmo constante.'},
-{cat:'cat-run',n:'Remo Z2',s:'22 min',o:'Secuencia piernas-torso-brazos.'},
-{cat:'cat-core',n:'Movilidad dinámica',s:'10 min',o:'Cadera, rotación torácica.'}
+{cat:'cat-hyrox',n:'Ski erg Z2',s:'22 min · FC 113–125 ppm',o:''},
+{cat:'cat-hyrox',n:'Remo Z2',s:'22 min · FC 113–125 ppm',o:''},
+{cat:'cat-core',n:'Movilidad columna',s:'10 min',o:'Cat-cow ×10, rotación torácica ×8 c/l, child pose 60 s.'}
 ],cd:''},
-{n:'Jueves',t:'Intervalos 800 m + Bounds',p:'run',c:'#1A6FDB',rpe:7,dur:'70 min',
-wu:'Drills A, B, carioca + 2 striders.',
+{n:'Jueves',t:'Intervalos 800 m + Técnica fatiga',p:'run',c:'#1A6FDB',rpe:7,dur:'75 min',
+wu:'Drills A, B, carioca + bounds 2×20 m.',
 ex:[
-{cat:'cat-plyo',n:'Bounds progresivos',s:'4×30 m',o:'NUEVO. Zancadas saltadas exageradas. Maximiza el tiempo de vuelo y la extensión de cadera. Directamente transferible a la economía de carrera.'},
-{cat:'cat-run',n:'5×800 m',s:'4:15/km · pausa 2 min',o:'Mantén 180 ppm. Comprueba cadencia en cada serie.'}
-],cd:'Estiramientos isquio y cuádriceps.'},
-{n:'Viernes',t:'Fuerza superior + Core F1 máx',p:'strength',c:'#1C8A48',rpe:7,dur:'80 min',
-wu:'Band pull-apart + rotación manguito.',
+{cat:'cat-plyo',n:'Bounds progresivos',s:'4×30 m',o:'Zancadas saltadas. Máxima extensión de cadera.'},
+{cat:'cat-run',n:'5×800 m',s:'4:10/km · pausa 2 min · FC 150–163 ppm',o:'Últimas series no deben caer >5 s/km vs la primera.'},
+{cat:'cat-run',n:'Drills post-fatiga',s:'3×30 m A y B',o:'Técnica bajo fatiga. La mecánica no debe cambiar.'}
+],cd:'Estiramientos.'},
+{n:'Viernes',t:'Fuerza superior + Core completo',p:'strength',c:'#1C8A48',rpe:7,dur:'80 min',
+wu:'Band pull-apart 2×15.',
 ex:[
 {cat:'cat-upper',n:'Press banca',s:'5×6 · 75 kg',o:'Velocidad de subida máxima.'},
-{cat:'cat-upper',n:'Remo con barra',s:'5×6 · 70 kg',o:'Explosivo en tirón.'},
+{cat:'cat-upper',n:'Remo Pendlay',s:'5×6 · 65 kg',o:'Explosivo. Barra al suelo entre reps.'},
 {cat:'cat-upper',n:'Push press',s:'4×6 · 55 kg',o:'Impulso de piernas. Específico para ski erg.'},
-{cat:'cat-upper',n:'Face pulls',s:'4×15',o:'Codos altos, rotación externa.'},
-{cat:'cat-core',n:'Ab wheel desde rodillas',s:'3×10',o:'NUEVO. Extensión completa. Lumbar controlada. Progresión desde plancha.'},
-{cat:'cat-grip',n:'Farmer carry',s:'4×50 m · KB 26 kg c/u',o:'+2 kg y +10 m vs sem 2.'}
+{cat:'cat-upper',n:'Face pulls',s:'3×15',o:''},
+{cat:'cat-core',n:'Ab wheel desde rodillas',s:'3×12',o:'+2 reps.'},
+{cat:'cat-core',n:'Jefferson curl',s:'3×8 · 10 kg',o:'+carga vs sem 3 lunes.'},
+{cat:'cat-core',n:'Superman',s:'3×15 · 2 s pausa',o:'LUMBAR. Cadena posterior completa.'},
+{cat:'cat-grip',n:'Farmer carry',s:'4×50 m · KB 24 kg c/u',o:''}
 ],cd:'Foam roller dorsal + pectoral.'},
-{n:'Sábado',t:'Simulacro parcial · 4 estaciones',p:'hyrox',c:'#E8570A',rpe:6,dur:'95 min',
+{n:'Sábado',t:'Simulacro parcial · 4 estaciones',p:'hyrox',c:'#E8570A',rpe:6,dur:'80 min',
 wu:'10 min trote Z2.',
 ex:[
-{cat:'cat-run',n:'1 km · 4:35/km + Ski erg 1000 m',s:'transición directa',o:'Mantén 178 ppm en la carrera.'},
+{cat:'cat-run',n:'1 km · 4:35/km · FC 150–160 ppm + Ski erg 1000 m',s:'transición directa',o:''},
 {cat:'cat-run',n:'1 km · 4:35/km + Remo 1000 m',s:'',o:''},
 {cat:'cat-run',n:'1 km · 4:35/km + Sled push 50 m · 80 kg',s:'',o:''},
-{cat:'cat-run',n:'1 km · 4:35/km + Farmer carry 200 m · KB 24 kg',s:'',o:'Anota tiempos y cadencia.'}
-],cd:'10 min Z1 + estiramientos.'},
-{n:'Domingo',t:'Descanso activo',p:'rest',c:'#A8A79F',rpe:1,dur:'30 min',wu:'',
-ex:[{cat:'',n:'Piscina suave o caminar',s:'30 min',o:''}],cd:''}
+{cat:'cat-run',n:'1 km · 4:35/km + Farmer carry 200 m · KB 24 kg c/u',s:'',o:'Anota tiempos y FC por km.'}
+],cd:'10 min Z1 + estiramientos.'}
 ]},
+
 4:{phase:1,name:'Sem 4 · DELOAD ⚡',col:'#7C3AED',deload:true,
-fc:'Todo Z1–Z2. FC máx 148. Sin pliometría ni trabajo de alta intensidad.',
+fc:'Todo Z1 (93–112) – Z2 (113–130 ppm). FC máx 128. Sin pliometría.',
 days:[
-{n:'Lunes',t:'Carrera Z2 reducida',p:'run',c:'#1A6FDB',rpe:3,dur:'45 min',wu:'',
-ex:[{cat:'cat-run',n:'Carrera Z2',s:'30 min · 5:10/km',o:'DELOAD. Metrónomo 178 ppm últimos 5 min.'}],cd:''},
-{n:'Martes',t:'Fuerza reducida · −30 % carga',p:'strength',c:'#1C8A48',rpe:4,dur:'50 min',wu:'',
+{n:'Lunes',t:'Carrera Z2 reducida',p:'run',c:'#1A6FDB',rpe:3,dur:'45 min',
+wu:'',ex:[{cat:'cat-run',n:'Carrera Z2',s:'30 min · FC 113–125 ppm',o:'DELOAD. El fitness crece en la recuperación.'}],cd:''},
+{n:'Martes',t:'Fuerza reducida · −30% carga',p:'strength',c:'#1C8A48',rpe:4,dur:'50 min',
+wu:'Movilidad global 5 min.',
 ex:[
-{cat:'cat-lower',n:'Sentadilla goblet',s:'3×8 · KB 20 kg',o:'Técnica perfecta sin fatiga.'},
-{cat:'cat-lower',n:'Peso muerto rumano',s:'3×8 · 50 kg',o:'Ligero.'},
-{cat:'cat-upper',n:'Face pulls',s:'3×15',o:'Recuperación activa del hombro.'},
-{cat:'cat-core',n:'Dead bug',s:'3×10 c/l',o:'Calidad máxima.'}
+{cat:'cat-lower',n:'Sentadilla goblet',s:'3×8 · KB 18 kg',o:'Técnica perfecta.'},
+{cat:'cat-lower',n:'Peso muerto rumano',s:'3×8 · 50 kg',o:''},
+{cat:'cat-upper',n:'Face pulls + Remo polea',s:'3×12 c/u',o:''},
+{cat:'cat-core',n:'Bird dog',s:'3×10 c/l',o:''},
+{cat:'cat-core',n:'Back extension',s:'3×12',o:'Sin carga. Recuperación activa lumbar.'}
 ],cd:'Foam roller suave.'},
-{n:'Miércoles',t:'Movilidad + Yoga atlético',p:'rest',c:'#A8A79F',rpe:2,dur:'40 min',wu:'',
-ex:[{cat:'',n:'Movilidad global',s:'40 min',o:'Cadera, torácica, tobillos.'}],cd:''},
-{n:'Jueves',t:'Trote suave + Drills básicos',p:'run',c:'#1A6FDB',rpe:3,dur:'40 min',wu:'',
-ex:[
+{n:'Miércoles',t:'Movilidad + Yoga atlético',p:'rest',c:'#A8A79F',rpe:2,dur:'40 min',
+wu:'',ex:[{cat:'',n:'Movilidad global',s:'40 min',o:'Cadera, torácica, lumbar, tobillos.'}],cd:''},
+{n:'Jueves',t:'Trote suave + FC zonas',p:'run',c:'#1A6FDB',rpe:3,dur:'40 min',
+wu:'',ex:[
 {cat:'cat-run',n:'Drills básicos',s:'10 min',o:'Sin intensidad.'},
-{cat:'cat-cadence',n:'Trote Z1–Z2 · metrónomo 178',s:'25 min',o:'FC máx 148.'}
+{cat:'cat-run',n:'Trote Z1–Z2',s:'25 min · FC máx 128 ppm',o:''}
 ],cd:''},
-{n:'Viernes',t:'Fuerza ligera',p:'strength',c:'#1C8A48',rpe:4,dur:'45 min',wu:'',
-ex:[
-{cat:'cat-upper',n:'Remo en polea + Face pulls',s:'3×12 c/u',o:'Mantenimiento escapular.'},
-{cat:'cat-grip',n:'Dead hang',s:'3×max',o:'Mantén el grip.'}
+{n:'Viernes',t:'Fuerza muy ligera',p:'strength',c:'#1C8A48',rpe:4,dur:'45 min',
+wu:'',ex:[
+{cat:'cat-upper',n:'Press banca + Remo Pendlay',s:'3×8 · −30% carga',o:''},
+{cat:'cat-grip',n:'Dead hang',s:'3×max',o:''},
+{cat:'cat-core',n:'Jefferson curl',s:'3×8 · barra vacía',o:'Movilidad lumbar activa.'}
 ],cd:''},
-{n:'Sábado',t:'Simulacro muy suave',p:'hyrox',c:'#E8570A',rpe:4,dur:'55 min',wu:'',
-ex:[
-{cat:'cat-run',n:'2 km · 5:00/km + Ski erg 500 m',s:'',o:''},
-{cat:'cat-run',n:'2 km · 5:00/km + Wall ball 30 reps',s:'',o:''}
-],cd:''},
-{n:'Domingo',t:'Descanso total',p:'rest',c:'#A8A79F',rpe:0,dur:'Libre',wu:'',
-ex:[{cat:'',n:'Descanso completo',s:'',o:''}],cd:''}
+{n:'Sábado',t:'Simulacro muy suave',p:'hyrox',c:'#E8570A',rpe:4,dur:'50 min',
+wu:'',ex:[
+{cat:'cat-run',n:'2 km · FC 125–135 ppm + Ski erg 500 m',s:'',o:''},
+{cat:'cat-run',n:'2 km · FC 125–135 ppm + Wall ball 30 reps',s:'técnica',o:''}
+],cd:''}
 ]},
-5:{phase:1,name:'Sem 5 · Reactivación · Pliometría',col:'#1A6FDB',deload:false,
-fc:'Z2 en continuas. Z3–Z4 en series. Cadencia 180–182 ppm.',
+
+5:{phase:1,name:'Sem 5 · Reactivación + Pliometría',col:'#1A6FDB',deload:false,
+fc:'Z2 (113–130 ppm) continuas. Z3–Z4 (131–167 ppm) en series.',
 days:[
-{n:'Lunes',t:'Carrera Z2 + Core F1 avanzado',p:'run',c:'#1A6FDB',rpe:5,dur:'85 min',
+{n:'Lunes',t:'Carrera Z2 + Core progresivo',p:'run',c:'#1A6FDB',rpe:5,dur:'80 min',
 wu:'10 min progresivo.',
 ex:[
-{cat:'cat-run',n:'Carrera Z2',s:'48 min · 4:55/km',o:'Piernas frescas post-deload. Metrónomo 180 ppm todo el tiempo.'},
-{cat:'cat-core',n:'Ab wheel desde rodillas',s:'3×10',o:'Extensión completa controlada.'},
-{cat:'cat-core',n:'Pallof press',s:'3×10 c/l · cable/banda',o:'NUEVO. Antirotación. Mantén el core estable frente a la resistencia lateral. Clave para postura en carrera.'}
+{cat:'cat-run',n:'Carrera Z2',s:'50 min · FC 113–130 ppm',o:'Piernas frescas post-deload. No te aceleres.'},
+{cat:'cat-core',n:'Ab wheel desde rodillas',s:'3×12',o:''},
+{cat:'cat-core',n:'Pallof press',s:'3×12 c/l',o:''},
+{cat:'cat-core',n:'Bird dog lastrado',s:'3×10 c/l · 3 kg',o:'LUMBAR. +1 kg vs sem 2.'},
+{cat:'cat-core',n:'Good morning',s:'3×12 · 30 kg',o:'LUMBAR. +10 kg. Bisagra de cadera perfecta.'}
 ],cd:''},
-{n:'Martes',t:'Fuerza · 5×5 + Pliometría',p:'strength',c:'#1C8A48',rpe:7,dur:'90 min',
-wu:'Activación glúteo + goblet 2×10.',
+{n:'Martes',t:'Fuerza pierna · 5×5 + Pliometría',p:'strength',c:'#1C8A48',rpe:7,dur:'80 min',
+wu:'Activación glúteo + goblet progresivo.',
 ex:[
-{cat:'cat-lower',n:'Sentadilla con barra',s:'5×5 · 82.5 kg',o:'Subida explosiva.'},
-{cat:'cat-lower',n:'Peso muerto',s:'4×5 · 97.5 kg',o:''},
-{cat:'cat-plyo',n:'Depth jump',s:'4×5',o:'Tiempo de contacto mínimo. Reactivo.'},
+{cat:'cat-lower',n:'Sentadilla con barra',s:'5×5 · 82.5 kg',o:'Esquema 5×5. 3 min descanso. Subida explosiva.'},
+{cat:'cat-lower',n:'Trap bar deadlift',s:'4×6 · 97.5 kg',o:'+7.5 kg. Postura específica sled.'},
+{cat:'cat-lower',n:'Split squat con déficit',s:'3×8 c/p · KB 14 kg c/u',o:'NUEVO. Pie delantero elevado 10 cm. Mayor rango de movimiento. Más transferencia a la zancada de carrera.'},
+{cat:'cat-plyo',n:'Depth jump reactivo',s:'4×5',o:'Tiempo de contacto mínimo. 2 min descanso.'},
 {cat:'cat-plyo',n:'Bounds',s:'4×30 m',o:'Máxima extensión de cadera.'},
-{cat:'cat-lower',n:'Sled push',s:'6×20 m · 75 kg',o:''},
-{cat:'cat-upper',n:'Face pulls',s:'3×15',o:'Siempre al final de pierna. Equilibrio escapular.'}
+{cat:'cat-hyrox',n:'Sled push',s:'6×20 m · 75 kg',o:''},
+{cat:'cat-upper',n:'Face pulls',s:'3×15',o:''},
+{cat:'cat-core',n:'Hiperextensión banco romano',s:'3×15',o:'LUMBAR. Sin carga. Rango completo. El ejercicio más específico para los extensores lumbares.'}
 ],cd:'Foam roller.'},
-{n:'Miércoles',t:'Carrera Z2 + Estaciones Z2',p:'cardio',c:'#0E7EC2',rpe:4,dur:'70 min',wu:'',
-ex:[
-{cat:'cat-run',n:'Carrera Z2',s:'20 min · 5:00/km · 180 ppm',o:''},
-{cat:'cat-run',n:'Remo Z2',s:'20 min',o:''},
-{cat:'cat-run',n:'Ski erg Z2',s:'15 min',o:''}
+{n:'Miércoles',t:'Carrera Z2 + Estaciones',p:'cardio',c:'#0E7EC2',rpe:4,dur:'65 min',
+wu:'',ex:[
+{cat:'cat-run',n:'Carrera Z2',s:'20 min · FC 113–130 ppm',o:''},
+{cat:'cat-hyrox',n:'Remo Z2',s:'20 min · FC 113–125 ppm',o:''},
+{cat:'cat-hyrox',n:'Ski erg Z2',s:'15 min',o:''}
 ],cd:''},
-{n:'Jueves',t:'Intervalos 1000 m + Técnica fatiga',p:'run',c:'#1A6FDB',rpe:7,dur:'75 min',
-wu:'Drills + bounds 2×20 m.',
+{n:'Jueves',t:'Intervalos 1000 m + Técnica',p:'run',c:'#1A6FDB',rpe:7,dur:'75 min',
+wu:'Drills A, B + bounds 2×20 m.',
 ex:[
-{cat:'cat-run',n:'5×1000 m',s:'4:10/km · pausa 2 min',o:'Mantén 180 ppm. Graba en el último interval para comprobar la técnica bajo fatiga.'},
-{cat:'cat-run',n:'Técnica post-fatiga',s:'4×30 m drills A y B',o:'NUEVO. Drills DESPUÉS de los intervalos. El objetivo es mantener la mecánica cuando estás cansado.'}
+{cat:'cat-run',n:'5×1000 m',s:'4:10/km · pausa 2 min · FC 153–163 ppm',o:'Consistencia entre series.'},
+{cat:'cat-run',n:'Drills post-fatiga',s:'4×30 m · A, B, carioca',o:'Técnica bajo fatiga.'}
 ],cd:'Estiramientos.'},
-{n:'Viernes',t:'Fuerza superior · Volumen',p:'strength',c:'#1C8A48',rpe:6,dur:'80 min',
+{n:'Viernes',t:'Fuerza superior · Volumen',p:'strength',c:'#1C8A48',rpe:6,dur:'75 min',
 wu:'Band pull-apart + rotación hombro.',
 ex:[
 {cat:'cat-upper',n:'Press banca',s:'4×8 · 72.5 kg',o:''},
 {cat:'cat-upper',n:'Dominadas',s:'4×8',o:'+1–2 reps vs sem 3.'},
-{cat:'cat-upper',n:'Remo con mancuerna pronación',s:'4×10 c/b · 28 kg',o:''},
+{cat:'cat-upper',n:'Remo Pendlay',s:'4×8 · 67.5 kg',o:''},
 {cat:'cat-upper',n:'Remo en polea baja',s:'4×12',o:''},
+{cat:'cat-upper',n:'Face pulls',s:'3×15',o:''},
 {cat:'cat-grip',n:'Dead hang',s:'3×max',o:''},
-{cat:'cat-lower',n:'Farmer carry',s:'5×50 m · KB 28 kg c/u',o:''}
-],cd:''},
-{n:'Sábado',t:'Simulacro 6 estaciones',p:'hyrox',c:'#E8570A',rpe:7,dur:'100 min',
+{cat:'cat-grip',n:'Farmer carry',s:'5×50 m · KB 24 kg c/u',o:''}
+],cd:'Foam roller dorsal.'},
+{n:'Sábado',t:'Simulacro 6 estaciones',p:'hyrox',c:'#E8570A',rpe:7,dur:'80 min',
 wu:'10 min trote.',
 ex:[
-{cat:'cat-run',n:'6×(1 km + 1 estación) · pace 4:30/km',s:'',o:'Ski erg · Remo · Sled push · Farmer carry · Wall ball 80 reps · Burpee 60 reps. Mantén 178 ppm en carrera.'}
-],cd:'10 min Z1 + estiramientos.'},
-{n:'Domingo',t:'Descanso activo',p:'rest',c:'#A8A79F',rpe:1,dur:'30 min',wu:'',
-ex:[{cat:'',n:'Caminar o movilidad',s:'30 min',o:''}],cd:''}
+{cat:'cat-run',n:'6×(1 km + 1 est.) · pace 4:30/km · FC 155–165 ppm',s:'',o:'Ski erg · Remo · Sled push · Farmer carry · Wall ball 80 reps · Burpee 60 reps. Anota tiempo total.'}
+],cd:'10 min Z1 + estiramientos.'}
 ]},
+
 6:{phase:1,name:'Sem 6 · Tempo + HYROX completo',col:'#1A6FDB',deload:false,
-fc:'Z3 en tempo. Z4 en últimas series. 180 ppm cadencia en todo.',
+fc:'Z3 (131–149 ppm) en tempo. Z4 (150–167 ppm) en últimas series.',
 days:[
-{n:'Lunes',t:'Tempo largo',p:'run',c:'#1A6FDB',rpe:6,dur:'65 min',
-wu:'12 min progresivo + protocolo cadencia 5 min a 180 ppm.',
-ex:[
-{cat:'cat-run',n:'Tempo continuo',s:'30 min · 4:25–4:30/km',o:'Z3. Mantén 180 ppm. Si la cadencia cae, reduce el pace antes de perder la mecánica.'}
-],cd:'8 min Z1 + estiramientos.'},
-{n:'Martes',t:'Fuerza pierna · Carga alta + Plyo',p:'strength',c:'#1C8A48',rpe:8,dur:'90 min',
+{n:'Lunes',t:'Tempo 30 min',p:'run',c:'#1A6FDB',rpe:6,dur:'65 min',
+wu:'12 min progresivo hasta Z3.',
+ex:[{cat:'cat-run',n:'Tempo continuo',s:'30 min · 4:25–4:30/km · FC 131–149 ppm',o:'Si superas 149 ppm, reduce el pace.'}],cd:'8 min Z1 + estiramientos.'},
+{n:'Martes',t:'Fuerza pierna · Carga alta',p:'strength',c:'#1C8A48',rpe:8,dur:'80 min',
 wu:'Activación glúteo + sentadilla 2×8 progresiva.',
 ex:[
-{cat:'cat-lower',n:'Sentadilla con barra',s:'5×4 · 87.5 kg',o:'3 min descanso.'},
-{cat:'cat-lower',n:'Peso muerto',s:'4×4 · 105 kg',o:''},
-{cat:'cat-plyo',n:'Depth jump',s:'5×4',o:'+1 serie vs sem 5.'},
-{cat:'cat-plyo',n:'Single-leg bound',s:'3×5 c/p',o:'NUEVO. Bound unilateral. Más exigente que el bilateral.'},
-{cat:'cat-lower',n:'Sled push',s:'8×20 m · 82.5 kg',o:''},
-{cat:'cat-upper',n:'Face pulls',s:'3×15',o:''}
+{cat:'cat-lower',n:'Sentadilla con barra',s:'5×4 · 87.5 kg',o:'3 min descanso. Profundidad paralela mínima.'},
+{cat:'cat-lower',n:'Trap bar deadlift',s:'4×5 · 105 kg',o:''},
+{cat:'cat-lower',n:'Split squat con déficit',s:'3×8 c/p · KB 16 kg c/u',o:'+2 kg. Mayor rango.'},
+{cat:'cat-plyo',n:'Depth jump',s:'5×5',o:'+1 serie.'},
+{cat:'cat-plyo',n:'Single-leg bound',s:'3×5 c/p',o:'Bound unilateral. Más exigente.'},
+{cat:'cat-hyrox',n:'Sled push',s:'8×20 m · 82.5 kg',o:''},
+{cat:'cat-upper',n:'Face pulls',s:'3×15',o:''},
+{cat:'cat-core',n:'Good morning',s:'3×10 · 40 kg',o:'LUMBAR. +10 kg. Mantén espalda neutra.'},
+{cat:'cat-core',n:'Hiperextensión + 5 kg placa',s:'3×12',o:'Primera carga en hiperextensión.'}
 ],cd:'Foam roller 10 min.'},
-{n:'Miércoles',t:'Carrera Z2 larga',p:'cardio',c:'#0E7EC2',rpe:4,dur:'70 min',wu:'',
-ex:[{cat:'cat-run',n:'Carrera Z2',s:'55 min · 5:05/km',o:'180 ppm. Recovery post-pierna dura.'}],cd:''},
-{n:'Jueves',t:'Intervalos mixtos + Técnica fatiga',p:'run',c:'#1A6FDB',rpe:8,dur:'75 min',
-wu:'Drills + bounds 2×20 m.',
+{n:'Miércoles',t:'Carrera Z2 recovery',p:'cardio',c:'#0E7EC2',rpe:4,dur:'65 min',
+wu:'',ex:[{cat:'cat-run',n:'Carrera Z2',s:'50 min · FC 113–130 ppm',o:'Recovery activo tras pierna dura.'}],cd:'Estiramientos 10 min.'},
+{n:'Jueves',t:'Intervalos mixtos + Técnica',p:'run',c:'#1A6FDB',rpe:8,dur:'75 min',
+wu:'Drills + bounds 2×25 m.',
 ex:[
-{cat:'cat-run',n:'3×1200 m',s:'4:05/km · pausa 2:30',o:''},
-{cat:'cat-run',n:'4×400 m',s:'3:50/km · pausa 90 s',o:'Pace objetivo. 182 ppm.'},
-{cat:'cat-run',n:'Drills post-fatiga',s:'3×30 m A y B',o:'Técnica bajo fatiga. La forma no debe cambiar.'}
+{cat:'cat-run',n:'3×1200 m',s:'4:05/km · pausa 2:30 · FC 153–163 ppm',o:''},
+{cat:'cat-run',n:'4×400 m',s:'3:50/km · pausa 90 s · FC 158–167 ppm',o:'Primer contacto real con el pace objetivo.'},
+{cat:'cat-run',n:'Drills post-fatiga',s:'4×30 m',o:'A, B, carioca. Técnica bajo fatiga.'}
 ],cd:'10 min Z1 + estiramientos.'},
-{n:'Viernes',t:'Fuerza superior · Potencia',p:'strength',c:'#1C8A48',rpe:7,dur:'80 min',
-wu:'Band pull-apart + dominadas asistidas 2×8.',
+{n:'Viernes',t:'Fuerza superior · Potencia',p:'strength',c:'#1C8A48',rpe:7,dur:'75 min',
+wu:'Band pull-apart 2×15.',
 ex:[
 {cat:'cat-upper',n:'Press banca',s:'5×5 · 77.5 kg',o:''},
 {cat:'cat-upper',n:'Dominadas lastre',s:'4×5 · +5 kg',o:''},
+{cat:'cat-upper',n:'Remo Pendlay',s:'4×6 · 70 kg',o:''},
 {cat:'cat-upper',n:'Push press',s:'4×5 · 60 kg',o:''},
-{cat:'cat-upper',n:'Remo en polea · pronación',s:'4×10',o:''},
-{cat:'cat-core',n:'Pallof press',s:'3×12 c/l',o:'+2 reps vs sem 5.'},
-{cat:'cat-grip',n:'Farmer carry velocidad',s:'4×50 m · KB 28 kg c/u · rápido',o:''}
+{cat:'cat-upper',n:'Face pulls',s:'3×15',o:''},
+{cat:'cat-core',n:'Ab wheel desde rodillas',s:'4×12',o:''},
+{cat:'cat-core',n:'Jefferson curl',s:'3×8 · 15 kg',o:''},
+{cat:'cat-grip',n:'Farmer carry velocidad',s:'4×50 m · KB 26 kg c/u · rápido',o:''}
 ],cd:'Foam roller dorsal + pectoral.'},
-{n:'Sábado',t:'HYROX completo al 70 %',p:'hyrox',c:'#E8570A',rpe:7,dur:'105 min',
+{n:'Sábado',t:'HYROX completo al 70%',p:'hyrox',c:'#E8570A',rpe:7,dur:'80 min',
 wu:'10 min trote.',
-ex:[
-{cat:'cat-run',n:'HYROX completo · 8 estaciones · 8 km',s:'pace 4:20/km',o:'178–180 ppm en carrera. Foco en transiciones. Anota cada km y cada estación.'}
-],cd:'10 min Z1 + estiramientos.'},
-{n:'Domingo',t:'Descanso activo',p:'rest',c:'#A8A79F',rpe:1,dur:'30 min',wu:'',
-ex:[{cat:'',n:'Piscina suave',s:'30 min',o:''}],cd:''}
+ex:[{cat:'cat-hyrox',n:'HYROX completo · 8 est. · 8 km',s:'pace 4:20/km · FC 155–165 ppm',o:'Primera vez con las 8 estaciones. Pace conservador. Anota cada km y cada estación.'}],cd:'10 min Z1 + estiramientos.'}
 ]},
+
 7:{phase:1,name:'Sem 7 · Cierre fase 1 · Test',col:'#1A6FDB',deload:false,
-fc:'Z3 en tempo. Z4 permitida. 180–182 ppm en intervalos.',
+fc:'Z3 (131–149 ppm) en tempo. Z4 (150–167 ppm) en series.',
 days:[
-{n:'Lunes',t:'Carrera Z2 + Strides',p:'run',c:'#1A6FDB',rpe:6,dur:'75 min',
+{n:'Lunes',t:'Carrera Z2 + Strides',p:'run',c:'#1A6FDB',rpe:6,dur:'70 min',
 wu:'10 min progresivo.',
 ex:[
-{cat:'cat-run',n:'Carrera Z2',s:'45 min · 4:50/km · 180 ppm',o:''},
-{cat:'cat-run',n:'Striders finales',s:'5×100 m · 90 % · 182 ppm',o:'Cadencia alta incluso en velocidad.'}
+{cat:'cat-run',n:'Carrera Z2',s:'45 min · FC 113–130 ppm',o:'Pace mejorando naturalmente con la misma FC.'},
+{cat:'cat-run',n:'Striders finales',s:'5×100 m · 90% · FC 155–165 ppm',o:''}
 ],cd:'Estiramientos.'},
-{n:'Martes',t:'Fuerza · Test RMs + Plyo',p:'strength',c:'#1C8A48',rpe:9,dur:'90 min',
-wu:'Activación completa + progresión al 80 %.',
+{n:'Martes',t:'Fuerza pierna · Test RMs',p:'strength',c:'#1C8A48',rpe:9,dur:'80 min',
+wu:'Activación completa + progresión al 80%.',
 ex:[
-{cat:'cat-lower',n:'Sentadilla · RM estimado',s:'1×RM o 3×3',o:'Test fin de fase. Anota.'},
-{cat:'cat-lower',n:'Peso muerto · RM estimado',s:'1×RM o 3×3',o:''},
-{cat:'cat-plyo',n:'Depth jump · test reactividad',s:'3×5 · máx velocidad',o:'Evalúa la mejora pliométrica de la fase.'},
-{cat:'cat-lower',n:'Sled push',s:'5×20 m · 90 kg',o:''}
+{cat:'cat-lower',n:'Sentadilla · RM estimado',s:'1×RM o 3×3 al máximo',o:'Test fin de fase 1. Anota. Base para cargas de fase 2.'},
+{cat:'cat-lower',n:'Trap bar deadlift · RM estimado',s:'1×RM o 3×3',o:''},
+{cat:'cat-plyo',n:'Depth jump · test reactividad',s:'3×5 · máx velocidad',o:'Evalúa la mejora pliométrica.'},
+{cat:'cat-hyrox',n:'Sled push',s:'5×20 m · 90 kg',o:''}
 ],cd:'Foam roller completo.'},
-{n:'Miércoles',t:'Carrera Z2 recovery',p:'cardio',c:'#0E7EC2',rpe:3,dur:'55 min',wu:'',
-ex:[{cat:'cat-run',n:'Carrera Z2 suave',s:'45 min · 5:10/km · 178 ppm',o:'FC máx 148.'}],cd:''},
-{n:'Jueves',t:'Intervalos · Pace objetivo',p:'run',c:'#1A6FDB',rpe:8,dur:'70 min',
+{n:'Miércoles',t:'Carrera Z2 recovery',p:'cardio',c:'#0E7EC2',rpe:3,dur:'55 min',
+wu:'',ex:[{cat:'cat-run',n:'Carrera Z2',s:'45 min · FC 113–125 ppm',o:'Recovery tras el test.'}],cd:''},
+{n:'Jueves',t:'Intervalos + Hill sprints intro',p:'run',c:'#1A6FDB',rpe:8,dur:'70 min',
 wu:'Drills + bounds 2×30 m.',
 ex:[
-{cat:'cat-run',n:'6×800 m',s:'3:55/km · pausa 90 s · 182 ppm',o:'Muy cercano al objetivo.'},
-{cat:'cat-run',n:'Drills post-fatiga',s:'3×30 m completo',o:'A, B, carioca. Evalúa si la técnica aguanta.'}
+{cat:'cat-run',n:'6×800 m',s:'3:55/km · pausa 90 s · FC 155–165 ppm',o:''},
+{cat:'cat-run',n:'Hill sprints intro',s:'4×10 s · cuesta 6–8% · FC >168 ppm',o:'NUEVO. Sprint máximo en cuesta. Recupera 2 min bajando caminando. El ejercicio que más sube el VO2max por minuto. Aquí solo intro, cortos.'},
+{cat:'cat-run',n:'Drills post-fatiga',s:'3×30 m',o:''}
 ],cd:'10 min Z1 + estiramientos.'},
-{n:'Viernes',t:'Fuerza superior · Volumen + Core',p:'strength',c:'#1C8A48',rpe:7,dur:'85 min',
-wu:'',
-ex:[
+{n:'Viernes',t:'Fuerza superior · Volumen + Core',p:'strength',c:'#1C8A48',rpe:7,dur:'80 min',
+wu:'',ex:[
 {cat:'cat-upper',n:'Press banca',s:'4×10 · 72.5 kg',o:''},
-{cat:'cat-upper',n:'Remo con barra',s:'5×8 · 75 kg',o:''},
+{cat:'cat-upper',n:'Remo Pendlay',s:'5×8 · 72.5 kg',o:''},
 {cat:'cat-upper',n:'Press militar',s:'4×8 · 55 kg',o:''},
-{cat:'cat-upper',n:'Remo en polea · pronación',s:'4×12',o:''},
-{cat:'cat-core',n:'Ab wheel desde rodillas',s:'4×12',o:'+2 reps. Progresión constante.'},
-{cat:'cat-grip',n:'Farmer carry',s:'5×60 m · KB 30 kg c/u',o:'Máxima distancia fase 1.'}
+{cat:'cat-upper',n:'Face pulls',s:'4×15',o:''},
+{cat:'cat-core',n:'Ab wheel desde rodillas',s:'4×14',o:''},
+{cat:'cat-core',n:'Hiperextensión + 10 kg',s:'3×12',o:'LUMBAR. +5 kg vs sem 6.'},
+{cat:'cat-core',n:'Good morning',s:'3×10 · 45 kg',o:''},
+{cat:'cat-grip',n:'Farmer carry',s:'5×60 m · KB 26 kg c/u',o:'Máx distancia fase 1.'}
 ],cd:''},
-{n:'Sábado',t:'HYROX completo · Test fin F1',p:'hyrox',c:'#E8570A',rpe:8,dur:'110 min',
+{n:'Sábado',t:'HYROX completo · Test fin F1',p:'hyrox',c:'#E8570A',rpe:8,dur:'80 min',
 wu:'12 min trote Z2.',
-ex:[
-{cat:'cat-run',n:'HYROX completo al 85 %',s:'8 km · objetivo 4:10/km · 180 ppm',o:'Anota TODOS los tiempos. Marcador de salida fase 2. ¿Mantuviste la cadencia?'}
-],cd:'10 min Z1 + análisis.'},
-{n:'Domingo',t:'Descanso activo',p:'rest',c:'#A8A79F',rpe:1,dur:'30 min',wu:'',
-ex:[{cat:'',n:'Caminar + foam roller',s:'30+10 min',o:'¿Qué estación hay que atacar?'}],cd:''}
+ex:[{cat:'cat-hyrox',n:'HYROX al 85%',s:'8 km · 4:10/km · FC 157–167 ppm',o:'Anota TODOS los tiempos. Marcador de salida para fase 2.'}],cd:'10 min Z1 + análisis.'}
 ]},
+
 8:{phase:2,name:'Sem 8 · DELOAD ⚡ · Inicio F2',col:'#1C8A48',deload:true,
-fc:'Todo Z1–Z2. Consolida la fase 1.',
+fc:'Todo Z1–Z2 (113–130 ppm). Consolida la fase 1 completa.',
 days:[
-{n:'Lunes',t:'Carrera Z2 corta',p:'run',c:'#1A6FDB',rpe:3,dur:'40 min',wu:'',
-ex:[{cat:'cat-run',n:'Carrera Z2',s:'28 min · 5:15/km · 178 ppm',o:'DELOAD.'}],cd:''},
-{n:'Martes',t:'Fuerza deload · Técnica',p:'strength',c:'#1C8A48',rpe:4,dur:'55 min',wu:'',
-ex:[
-{cat:'cat-lower',n:'Sentadilla',s:'3×5 · 70 % RM',o:''},
-{cat:'cat-lower',n:'Peso muerto',s:'3×5 · 70 % RM',o:''},
-{cat:'cat-upper',n:'Face pulls + Remo polea',s:'3×12 c/u',o:'Mantenimiento escapular.'},
-{cat:'cat-lower',n:'Sled push técnico',s:'4×20 m · 50 kg',o:'Repasa mecánica.'}
+{n:'Lunes',t:'Carrera Z2 corta',p:'run',c:'#1A6FDB',rpe:3,dur:'40 min',
+wu:'',ex:[{cat:'cat-run',n:'Carrera Z2',s:'28 min · FC 113–125 ppm',o:'DELOAD.'}],cd:''},
+{n:'Martes',t:'Fuerza deload + Técnica',p:'strength',c:'#1C8A48',rpe:4,dur:'55 min',
+wu:'',ex:[
+{cat:'cat-lower',n:'Sentadilla',s:'3×5 · 70% RM',o:''},
+{cat:'cat-lower',n:'Trap bar deadlift',s:'3×5 · 70% RM',o:''},
+{cat:'cat-upper',n:'Face pulls + Remo polea',s:'3×12 c/u',o:''},
+{cat:'cat-hyrox',n:'Sled push técnico',s:'4×20 m · 50 kg',o:'Mecánica. Sin carga.'},
+{cat:'cat-core',n:'Bird dog + Superman',s:'3×10 c/u',o:'LUMBAR. Mantenimiento.'}
 ],cd:''},
-{n:'Miércoles',t:'Yoga atlético',p:'rest',c:'#A8A79F',rpe:2,dur:'40 min',wu:'',
-ex:[{cat:'',n:'Movilidad global',s:'40 min',o:''}],cd:''},
-{n:'Jueves',t:'Trote suave + Cadencia',p:'run',c:'#1A6FDB',rpe:3,dur:'40 min',wu:'',
-ex:[
-{cat:'cat-cadence',n:'Trote Z1 · metrónomo 180 ppm',s:'25 min',o:'Consolida la cadencia en reposo.'}
+{n:'Miércoles',t:'Yoga atlético',p:'rest',c:'#A8A79F',rpe:2,dur:'40 min',
+wu:'',ex:[{cat:'',n:'Movilidad global',s:'40 min',o:'Cadera, torácica, lumbar, tobillo, hombro.'}],cd:''},
+{n:'Jueves',t:'Trote suave + FC zonas',p:'run',c:'#1A6FDB',rpe:3,dur:'40 min',
+wu:'',ex:[{cat:'cat-run',n:'Trote Z1–Z2',s:'28 min · FC máx 128 ppm',o:''}],cd:''},
+{n:'Viernes',t:'Fuerza ligera + Grip',p:'strength',c:'#1C8A48',rpe:4,dur:'50 min',
+wu:'',ex:[
+{cat:'cat-upper',n:'Press banca + Remo Pendlay',s:'3×8 · 65% RM',o:''},
+{cat:'cat-grip',n:'Dead hang',s:'3×max',o:''},
+{cat:'cat-core',n:'Jefferson curl',s:'3×8 · barra vacía',o:'Movilidad lumbar activa.'}
 ],cd:''},
-{n:'Viernes',t:'Fuerza ligera + Grip',p:'strength',c:'#1C8A48',rpe:4,dur:'50 min',wu:'',
-ex:[
-{cat:'cat-upper',n:'Press y remo ligero',s:'3×8 · 65 % RM',o:''},
-{cat:'cat-grip',n:'Dead hang',s:'3×max',o:'Mantenimiento grip.'}
-],cd:''},
-{n:'Sábado',t:'Mini-simulacro activación',p:'hyrox',c:'#E8570A',rpe:4,dur:'50 min',wu:'',
-ex:[{cat:'cat-run',n:'3 km + 3 estaciones · muy suave',s:'pace 5:00/km · 178 ppm',o:''}],cd:''},
-{n:'Domingo',t:'Descanso total',p:'rest',c:'#A8A79F',rpe:0,dur:'Libre',wu:'',
-ex:[{cat:'',n:'Descanso completo',s:'',o:'Asimila 7 semanas.'}],cd:''}
+{n:'Sábado',t:'Mini-simulacro activación',p:'hyrox',c:'#E8570A',rpe:4,dur:'50 min',
+wu:'',ex:[{cat:'cat-hyrox',n:'3 km + 3 estaciones · muy suave',s:'FC 125–140 ppm',o:'Solo activar.'}],cd:''}
 ]},
-9:{phase:2,name:'Sem 9 · Fuerza máxima + Grip F2',col:'#1C8A48',deload:false,
-fc:'Días fuerza: FC no prioritaria. Carrera: Z3–Z4 en series. 180 ppm siempre.',
+
+9:{phase:2,name:'Sem 9 · Fuerza máxima + Hang Power Clean',col:'#1C8A48',deload:false,
+fc:'Días fuerza: FC no prioritaria. Carrera: Z3–Z4 (131–167 ppm) en series.',
 days:[
-{n:'Lunes',t:'Fuerza máxima · Pierna + Grip',p:'strength',c:'#1C8A48',rpe:8,dur:'90 min',
-wu:'Activación completa + progresión.',
+{n:'Lunes',t:'Fuerza máxima · Pierna + Potencia',p:'strength',c:'#1C8A48',rpe:8,dur:'80 min',
+wu:'Activación completa + progresión hasta 80%.',
 ex:[
-{cat:'cat-lower',n:'Sentadilla con barra',s:'5×3 · 87 % RM',o:'3–4 min descanso.'},
-{cat:'cat-lower',n:'Peso muerto',s:'5×3 · 87 % RM',o:''},
-{cat:'cat-lower',n:'Hip thrust',s:'4×8 · 90 kg',o:''},
-{cat:'cat-lower',n:'Sled push',s:'8×20 m · 90 kg',o:''},
-{cat:'cat-grip',n:'Wrist roller',s:'3×3 bajadas · ambas direcciones',o:'NUEVO. Flexión y extensión de muñeca con carga. El ejercicio más completo para el grip y el antebrazo.'},
-{cat:'cat-grip',n:'Farmer carry en pronación',s:'4×30 m · KB 28 kg c/u',o:'NUEVO. Agarre con palmas hacia adelante. Activa más los extensores del antebrazo y mejora la resistencia del grip.'}
+{cat:'cat-lower',n:'Sentadilla con barra',s:'5×3 · 87% RM',o:'3–4 min descanso. Subida máxima velocidad.'},
+{cat:'cat-lower',n:'Trap bar deadlift',s:'5×3 · 87% RM',o:''},
+{cat:'cat-lower',n:'Hip thrust con pausa',s:'4×8 · 90 kg · 3 s',o:''},
+{cat:'cat-lower',n:'Hang power clean',s:'4×4 · 50–60% RM · técnica',o:'NUEVO F2. Desde la posición de colgado, tirón explosivo. Empieza con carga ligera hasta consolidar la técnica. El movimiento más potente del plan. Transferencia directa a la explosividad del sled y la carrera.'},
+{cat:'cat-hyrox',n:'Sled push',s:'8×20 m · 90 kg',o:''},
+{cat:'cat-grip',n:'Wrist roller',s:'3×3 bajadas c/dirección',o:''},
+{cat:'cat-core',n:'Hiperextensión + 10 kg',s:'3×12',o:'LUMBAR.'}
 ],cd:'Foam roller cuádriceps + isquios.'},
-{n:'Martes',t:'Carrera · Intervalos 1200 m',p:'run',c:'#1A6FDB',rpe:8,dur:'75 min',
-wu:'Drills + bounds 2×30 m.',
+{n:'Martes',t:'Carrera · Intervalos 1200 m + Hill',p:'run',c:'#1A6FDB',rpe:8,dur:'75 min',
+wu:'Drills completos + bounds 2×30 m.',
 ex:[
-{cat:'cat-run',n:'5×1200 m',s:'4:00/km · pausa 2:30 · 182 ppm',o:'Consistencia entre series. ¿Mantiene 182 ppm la serie 5?'},
-{cat:'cat-run',n:'Drills post-fatiga',s:'3×30 m',o:'Técnica bajo fatiga. Serie 5 debe verse igual que serie 1.'}
+{cat:'cat-run',n:'5×1200 m',s:'4:00/km · pausa 2:30 · FC 155–163 ppm',o:''},
+{cat:'cat-run',n:'Hill sprints',s:'5×12 s · cuesta 6–8% · FC >168 ppm',o:'+1 rep y +2 s vs sem 7.'},
+{cat:'cat-run',n:'Drills post-fatiga',s:'4×30 m',o:'Técnica bajo fatiga.'}
 ],cd:'Estiramientos.'},
-{n:'Miércoles',t:'Estaciones Z2 + Core F2',p:'cardio',c:'#0E7EC2',rpe:4,dur:'80 min',
+{n:'Miércoles',t:'Estaciones Z2 + Core F2',p:'cardio',c:'#0E7EC2',rpe:4,dur:'70 min',
 wu:'5 min movilidad.',
 ex:[
-{cat:'cat-run',n:'Ski erg Z2',s:'25 min',o:''},
-{cat:'cat-run',n:'Remo Z2',s:'25 min',o:''},
+{cat:'cat-hyrox',n:'Ski erg Z2',s:'22 min · FC 113–125 ppm',o:''},
+{cat:'cat-hyrox',n:'Remo Z2',s:'22 min · FC 113–125 ppm',o:''},
 {cat:'cat-core',n:'Ab wheel desde rodillas',s:'4×12',o:''},
 {cat:'cat-core',n:'Pallof press',s:'3×12 c/l',o:''},
-{cat:'cat-core',n:'L-sit en paralelas',s:'3×15–20 s',o:'NUEVO. Sostén el cuerpo con brazos extendidos y piernas a 90°. Fuerza de core y compresión. Progresa el tiempo.'}
+{cat:'cat-core',n:'L-sit en paralelas',s:'3×15 s',o:''},
+{cat:'cat-core',n:'Good morning',s:'3×10 · 45 kg',o:'LUMBAR. Mantener en sesión de cardio también.'}
 ],cd:''},
-{n:'Jueves',t:'Fuerza · Empuje + Sled pull',p:'strength',c:'#1C8A48',rpe:8,dur:'85 min',
+{n:'Jueves',t:'Fuerza · Empuje + Tracción potencia',p:'strength',c:'#1C8A48',rpe:8,dur:'80 min',
 wu:'Activación hombro + core.',
 ex:[
-{cat:'cat-upper',n:'Press militar',s:'5×4 · 70 % RM',o:''},
-{cat:'cat-upper',n:'Push press',s:'4×4 · 75 % RM',o:''},
-{cat:'cat-upper',n:'Remo en polea · pronación',s:'5×10',o:'Equilibrio escápular tras press.'},
+{cat:'cat-upper',n:'Press militar',s:'5×4 · 70% RM',o:''},
+{cat:'cat-upper',n:'Push press',s:'4×4 · 75% RM',o:''},
+{cat:'cat-upper',n:'Chin-up lastre',s:'4×5 · +5 kg',o:'NUEVO. Agarre supino. Activa más el bíceps y la porción inferior del dorsal. Complementa las dominadas (agarre prono).'},
+{cat:'cat-upper',n:'Remo en polea pronación',s:'4×10',o:''},
 {cat:'cat-upper',n:'Face pulls',s:'4×15',o:''},
-{cat:'cat-lower',n:'Sled pull',s:'6×25 m · 85 kg',o:'Cadena tensa siempre.'},
-{cat:'cat-grip',n:'Towel pull-up',s:'3×max',o:'NUEVO. Dominadas con toalla enrollada en la barra. El ejercicio más duro para el grip funcional.'}
+{cat:'cat-hyrox',n:'Sled pull',s:'6×25 m · 85 kg',o:''},
+{cat:'cat-grip',n:'Towel pull-up',s:'3×max',o:'Grip funcional máximo.'},
+{cat:'cat-core',n:'Bird dog lastrado',s:'3×10 c/l · 4 kg',o:'LUMBAR.'}
 ],cd:'Foam roller + estiramientos hombro.'},
 {n:'Viernes',t:'Carrera tempo + Técnica fatiga',p:'run',c:'#1A6FDB',rpe:7,dur:'75 min',
 wu:'10 min progresivo.',
 ex:[
-{cat:'cat-run',n:'Tempo',s:'25 min · 4:10/km · 182 ppm',o:''},
-{cat:'cat-run',n:'Post-fatiga: 4×200 m',s:'3:50/km · 184 ppm · pausa 60 s',o:'Pace objetivo tras tempo. La cadencia sube ligeramente cuando el pace aumenta.'},
-{cat:'cat-run',n:'Técnica post-fatiga completa',s:'5×30 m drills + bounds',o:'NUEVO. Drills y bounds después de todo. La mecánica debe aguantar.'}
+{cat:'cat-run',n:'Tempo',s:'25 min · 4:10/km · FC 138–149 ppm',o:''},
+{cat:'cat-run',n:'Post-fatiga: 4×200 m',s:'3:50/km · FC 155–165 ppm · pausa 60 s',o:'Pace objetivo tras tempo.'},
+{cat:'cat-run',n:'Técnica bajo fatiga',s:'5×30 m drills + bounds',o:'La mecánica no cambia aunque estés cansado.'}
 ],cd:'8 min Z1 + estiramientos.'},
-{n:'Sábado',t:'HYROX simulacro 85 %',p:'hyrox',c:'#E8570A',rpe:8,dur:'110 min',
+{n:'Sábado',t:'HYROX simulacro 85%',p:'hyrox',c:'#E8570A',rpe:8,dur:'80 min',
 wu:'12 min trote.',
-ex:[
-{cat:'cat-run',n:'HYROX completo al 85 %',s:'8 km · 4:05/km · 180 ppm',o:'Compara con sem 7.'}
-],cd:'10 min Z1 + análisis.'},
-{n:'Domingo',t:'Descanso activo',p:'rest',c:'#A8A79F',rpe:1,dur:'30 min',wu:'',
-ex:[{cat:'',n:'Natación suave',s:'30 min',o:''}],cd:''}
+ex:[{cat:'cat-hyrox',n:'HYROX completo al 85%',s:'8 km · 4:05/km · FC 157–165 ppm',o:'Compara con sem 7. Cronometra todo.'}],cd:'10 min Z1 + análisis.'}
 ]},
+
 10:{phase:2,name:'Sem 10 · Resistencia muscular',col:'#1C8A48',deload:false,
-fc:'Z3–Z4 en intervalos. Z2 en continuas.',
+fc:'Z3–Z4 (131–167 ppm) en intervalos. Z2 (113–130 ppm) en continuas.',
 days:[
-{n:'Lunes',t:'Carrera · Volumen Z2 largo',p:'run',c:'#1A6FDB',rpe:5,dur:'80 min',
+{n:'Lunes',t:'Carrera · Volumen Z2',p:'run',c:'#1A6FDB',rpe:5,dur:'75 min',
 wu:'10 min progresivo.',
-ex:[{cat:'cat-run',n:'Carrera Z2 larga',s:'65 min · 4:50/km · 180 ppm',o:'Metrónomo todo el tiempo. Automatiza la cadencia.'}],cd:''},
-{n:'Martes',t:'Resistencia muscular · Estaciones',p:'hyrox',c:'#E8570A',rpe:7,dur:'90 min',
+ex:[{cat:'cat-run',n:'Carrera Z2 larga',s:'60 min · FC 113–130 ppm',o:'Automatiza el control de FC.'}],cd:''},
+{n:'Martes',t:'Resistencia muscular · Estaciones',p:'hyrox',c:'#E8570A',rpe:7,dur:'80 min',
 wu:'8 min activación.',
 ex:[
-{cat:'cat-run',n:'Wall ball',s:'5×25 · 9 kg · pausa 90 s',o:'25 reps sin parar. Técnica bajo fatiga.'},
-{cat:'cat-run',n:'Burpee over bar',s:'5×15 · pausa 90 s',o:'Cadencia sostenible.'},
-{cat:'cat-run',n:'Sandbag lunges',s:'5×25 m · 20 kg',o:'Sin parar.'},
-{cat:'cat-run',n:'KB swing',s:'4×15 · KB 32 kg',o:'Potencia de cadera.'}
+{cat:'cat-hyrox',n:'Wall ball',s:'5×25 · 9 kg · pausa 90 s',o:'25 reps sin parar. Técnica bajo fatiga.'},
+{cat:'cat-hyrox',n:'Burpee over bar',s:'5×15 · pausa 90 s',o:'Cadencia sostenible. Mismo ritmo 5 series.'},
+{cat:'cat-hyrox',n:'Sandbag lunges',s:'5×25 m · 20 kg',o:'Paso constante. Sin parar.'},
+{cat:'cat-hyrox',n:'KB swing',s:'4×15 · KB 32 kg',o:'Potencia de cadera. No solo brazos.'}
 ],cd:'Foam roller isquios y glúteo.'},
-{n:'Miércoles',t:'Carrera Z2 + Core F2 avanzado',p:'run',c:'#1A6FDB',rpe:4,dur:'70 min',
-wu:'',
-ex:[
-{cat:'cat-run',n:'Drills + bounds',s:'15 min completo',o:'Mantén calidad tras la sesión del martes.'},
-{cat:'cat-run',n:'Carrera Z2',s:'40 min · 4:50/km · 180 ppm',o:''},
-{cat:'cat-core',n:'Ab wheel desde rodillas',s:'4×12',o:''},
-{cat:'cat-core',n:'Stir the pot',s:'3×10 c/d · fitball',o:'NUEVO. En plancha sobre fitball, haz círculos con los codos. Activa el core en todos los planos. Transferencia directa a postura en carrera.'}
+{n:'Miércoles',t:'Carrera Z2 + Core completo',p:'run',c:'#1A6FDB',rpe:4,dur:'65 min',
+wu:'',ex:[
+{cat:'cat-run',n:'Drills técnicos',s:'15 min · A, B, carioca',o:''},
+{cat:'cat-run',n:'Carrera Z2',s:'40 min · FC 113–130 ppm',o:''},
+{cat:'cat-core',n:'Ab wheel + Pallof press',s:'3×12 c/u',o:''},
+{cat:'cat-core',n:'Hiperextensión + 12 kg',s:'3×12',o:'LUMBAR.'},
+{cat:'cat-core',n:'Bird dog lastrado',s:'3×10 c/l · 4 kg',o:''}
 ],cd:'Estiramientos.'},
-{n:'Jueves',t:'Fuerza pierna + Sled máximo',p:'strength',c:'#1C8A48',rpe:9,dur:'90 min',
-wu:'Activación + progresión al 80 %.',
+{n:'Jueves',t:'Fuerza pierna · Carga máxima',p:'strength',c:'#1C8A48',rpe:9,dur:'80 min',
+wu:'Activación + progresión al 80%.',
 ex:[
-{cat:'cat-lower',n:'Sentadilla',s:'5×3 · 90 % RM',o:''},
-{cat:'cat-lower',n:'Peso muerto',s:'5×3 · 90 % RM',o:''},
-{cat:'cat-lower',n:'Sled push',s:'10×20 m · 95 kg',o:''},
-{cat:'cat-lower',n:'Sled pull',s:'6×25 m · 90 kg',o:''},
-{cat:'cat-grip',n:'Dead hang · tiempo objetivo 60 s',s:'3×max',o:'Si llegas a 60 s, añade carga la próxima semana.'}
+{cat:'cat-lower',n:'Sentadilla',s:'5×3 · 90% RM',o:''},
+{cat:'cat-lower',n:'Trap bar deadlift',s:'5×3 · 90% RM',o:''},
+{cat:'cat-lower',n:'Hang power clean',s:'4×4 · 60–65% RM',o:'+carga. Técnica sólida.'},
+{cat:'cat-hyrox',n:'Sled push',s:'10×20 m · 95 kg',o:''},
+{cat:'cat-hyrox',n:'Sled pull',s:'6×25 m · 90 kg',o:''},
+{cat:'cat-grip',n:'Dead hang · objetivo 60 s',s:'3×max',o:''}
 ],cd:'Foam roller completo.'},
-{n:'Viernes',t:'Intervalos Race pace + Técnica',p:'run',c:'#1A6FDB',rpe:8,dur:'75 min',
-wu:'Drills + bounds.',
-ex:[
-{cat:'cat-run',n:'3×2000 m',s:'3:55/km · pausa 3 min · 182 ppm',o:''},
-{cat:'cat-run',n:'Técnica post-fatiga',s:'5×30 m drills + 2×30 m bounds',o:'Mantener mecánica tras esfuerzo máximo.'}
-],cd:'10 min Z1 + estiramientos.'},
-{n:'Sábado',t:'Estaciones + Carrera entrelazada',p:'hyrox',c:'#E8570A',rpe:8,dur:'90 min',
-wu:'10 min trote.',
-ex:[
-{cat:'cat-run',n:'Ski erg 1000 m + 1 km · 3:55/km · 180 ppm',s:'×3 · pausa 2 min',o:''},
-{cat:'cat-run',n:'Remo 1000 m + 1 km · 3:55/km · 180 ppm',s:'×3 · pausa 2 min',o:''}
-],cd:'10 min Z1 + estiramientos.'},
-{n:'Domingo',t:'Descanso activo',p:'rest',c:'#A8A79F',rpe:1,dur:'30 min',wu:'',
-ex:[{cat:'',n:'Piscina o caminar',s:'30 min',o:''}],cd:''}
-]},
-11:{phase:2,name:'Sem 11 · Acumulación alta carga',col:'#1C8A48',deload:false,
-fc:'Z4 en intervalos. Z2 en continuas.',
-days:[
-{n:'Lunes',t:'Tempo largo 40 min',p:'run',c:'#1A6FDB',rpe:7,dur:'80 min',
-wu:'12 min progresivo + cadencia 5 min a 180 ppm.',
-ex:[
-{cat:'cat-run',n:'Tempo largo',s:'40 min · 4:12/km · 182 ppm',o:'Máximo tempo F2. Respiración rítmica. La cadencia no baja de 180.'}
-],cd:'8 min Z1 + estiramientos.'},
-{n:'Martes',t:'Fuerza pierna · Variantes avanzadas',p:'strength',c:'#1C8A48',rpe:8,dur:'90 min',
-wu:'Activación + progresión.',
-ex:[
-{cat:'cat-lower',n:'Sentadilla con pausa',s:'4×4 · 85 % RM · 2 s abajo',o:'Elimina el rebote. Fuerza pura.'},
-{cat:'cat-lower',n:'Peso muerto déficit',s:'4×4 · 80 % RM · +5 cm',o:'Mayor rango.'},
-{cat:'cat-lower',n:'Sled push',s:'10×20 m · 98 kg',o:''},
-{cat:'cat-plyo',n:'Depth jump reactivo',s:'5×5',o:'Mínimo tiempo de contacto. Serie de máxima reactividad.'},
-{cat:'cat-grip',n:'Wrist roller',s:'3×3 bajadas',o:'Ambas direcciones.'},
-{cat:'cat-upper',n:'Face pulls',s:'4×15',o:''}
-],cd:'Foam roller completo.'},
-{n:'Miércoles',t:'Z2 + Core F2 completo',p:'hyrox',c:'#E8570A',rpe:5,dur:'80 min',
-wu:'',
-ex:[
-{cat:'cat-run',n:'Ski erg Z2',s:'20 min',o:''},
-{cat:'cat-run',n:'Wall ball · 100 reps totales',s:'9 kg',o:''},
-{cat:'cat-run',n:'Farmer carry',s:'6×50 m · KB 30 kg c/u',o:''},
-{cat:'cat-core',n:'L-sit en paralelas',s:'3×20–25 s',o:'+5 s vs sem 9.'},
-{cat:'cat-core',n:'Pallof press',s:'4×12 c/l',o:''},
-{cat:'cat-core',n:'Ab wheel desde rodillas',s:'4×14',o:''}
-],cd:''},
-{n:'Jueves',t:'Intervalos · Velocidad máxima',p:'run',c:'#1A6FDB',rpe:9,dur:'70 min',
+{n:'Viernes',t:'Intervalos race pace + Técnica',p:'run',c:'#1A6FDB',rpe:8,dur:'75 min',
 wu:'Drills + bounds + depth jump 3×4.',
 ex:[
-{cat:'cat-run',n:'10×400 m',s:'3:48/km · pausa 75 s · 184 ppm',o:'Por debajo del objetivo. La cadencia sube con el pace.'},
-{cat:'cat-run',n:'Técnica post-fatiga completa',s:'5×30 m',o:'Drills, bounds y skipping. ¿Aguanta la mecánica tras 10 series?'}
+{cat:'cat-run',n:'3×2000 m',s:'3:55/km · pausa 3 min · FC 155–163 ppm',o:''},
+{cat:'cat-run',n:'Hill sprints',s:'6×12 s · cuesta · FC >168 ppm',o:'+1 rep.'},
+{cat:'cat-run',n:'Técnica post-fatiga',s:'5×30 m',o:''}
 ],cd:'10 min Z1 + estiramientos.'},
-{n:'Viernes',t:'Fuerza superior · Carga máxima',p:'strength',c:'#1C8A48',rpe:9,dur:'85 min',
-wu:'',
+{n:'Sábado',t:'Estaciones + Carrera entrelazada',p:'hyrox',c:'#E8570A',rpe:8,dur:'80 min',
+wu:'10 min trote.',
 ex:[
-{cat:'cat-upper',n:'Press banca',s:'5×3 · 88 % RM',o:''},
-{cat:'cat-upper',n:'Dominadas lastre',s:'5×4 · +10 kg',o:''},
-{cat:'cat-upper',n:'Push press',s:'5×3 · 80 % RM',o:''},
-{cat:'cat-upper',n:'Remo en polea · pronación · máx carga',s:'4×8',o:''},
-{cat:'cat-grip',n:'Towel pull-up',s:'3×max',o:''},
-{cat:'cat-lower',n:'Farmer carry sprint',s:'4×30 m · KB 32 kg c/u · velocidad máx',o:''}
-],cd:''},
-{n:'Sábado',t:'HYROX al 90 %',p:'hyrox',c:'#E8570A',rpe:9,dur:'115 min',
-wu:'12 min trote.',
-ex:[
-{cat:'cat-run',n:'HYROX completo al 90 %',s:'8 km · 4:00/km · 180 ppm',o:'Estaciones sin parar.'}
-],cd:'10 min Z1 + análisis.'},
-{n:'Domingo',t:'Descanso activo',p:'rest',c:'#A8A79F',rpe:1,dur:'30 min',wu:'',
-ex:[{cat:'',n:'Natación suave',s:'30 min',o:''}],cd:''}
+{cat:'cat-hyrox',n:'Ski erg 1000 m + 1 km · 3:55/km · FC 155–163 ppm',s:'×3 · pausa 2 min',o:''},
+{cat:'cat-hyrox',n:'Remo 1000 m + 1 km · 3:55/km',s:'×3 · pausa 2 min',o:''}
+],cd:'10 min Z1 + estiramientos.'}
 ]},
-12:{phase:2,name:'Sem 12 · Carga pico fase 2',col:'#1C8A48',deload:false,
-fc:'Z4 en intervalos y últimos km de simulacro.',
+
+11:{phase:2,name:'Sem 11 · Acumulación alta carga',col:'#1C8A48',deload:false,
+fc:'Z4 (150–167 ppm) en intervalos. Z2 (113–130 ppm) en continuas.',
 days:[
-{n:'Lunes',t:'Carrera larga + Calidad final',p:'run',c:'#1A6FDB',rpe:7,dur:'90 min',
+{n:'Lunes',t:'Tempo largo 40 min',p:'run',c:'#1A6FDB',rpe:7,dur:'70 min',
+wu:'12 min progresivo.',
+ex:[{cat:'cat-run',n:'Tempo largo',s:'40 min · 4:12/km · FC 138–149 ppm',o:'La FC no supera 149. Si sube, reduce el pace.'}],cd:'8 min Z1 + estiramientos.'},
+{n:'Martes',t:'Fuerza pierna · Variantes avanzadas',p:'strength',c:'#1C8A48',rpe:8,dur:'80 min',
+wu:'Activación + progresión.',
+ex:[
+{cat:'cat-lower',n:'Sentadilla con pausa',s:'4×4 · 85% RM · 2 s abajo',o:'Elimina el rebote.'},
+{cat:'cat-lower',n:'Trap bar deadlift déficit',s:'4×4 · 80% RM · +5 cm',o:'Mayor rango.'},
+{cat:'cat-lower',n:'Split squat con déficit',s:'3×8 c/p · KB 18 kg c/u',o:'+2 kg. Transferencia máxima a la zancada.'},
+{cat:'cat-hyrox',n:'Sled push',s:'10×20 m · 98 kg',o:''},
+{cat:'cat-plyo',n:'Depth jump reactivo',s:'5×5',o:''},
+{cat:'cat-grip',n:'Wrist roller cargado',s:'3×3 bajadas',o:''},
+{cat:'cat-upper',n:'Face pulls',s:'4×15',o:''},
+{cat:'cat-core',n:'Good morning',s:'3×8 · 50 kg',o:'LUMBAR. Carga máxima hasta ahora.'},
+{cat:'cat-core',n:'Hiperextensión + 15 kg',s:'3×10',o:'LUMBAR.'}
+],cd:'Foam roller completo.'},
+{n:'Miércoles',t:'Z2 + Estaciones + Core F2',p:'hyrox',c:'#E8570A',rpe:5,dur:'75 min',
+wu:'',ex:[
+{cat:'cat-hyrox',n:'Ski erg Z2',s:'18 min',o:''},
+{cat:'cat-hyrox',n:'Wall ball · 100 reps',s:'9 kg',o:''},
+{cat:'cat-grip',n:'Farmer carry',s:'5×50 m · KB 30 kg c/u',o:''},
+{cat:'cat-core',n:'L-sit en paralelas',s:'3×20 s',o:''},
+{cat:'cat-core',n:'Pallof press',s:'4×12 c/l',o:''},
+{cat:'cat-core',n:'Jefferson curl',s:'3×8 · 20 kg',o:'LUMBAR.'}
+],cd:''},
+{n:'Jueves',t:'Intervalos velocidad + Hill sprints',p:'run',c:'#1A6FDB',rpe:9,dur:'75 min',
+wu:'Drills + depth jump 4×4 + bounds.',
+ex:[
+{cat:'cat-run',n:'10×400 m',s:'3:48/km · pausa 75 s · FC 158–167 ppm',o:'Si una serie baja de 3:58: paras.'},
+{cat:'cat-run',n:'Hill sprints',s:'6×15 s · cuesta · FC >168 ppm',o:'+3 s. Recupera 2 min caminando.'},
+{cat:'cat-run',n:'Técnica post-fatiga',s:'5×30 m',o:''}
+],cd:'10 min Z1 + estiramientos.'},
+{n:'Viernes',t:'Fuerza superior · Carga máxima',p:'strength',c:'#1C8A48',rpe:9,dur:'80 min',
+wu:'',ex:[
+{cat:'cat-upper',n:'Press banca',s:'5×3 · 88% RM',o:''},
+{cat:'cat-upper',n:'Dominadas lastre',s:'5×4 · +10 kg',o:''},
+{cat:'cat-upper',n:'Chin-up lastre',s:'4×4 · +8 kg',o:''},
+{cat:'cat-upper',n:'Push press',s:'5×3 · 80% RM',o:''},
+{cat:'cat-upper',n:'Remo Pendlay explosivo',s:'4×5 · 80% RM',o:''},
+{cat:'cat-upper',n:'Face pulls',s:'4×15',o:''},
+{cat:'cat-grip',n:'Towel pull-up',s:'3×max',o:''},
+{cat:'cat-grip',n:'Farmer carry sprint',s:'4×30 m · KB 32 kg c/u · velocidad max',o:''}
+],cd:''},
+{n:'Sábado',t:'HYROX al 90%',p:'hyrox',c:'#E8570A',rpe:9,dur:'80 min',
+wu:'12 min trote.',
+ex:[{cat:'cat-hyrox',n:'HYROX al 90%',s:'8 km · 4:00/km · FC 158–165 ppm',o:'Estaciones sin parar.'}],cd:'10 min Z1 + análisis.'}
+]},
+
+12:{phase:2,name:'Sem 12 · Carga pico fase 2',col:'#1C8A48',deload:false,
+fc:'Z4 (150–167 ppm) en intervalos y últimos km de simulacro.',
+days:[
+{n:'Lunes',t:'Carrera larga + Calidad',p:'run',c:'#1A6FDB',rpe:7,dur:'80 min',
 wu:'12 min progresivo.',
 ex:[
-{cat:'cat-run',n:'Carrera mixta',s:'14 km · km 1–9 Z2 180ppm · km 10–14 a 3:55/km 182ppm',o:'Últimos 5 km al pace objetivo. El punto clave de la sesión.'},
+{cat:'cat-run',n:'Carrera mixta',s:'14 km · km 1–9 Z2 FC113–130 · km 10–14 a 3:55/km FC155–163',o:'Los últimos 5 km al pace objetivo. El punto clave.'},
 {cat:'cat-run',n:'Bounds post-carrera',s:'3×30 m',o:'Técnica bajo fatiga de carrera larga.'}
 ],cd:'8 min Z1 + estiramientos.'},
-{n:'Martes',t:'Fuerza · Carga comp. sled + Core F2',p:'strength',c:'#1C8A48',rpe:9,dur:'95 min',
+{n:'Martes',t:'Fuerza · Carga completa sled + Power Clean',p:'strength',c:'#1C8A48',rpe:9,dur:'80 min',
 wu:'Activación completa.',
 ex:[
-{cat:'cat-lower',n:'Sled push',s:'10×20 m · 102 kg',o:'CARGA DE COMPETICIÓN. Primera vez.'},
-{cat:'cat-lower',n:'Sled pull',s:'8×25 m · 102 kg',o:''},
-{cat:'cat-lower',n:'Sentadilla',s:'4×3 · 90 % RM',o:''},
-{cat:'cat-core',n:'Dragon flag parcial',s:'3×5',o:'NUEVO. Desde banco, baja las piernas con control hasta 45°. Progresión hacia el dragon flag completo. Core máximo.'},
+{cat:'cat-lower',n:'Hang power clean',s:'5×3 · 70% RM',o:'Carga aumenta. Técnica impecable en cada rep.'},
+{cat:'cat-hyrox',n:'Sled push',s:'10×20 m · 102 kg',o:'CARGA DE COMPETICIÓN por primera vez.'},
+{cat:'cat-hyrox',n:'Sled pull',s:'8×25 m · 102 kg',o:''},
+{cat:'cat-lower',n:'Sentadilla',s:'4×3 · 90% RM',o:''},
+{cat:'cat-core',n:'Dragon flag parcial',s:'3×5',o:'Baja hasta 45°. El ejercicio de core más avanzado hasta ahora.'},
+{cat:'cat-core',n:'Good morning',s:'3×8 · 55 kg',o:'LUMBAR. Carga progresiva.'},
 {cat:'cat-grip',n:'Wrist roller',s:'3×3 bajadas',o:''}
 ],cd:'Foam roller 10 min.'},
-{n:'Miércoles',t:'Cardio Z2 · Recovery',p:'cardio',c:'#0E7EC2',rpe:3,dur:'65 min',wu:'',
-ex:[{cat:'cat-run',n:'Remo o bici Z2',s:'55 min · máx 150 ppm',o:''}],cd:''},
-{n:'Jueves',t:'Estaciones · Máx carga y volumen',p:'hyrox',c:'#E8570A',rpe:9,dur:'90 min',
+{n:'Miércoles',t:'Cardio Z2 · Recovery',p:'cardio',c:'#0E7EC2',rpe:3,dur:'55 min',
+wu:'',ex:[{cat:'cat-run',n:'Remo o bici Z2',s:'45 min · FC 113–125 ppm',o:''}],cd:''},
+{n:'Jueves',t:'Estaciones · Máx carga + Transiciones',p:'hyrox',c:'#E8570A',rpe:9,dur:'80 min',
 wu:'8 min activación.',
 ex:[
-{cat:'cat-run',n:'Wall ball',s:'4×25 sin pausa · 9 kg',o:'100 reps totales.'},
-{cat:'cat-run',n:'Burpee over bar',s:'4×20',o:'80 reps totales.'},
-{cat:'cat-run',n:'Sandbag lunges',s:'4×25 m · 20 kg',o:'100 m totales.'},
-{cat:'cat-run',n:'Farmer carry',s:'4×50 m · KB 32 kg c/u',o:'200 m. Carga competición.'}
+{cat:'cat-hyrox',n:'Wall ball',s:'4×25 sin pausa · 9 kg',o:'100 reps totales.'},
+{cat:'cat-hyrox',n:'Burpee over bar',s:'4×20',o:'80 reps totales.'},
+{cat:'cat-hyrox',n:'Sandbag lunges',s:'4×25 m · 20 kg',o:''},
+{cat:'cat-hyrox',n:'Farmer carry',s:'4×50 m · KB 32 kg c/u',o:'200 m. Carga competición.'},
+{cat:'cat-run',n:'Práctica transiciones',s:'5×(200 m + cambio estación)',o:'<10 s de transición.'}
 ],cd:'Foam roller + estiramientos.'},
-{n:'Viernes',t:'Intervalos · Sub race pace + Técnica',p:'run',c:'#1A6FDB',rpe:9,dur:'75 min',
+{n:'Viernes',t:'Intervalos sub race pace',p:'run',c:'#1A6FDB',rpe:9,dur:'75 min',
 wu:'Drills + bounds + depth jump.',
 ex:[
-{cat:'cat-run',n:'6×1000 m',s:'3:50/km · pausa 2 min · 182 ppm',o:'Serie 6 = serie 1.'},
-{cat:'cat-run',n:'Técnica post-fatiga completa',s:'6×30 m',o:'Drills A, B, bounds, skipping alto.'}
+{cat:'cat-run',n:'6×1000 m',s:'3:50/km · pausa 2 min · FC 158–165 ppm',o:'Serie 6 = serie 1.'},
+{cat:'cat-run',n:'Hill sprints',s:'6×15 s · FC >168 ppm',o:''},
+{cat:'cat-run',n:'Técnica post-fatiga',s:'5×30 m',o:''}
 ],cd:'10 min Z1 + estiramientos.'},
-{n:'Sábado',t:'HYROX al 95 % · Race pace',p:'hyrox',c:'#E8570A',rpe:9,dur:'115 min',
+{n:'Sábado',t:'HYROX al 95%',p:'hyrox',c:'#E8570A',rpe:9,dur:'80 min',
 wu:'12 min trote.',
-ex:[
-{cat:'cat-run',n:'HYROX completo al 95 %',s:'8 km · 3:55/km · 180 ppm',o:'Sub-90 min objetivo.'}
-],cd:'10 min Z1 + análisis.'},
-{n:'Domingo',t:'Descanso activo',p:'rest',c:'#A8A79F',rpe:1,dur:'30 min',wu:'',
-ex:[{cat:'',n:'Caminar + análisis puntos débiles',s:'30 min',o:''}],cd:''}
+ex:[{cat:'cat-hyrox',n:'HYROX al 95%',s:'8 km · 3:55/km · FC 160–167 ppm',o:'Sub-90 min objetivo.'}],cd:'10 min Z1 + análisis.'}
 ]},
+
 13:{phase:2,name:'Sem 13 · DELOAD ⚡',col:'#7C3AED',deload:true,
-fc:'Todo Z1–Z2. Consolida 5 semanas de carga máxima.',
+fc:'Todo Z1–Z2 (113–130 ppm). Consolida 5 semanas de carga máxima.',
 days:[
-{n:'Lunes',t:'Carrera Z2 corta',p:'run',c:'#1A6FDB',rpe:3,dur:'40 min',wu:'',
-ex:[{cat:'cat-run',n:'Carrera Z2',s:'28 min · 5:10/km · 178 ppm',o:'DELOAD.'}],cd:''},
-{n:'Martes',t:'Fuerza deload',p:'strength',c:'#1C8A48',rpe:4,dur:'55 min',wu:'',
-ex:[
-{cat:'cat-lower',n:'Sled push técnico',s:'4×20 m · 60 kg',o:'Solo mecánica.'},
-{cat:'cat-lower',n:'Sentadilla',s:'3×5 · 70 % RM',o:''},
-{cat:'cat-upper',n:'Remo polea + Face pulls',s:'3×12 c/u',o:'Mantenimiento escapular.'},
+{n:'Lunes',t:'Carrera Z2 corta',p:'run',c:'#1A6FDB',rpe:3,dur:'40 min',
+wu:'',ex:[{cat:'cat-run',n:'Carrera Z2',s:'28 min · FC 113–125 ppm',o:'DELOAD.'}],cd:''},
+{n:'Martes',t:'Fuerza deload',p:'strength',c:'#1C8A48',rpe:4,dur:'55 min',
+wu:'',ex:[
+{cat:'cat-hyrox',n:'Sled push técnico',s:'4×20 m · 60 kg',o:'Solo mecánica.'},
+{cat:'cat-lower',n:'Sentadilla + Trap bar',s:'3×5 c/u · 70% RM',o:''},
+{cat:'cat-upper',n:'Face pulls + Remo polea',s:'3×12 c/u',o:''},
+{cat:'cat-core',n:'Bird dog + Back extension',s:'3×10 c/u',o:'LUMBAR. Mantenimiento.'},
 {cat:'cat-grip',n:'Dead hang suave',s:'3×30 s',o:''}
 ],cd:''},
-{n:'Miércoles',t:'Movilidad completa',p:'rest',c:'#A8A79F',rpe:2,dur:'40 min',wu:'',
-ex:[{cat:'',n:'Movilidad global',s:'40 min',o:''}],cd:''},
-{n:'Jueves',t:'Trote suave + Drills ligeros',p:'run',c:'#1A6FDB',rpe:3,dur:'40 min',wu:'',
-ex:[
-{cat:'cat-run',n:'Drills básicos ligeros',s:'10 min',o:''},
-{cat:'cat-cadence',n:'Trote Z1 · metrónomo 180',s:'25 min',o:''}
+{n:'Miércoles',t:'Movilidad completa',p:'rest',c:'#A8A79F',rpe:2,dur:'40 min',
+wu:'',ex:[{cat:'',n:'Movilidad global',s:'40 min',o:''}],cd:''},
+{n:'Jueves',t:'Trote suave + FC zonas',p:'run',c:'#1A6FDB',rpe:3,dur:'40 min',
+wu:'',ex:[{cat:'cat-run',n:'Trote Z1–Z2',s:'28 min · FC máx 128 ppm',o:''}],cd:''},
+{n:'Viernes',t:'Fuerza ligera',p:'strength',c:'#1C8A48',rpe:4,dur:'45 min',
+wu:'',ex:[
+{cat:'cat-upper',n:'Fuerza superior ligera',s:'3×8 · 65% RM',o:''},
+{cat:'cat-core',n:'Jefferson curl',s:'3×8 · barra vacía',o:''}
 ],cd:''},
-{n:'Viernes',t:'Fuerza ligera',p:'strength',c:'#1C8A48',rpe:4,dur:'45 min',wu:'',
-ex:[{cat:'cat-upper',n:'Fuerza superior ligera',s:'3×8 · 65 % RM',o:''}],cd:''},
-{n:'Sábado',t:'Mini-HYROX suave',p:'hyrox',c:'#E8570A',rpe:4,dur:'50 min',wu:'',
-ex:[{cat:'cat-run',n:'4 km + 4 estaciones suaves',s:'pace 4:40/km',o:''}],cd:''},
-{n:'Domingo',t:'Descanso total',p:'rest',c:'#A8A79F',rpe:0,dur:'Libre',wu:'',
-ex:[{cat:'',n:'Descanso completo',s:'',o:''}],cd:''}
+{n:'Sábado',t:'Mini-HYROX suave',p:'hyrox',c:'#E8570A',rpe:4,dur:'50 min',
+wu:'',ex:[{cat:'cat-hyrox',n:'4 km + 4 estaciones suaves',s:'FC 130–145 ppm',o:''}],cd:''}
 ]},
+
 14:{phase:3,name:'Sem 14 · Inicio F3 · Test 1',col:'#E8570A',deload:false,
-fc:'Z4 en intervalos. Z5 en últimos 200 m de sprints. 182 ppm en todo.',
+fc:'Z4 (150–167 ppm) en intervalos. Z5 (168–186 ppm) en hill sprints y últimos 200 m.',
 days:[
-{n:'Lunes',t:'Carrera Z2 + Core F3 intro',p:'run',c:'#1A6FDB',rpe:6,dur:'85 min',
-wu:'10 min + cadencia 5 min 182 ppm.',
+{n:'Lunes',t:'Carrera Z2 + Core F3',p:'run',c:'#1A6FDB',rpe:6,dur:'75 min',
+wu:'10 min progresivo.',
 ex:[
-{cat:'cat-run',n:'Carrera Z2',s:'50 min · 4:45/km · 180 ppm',o:'Pace Z2 mejorado: ya no es 5:10.'},
-{cat:'cat-run',n:'Striders',s:'6×100 m · 95 % · 184 ppm',o:''},
-{cat:'cat-core',n:'Ab wheel desde pie · parcial',s:'3×5',o:'NUEVO F3. Desde de pie, baja la rueda hasta donde puedas controlar. La progresión más exigente del ab wheel.'},
-{cat:'cat-core',n:'Dragon flag parcial',s:'3×6',o:'+1 rep vs sem 12.'}
+{cat:'cat-run',n:'Carrera Z2',s:'50 min · FC 113–130 ppm',o:'Pace Z2 ahora es 4:45, no 5:10. Fases 1 y 2 funcionando.'},
+{cat:'cat-run',n:'Striders',s:'6×100 m · 95% · FC 158–167 ppm',o:''},
+{cat:'cat-core',n:'Ab wheel desde pie · parcial',s:'3×5',o:'La progresión más exigente. Desde pie, baja hasta donde controles.'},
+{cat:'cat-core',n:'Dragon flag parcial',s:'3×6',o:'+1 rep.'},
+{cat:'cat-core',n:'Hiperextensión + 15 kg',s:'3×12',o:'LUMBAR.'},
+{cat:'cat-core',n:'Good morning',s:'3×8 · 55 kg',o:'LUMBAR.'}
 ],cd:'Estiramientos.'},
-{n:'Martes',t:'Fuerza · Máxima F3',p:'strength',c:'#1C8A48',rpe:9,dur:'95 min',
+{n:'Martes',t:'Fuerza · Máxima F3 + Power Clean',p:'strength',c:'#1C8A48',rpe:9,dur:'80 min',
 wu:'Activación completa.',
 ex:[
-{cat:'cat-lower',n:'Sentadilla con barra',s:'6×2 · 93 % RM',o:'4 min descanso. Máxima explosividad.'},
-{cat:'cat-lower',n:'Peso muerto',s:'5×2 · 93 % RM',o:''},
-{cat:'cat-lower',n:'Sled push',s:'12×20 m · 102 kg',o:''},
-{cat:'cat-lower',n:'Sled pull',s:'8×25 m · 102 kg',o:''},
+{cat:'cat-lower',n:'Power clean',s:'5×3 · 65–70% RM',o:'NUEVO F3. Desde el suelo. Movimiento completo. Máxima transferencia a la explosividad general del HYROX.'},
+{cat:'cat-lower',n:'Sentadilla',s:'6×2 · 93% RM',o:'4 min descanso.'},
+{cat:'cat-lower',n:'Trap bar deadlift',s:'5×2 · 93% RM',o:''},
+{cat:'cat-hyrox',n:'Sled push',s:'12×20 m · 102 kg',o:''},
+{cat:'cat-hyrox',n:'Sled pull',s:'8×25 m · 102 kg',o:''},
 {cat:'cat-grip',n:'Towel pull-up',s:'4×max',o:''},
 {cat:'cat-upper',n:'Face pulls',s:'4×15',o:''}
 ],cd:'Foam roller 12 min.'},
-{n:'Miércoles',t:'Estaciones · Puntos débiles',p:'hyrox',c:'#E8570A',rpe:7,dur:'85 min',
+{n:'Miércoles',t:'Estaciones · Puntos débiles',p:'hyrox',c:'#E8570A',rpe:7,dur:'75 min',
 wu:'8 min activación.',
 ex:[
-{cat:'cat-run',n:'Estación débil 1 · doble volumen',s:'3 series al ritmo comp',o:'Basado en análisis sem 12.'},
-{cat:'cat-run',n:'Estación débil 2 · doble volumen',s:'3 series',o:''},
-{cat:'cat-run',n:'Ski erg',s:'4×1000 m · pausa 3 min',o:''},
-{cat:'cat-run',n:'Transición carrera→estación',s:'5×(200 m carrera + estación x5 reps)',o:'NUEVO. Práctica específica de transiciones. El tiempo entre carrera y estación cuenta.'}
+{cat:'cat-hyrox',n:'Estación débil 1 · doble volumen',s:'3 series al ritmo comp',o:''},
+{cat:'cat-hyrox',n:'Estación débil 2 · doble volumen',s:'3 series',o:''},
+{cat:'cat-hyrox',n:'Ski erg',s:'4×1000 m · pausa 3 min',o:''},
+{cat:'cat-run',n:'Transiciones',s:'5×(200 m + cambio estación)',o:'<10 s.'}
 ],cd:''},
-{n:'Jueves',t:'Intervalos velocidad + Plyo avanzada',p:'run',c:'#1A6FDB',rpe:9,dur:'75 min',
+{n:'Jueves',t:'Intervalos velocidad + Hill sprints',p:'run',c:'#1A6FDB',rpe:9,dur:'75 min',
 wu:'Drills + depth jump 4×5 + bounds.',
 ex:[
-{cat:'cat-run',n:'12×400 m',s:'3:45/km · pausa 75 s · 184 ppm',o:'Si una serie baja de 3:55: fin de sesión.'},
-{cat:'cat-run',n:'Técnica post-fatiga completa',s:'6×30 m',o:'Drills, bounds, skipping.'}
+{cat:'cat-run',n:'12×400 m',s:'3:45/km · pausa 75 s · FC 160–167 ppm',o:'Si una serie supera 167 ppm o baja de 3:55: paras.'},
+{cat:'cat-run',n:'Hill sprints',s:'6×15 s · FC >170 ppm',o:'Máxima potencia.'},
+{cat:'cat-run',n:'Técnica post-fatiga',s:'6×30 m',o:''}
 ],cd:'10 min Z1.'},
-{n:'Viernes',t:'Fuerza superior + Core F3',p:'strength',c:'#1C8A48',rpe:8,dur:'85 min',
-wu:'',
-ex:[
-{cat:'cat-upper',n:'Press banca',s:'5×4 · 88 % RM',o:''},
+{n:'Viernes',t:'Fuerza superior + Core F3',p:'strength',c:'#1C8A48',rpe:8,dur:'75 min',
+wu:'',ex:[
+{cat:'cat-upper',n:'Press banca',s:'5×4 · 88% RM',o:''},
 {cat:'cat-upper',n:'Dominadas lastre',s:'5×5 · +12 kg',o:''},
-{cat:'cat-upper',n:'Remo explosivo',s:'4×5 · 82 % RM',o:''},
-{cat:'cat-upper',n:'Remo en polea · pronación',s:'4×10 · máx',o:''},
-{cat:'cat-core',n:'Stir the pot',s:'4×12 c/d',o:''},
-{cat:'cat-grip',n:'Farmer carry · pace race',s:'6×40 m · KB 32 kg c/u · velocidad máx',o:''}
+{cat:'cat-upper',n:'Chin-up lastre',s:'4×5 · +10 kg',o:''},
+{cat:'cat-upper',n:'Remo Pendlay explosivo',s:'4×5 · 82% RM',o:''},
+{cat:'cat-upper',n:'Face pulls',s:'4×15',o:''},
+{cat:'cat-core',n:'Stir the pot',s:'4×12 c/d · fitball',o:'Core en todos los planos.'},
+{cat:'cat-core',n:'Jefferson curl',s:'3×8 · 25 kg',o:'LUMBAR.'},
+{cat:'cat-grip',n:'Farmer carry · pace race',s:'6×40 m · KB 32 kg c/u · velocidad max',o:''}
 ],cd:''},
-{n:'Sábado',t:'HYROX 100 % · Test 1',p:'hyrox',c:'#E8570A',rpe:10,dur:'~90 min',
+{n:'Sábado',t:'HYROX 100% · Test 1',p:'hyrox',c:'#E8570A',rpe:10,dur:'~80 min',
 wu:'12 min trote + activación.',
-ex:[
-{cat:'cat-run',n:'HYROX completo al 100 %',s:'8 km · objetivo 3:52/km · 180 ppm',o:'Primer test al máximo. Sub-88 min. Km 1 a 4:00, luego progresivo.'}
-],cd:'10 min Z1 + análisis completo.'},
-{n:'Domingo',t:'Descanso total',p:'rest',c:'#A8A79F',rpe:0,dur:'Libre',wu:'',
-ex:[{cat:'',n:'Descanso completo',s:'',o:''}],cd:''}
+ex:[{cat:'cat-hyrox',n:'HYROX al 100%',s:'8 km · objetivo 3:52/km · FC 160–167 ppm',o:'Primer test al máximo. Sub-88 min. Km 1 a 4:00.'}],cd:'10 min Z1 + análisis.'}
 ]},
+
 15:{phase:3,name:'Sem 15 · Especificidad máxima',col:'#E8570A',deload:false,
-fc:'Máximo en días duros. Z2 en recovery.',
+fc:'Z4–Z5 (150–186 ppm) días duros. Z2 (113–130 ppm) recovery.',
 days:[
 {n:'Lunes',t:'Recovery + Core F3',p:'run',c:'#1A6FDB',rpe:4,dur:'60 min',
-wu:'',
-ex:[
-{cat:'cat-run',n:'Carrera Z2 recovery',s:'40 min · 5:00/km · 178 ppm',o:''},
-{cat:'cat-core',n:'Ab wheel desde pie · parcial',s:'3×6',o:'+1 rep vs sem 14.'},
-{cat:'cat-core',n:'Dragon flag parcial',s:'3×7',o:''}
+wu:'',ex:[
+{cat:'cat-run',n:'Carrera Z2 recovery',s:'38 min · FC 113–125 ppm',o:''},
+{cat:'cat-core',n:'Ab wheel desde pie · parcial',s:'3×6',o:'+1 rep.'},
+{cat:'cat-core',n:'Dragon flag parcial',s:'3×7',o:''},
+{cat:'cat-core',n:'Hiperextensión + 15 kg',s:'3×12',o:'LUMBAR.'}
 ],cd:''},
-{n:'Martes',t:'Fuerza · Potencia específica',p:'strength',c:'#1C8A48',rpe:9,dur:'90 min',
-wu:'',
-ex:[
-{cat:'cat-lower',n:'Sled push · velocidad',s:'10×20 m · 102 kg · max velocidad',o:''},
-{cat:'cat-plyo',n:'Sentadilla jump lastrada',s:'4×5 · 30 % RM',o:''},
-{cat:'cat-plyo',n:'Depth jump + salto vertical',s:'4×5',o:'Depth jump seguido inmediatamente de salto vertical máximo.'},
+{n:'Martes',t:'Fuerza · Potencia + Power Clean',p:'strength',c:'#1C8A48',rpe:9,dur:'80 min',
+wu:'',ex:[
+{cat:'cat-lower',n:'Power clean',s:'5×3 · 70% RM',o:'+5% carga. Técnica sólida.'},
+{cat:'cat-hyrox',n:'Sled push · velocidad máx',s:'10×20 m · 102 kg',o:'No volumen, velocidad.'},
+{cat:'cat-plyo',n:'Sentadilla jump lastrada',s:'4×5 · 30% RM',o:''},
+{cat:'cat-plyo',n:'Depth jump + salto vertical',s:'4×5',o:'Contacto mínimo + salto inmediato.'},
 {cat:'cat-lower',n:'Hip thrust explosivo',s:'5×8 · 95 kg',o:''},
-{cat:'cat-lower',n:'Sled pull · velocidad',s:'8×20 m · 102 kg',o:''},
-{cat:'cat-grip',n:'Wrist roller · carga añadida',s:'3×3 bajadas',o:''}
+{cat:'cat-hyrox',n:'Sled pull · velocidad',s:'8×20 m · 102 kg',o:''},
+{cat:'cat-core',n:'Good morning',s:'3×8 · 55 kg',o:'LUMBAR. Mantenimiento fase 3.'},
+{cat:'cat-grip',n:'Wrist roller cargado',s:'3×3 bajadas',o:''}
 ],cd:'Foam roller.'},
-{n:'Miércoles',t:'Carrera Z2 + Remo 5000 m',p:'cardio',c:'#0E7EC2',rpe:5,dur:'80 min',
-wu:'',
-ex:[
-{cat:'cat-run',n:'Carrera Z2',s:'30 min · 4:45/km · 180 ppm',o:''},
-{cat:'cat-run',n:'Remo · 5000 m constante',s:'pace sostenible',o:''}
+{n:'Miércoles',t:'Carrera Z2 + Remo 5000 m',p:'cardio',c:'#0E7EC2',rpe:5,dur:'70 min',
+wu:'',ex:[
+{cat:'cat-run',n:'Carrera Z2',s:'28 min · FC 113–130 ppm',o:''},
+{cat:'cat-hyrox',n:'Remo · 5000 m constante',s:'pace sostenible · sin parar',o:''}
 ],cd:''},
-{n:'Jueves',t:'Intervalos 2000 m + Técnica postura',p:'run',c:'#1A6FDB',rpe:9,dur:'80 min',
+{n:'Jueves',t:'Intervalos 2000 m + Postura bajo carga',p:'run',c:'#1A6FDB',rpe:9,dur:'75 min',
 wu:'Drills + bounds + depth jump.',
 ex:[
-{cat:'cat-run',n:'4×2000 m',s:'3:50/km · pausa 3 min · 182 ppm',o:'La 4.ª = la 1.ª.'},
-{cat:'cat-run',n:'Técnica postura bajo carga',s:'3×(200 m farmer carry + 200 m carrera)',o:'NUEVO. Farmer carry seguido inmediatamente de carrera. Aprende a recomponer la postura de carrera tras el carry.'}
-],cd:'10 min Z1 + estiramientos.'},
-{n:'Viernes',t:'Estaciones · Todo completo',p:'hyrox',c:'#E8570A',rpe:9,dur:'90 min',
+{cat:'cat-run',n:'4×2000 m',s:'3:50/km · pausa 3 min · FC 158–165 ppm',o:'La 4.ª = la 1.ª.'},
+{cat:'cat-run',n:'Hill sprints',s:'7×15 s · FC >170 ppm',o:'+1 rep.'},
+{cat:'cat-run',n:'Postura bajo carga',s:'3×(200 m farmer carry KB32 + 200 m carrera)',o:'Recompón la postura de carrera tras el carry.'}
+],cd:'10 min Z1.'},
+{n:'Viernes',t:'Estaciones · Todo completo',p:'hyrox',c:'#E8570A',rpe:9,dur:'75 min',
 wu:'10 min trote.',
 ex:[
-{cat:'cat-run',n:'Wall ball · 100 reps seguidas',s:'9 kg',o:''},
-{cat:'cat-run',n:'Burpee over bar · 80 reps',s:'tu cadencia',o:''},
-{cat:'cat-run',n:'Sandbag lunges · 100 m',s:'20 kg',o:''},
-{cat:'cat-run',n:'Farmer carry · 200 m',s:'KB 32 kg c/u',o:''}
+{cat:'cat-hyrox',n:'Wall ball · 100 reps seguidas',s:'9 kg',o:''},
+{cat:'cat-hyrox',n:'Burpee over bar · 80 reps',s:'tu cadencia',o:''},
+{cat:'cat-hyrox',n:'Sandbag lunges · 100 m',s:'20 kg',o:''},
+{cat:'cat-grip',n:'Farmer carry · 200 m',s:'KB 32 kg c/u',o:''}
 ],cd:'Foam roller + estiramientos.'},
-{n:'Sábado',t:'Carrera larga · Máximo volumen',p:'run',c:'#1A6FDB',rpe:7,dur:'95 min',
+{n:'Sábado',t:'Carrera larga · Máximo volumen',p:'run',c:'#1A6FDB',rpe:7,dur:'80 min',
 wu:'10 min progresivo.',
-ex:[
-{cat:'cat-run',n:'Carrera mixta',s:'16 km · km 1–10 Z2 180ppm · km 11–16 a 3:50/km 182ppm',o:'Test de geles. Test de cadencia bajo fatiga prolongada.'}
-],cd:'8 min Z1 + estiramientos.'},
-{n:'Domingo',t:'Descanso activo',p:'rest',c:'#A8A79F',rpe:1,dur:'30 min',wu:'',
-ex:[{cat:'',n:'Caminar o nadar',s:'30 min',o:''}],cd:''}
+ex:[{cat:'cat-run',n:'Carrera mixta',s:'15 km · km 1–9 Z2 FC113–130 · km 10–15 a 3:50/km FC158–165',o:'Test de geles en carrera.'}],cd:'8 min Z1.'}
 ]},
+
 16:{phase:3,name:'Sem 16 · Pico máximo · Test final',col:'#E8570A',deload:false,
-fc:'La semana más exigente. Z4–Z5 días duros.',
+fc:'La semana más exigente. Z4–Z5 (150–186 ppm) días duros.',
 days:[
-{n:'Lunes',t:'Tempo máximo',p:'run',c:'#1A6FDB',rpe:8,dur:'75 min',
+{n:'Lunes',t:'Tempo máximo',p:'run',c:'#1A6FDB',rpe:8,dur:'70 min',
 wu:'12 min progresivo.',
 ex:[
-{cat:'cat-run',n:'Tempo máximo',s:'30 min · 4:02/km · 182 ppm',o:'El tempo más rápido del programa.'},
-{cat:'cat-run',n:'Bounds post-tempo',s:'3×30 m',o:'Técnica bajo fatiga de tempo.'}
+{cat:'cat-run',n:'Tempo máximo',s:'30 min · 4:02/km · FC 140–149 ppm',o:'El tempo más rápido del plan.'},
+{cat:'cat-run',n:'Hill sprints',s:'4×15 s · FC >170 ppm',o:'Tapering empieza pronto, aprovecha.'},
+{cat:'cat-run',n:'Bounds post-tempo',s:'3×30 m',o:''}
 ],cd:'8 min Z1.'},
-{n:'Martes',t:'Fuerza · Mantenimiento + Sled vol',p:'strength',c:'#1C8A48',rpe:8,dur:'90 min',
-wu:'',
-ex:[
-{cat:'cat-lower',n:'Sentadilla',s:'4×3 · 90 % RM',o:''},
-{cat:'cat-lower',n:'Peso muerto',s:'4×3 · 90 % RM',o:''},
-{cat:'cat-lower',n:'Sled push',s:'12×20 m · 102 kg',o:''},
-{cat:'cat-lower',n:'Sled pull',s:'10×20 m · 102 kg',o:''},
-{cat:'cat-core',n:'Dragon flag completo',s:'3×3–5',o:'NUEVO. Dragon flag completo si hay progresión suficiente. El ejercicio de core más avanzado del plan.'},
+{n:'Martes',t:'Fuerza · Mantenimiento + Power Clean',p:'strength',c:'#1C8A48',rpe:8,dur:'80 min',
+wu:'',ex:[
+{cat:'cat-lower',n:'Power clean',s:'5×3 · 72% RM',o:'+2%. Máxima potencia.'},
+{cat:'cat-lower',n:'Sentadilla',s:'4×3 · 90% RM',o:''},
+{cat:'cat-lower',n:'Trap bar deadlift',s:'4×3 · 90% RM',o:''},
+{cat:'cat-hyrox',n:'Sled push',s:'12×20 m · 102 kg',o:''},
+{cat:'cat-hyrox',n:'Sled pull',s:'10×20 m · 102 kg',o:''},
+{cat:'cat-core',n:'Dragon flag completo',s:'3×3–5',o:'El ejercicio de core más avanzado del plan.'},
+{cat:'cat-core',n:'Hiperextensión + 17 kg',s:'3×10',o:'LUMBAR. Máxima carga del plan.'},
 {cat:'cat-upper',n:'Face pulls',s:'4×15',o:''}
 ],cd:'Foam roller.'},
-{n:'Miércoles',t:'Z2 recovery',p:'cardio',c:'#0E7EC2',rpe:3,dur:'60 min',wu:'',
-ex:[{cat:'cat-run',n:'Bici o remo Z2',s:'50 min · máx 148 ppm',o:''}],cd:''},
-{n:'Jueves',t:'Intervalos · Volumen máximo',p:'run',c:'#1A6FDB',rpe:9,dur:'85 min',
+{n:'Miércoles',t:'Z2 recovery',p:'cardio',c:'#0E7EC2',rpe:3,dur:'55 min',
+wu:'',ex:[{cat:'cat-run',n:'Bici o remo Z2',s:'45 min · FC 113–125 ppm',o:''}],cd:''},
+{n:'Jueves',t:'Intervalos · Volumen máximo',p:'run',c:'#1A6FDB',rpe:9,dur:'75 min',
 wu:'Drills + bounds + depth jump.',
 ex:[
-{cat:'cat-run',n:'3×3000 m',s:'3:50/km · pausa 4 min · 182 ppm',o:'9 km al pace objetivo. Volumen máximo.'},
-{cat:'cat-run',n:'Técnica post-fatiga completa',s:'6×30 m',o:'Drills, bounds, skipping, carioca.'}
+{cat:'cat-run',n:'3×3000 m',s:'3:50/km · pausa 4 min · FC 158–165 ppm',o:'9 km al pace objetivo.'},
+{cat:'cat-run',n:'Hill sprints',s:'5×15 s · FC >170 ppm',o:''},
+{cat:'cat-run',n:'Técnica post-fatiga',s:'6×30 m',o:''}
 ],cd:'10 min Z1.'},
-{n:'Viernes',t:'Estaciones débiles + Core F3 máx',p:'hyrox',c:'#E8570A',rpe:9,dur:'95 min',
-wu:'',
-ex:[
-{cat:'cat-run',n:'Punto débil 1 · triple volumen',s:'3 series · máx esfuerzo',o:''},
-{cat:'cat-run',n:'Punto débil 2 · triple volumen',s:'3 series',o:''},
-{cat:'cat-run',n:'Transiciones · 8×(200 m + estación)',s:'5 reps cada estación',o:''},
-{cat:'cat-core',n:'Ab wheel desde pie · parcial avanzado',s:'3×8',o:''},
-{cat:'cat-grip',n:'Farmer carry sprint',s:'5×50 m · 32 kg c/u',o:''}
+{n:'Viernes',t:'Estaciones + Transiciones + Core',p:'hyrox',c:'#E8570A',rpe:9,dur:'75 min',
+wu:'',ex:[
+{cat:'cat-hyrox',n:'Punto débil 1 · triple volumen',s:'3 series · máx esfuerzo',o:''},
+{cat:'cat-hyrox',n:'Punto débil 2 · triple volumen',s:'3 series',o:''},
+{cat:'cat-run',n:'Transiciones · 8 repeticiones',s:'200 m + cambio estación',o:''},
+{cat:'cat-core',n:'Ab wheel desde pie + Dragon flag',s:'3×8 + 3×5',o:''},
+{cat:'cat-grip',n:'Farmer carry sprint',s:'5×50 m · 32 kg c/u',o:''},
+{cat:'cat-core',n:'Good morning + Back extension',s:'3×8 c/u',o:'LUMBAR. Mantenimiento.'}
 ],cd:''},
-{n:'Sábado',t:'HYROX 100 % · TEST FINAL',p:'hyrox',c:'#E8570A',rpe:10,dur:'~85 min',
+{n:'Sábado',t:'HYROX 100% · TEST FINAL',p:'hyrox',c:'#E8570A',rpe:10,dur:'~80 min',
 wu:'12 min trote + activación.',
-ex:[
-{cat:'cat-run',n:'HYROX completo al 100 %',s:'8 km · objetivo 3:50/km · 180 ppm',o:'EL simulacro más importante. Sub-85 min. Registra TODO. Km 1 a 4:00, luego progresivo.'}
-],cd:'10 min Z1 + análisis completo.'},
-{n:'Domingo',t:'Descanso total',p:'rest',c:'#A8A79F',rpe:0,dur:'Libre',wu:'',
-ex:[{cat:'',n:'Descanso absoluto',s:'',o:'La semana más dura del programa.'}],cd:''}
+ex:[{cat:'cat-hyrox',n:'HYROX al 100% · TEST FINAL',s:'8 km · objetivo 3:50/km · FC 160–167 ppm',o:'Sub-85 min. Km 1 a 4:00. Registra TODO.'}],cd:'10 min Z1 + análisis completo.'}
 ]},
+
 17:{phase:3,name:'Sem 17 · DELOAD ⚡ + Ajustes',col:'#7C3AED',deload:true,
-fc:'Z1–Z2 toda la semana.',
+fc:'Z1–Z2 (93–130 ppm) toda la semana.',
 days:[
-{n:'Lunes',t:'Carrera Z2 reducida',p:'run',c:'#1A6FDB',rpe:3,dur:'40 min',wu:'',
-ex:[{cat:'cat-run',n:'Carrera Z2',s:'28 min · 5:00/km · 178 ppm',o:'DELOAD.'}],cd:''},
-{n:'Martes',t:'Fuerza deload + Técnica',p:'strength',c:'#1C8A48',rpe:4,dur:'55 min',wu:'',
-ex:[
-{cat:'cat-lower',n:'Sled push técnico',s:'5×20 m · 60 kg',o:''},
+{n:'Lunes',t:'Carrera Z2 reducida',p:'run',c:'#1A6FDB',rpe:3,dur:'40 min',
+wu:'',ex:[{cat:'cat-run',n:'Carrera Z2',s:'28 min · FC 113–125 ppm',o:'DELOAD.'}],cd:''},
+{n:'Martes',t:'Fuerza deload + Técnica',p:'strength',c:'#1C8A48',rpe:4,dur:'55 min',
+wu:'',ex:[
+{cat:'cat-hyrox',n:'Sled push técnico',s:'5×20 m · 60 kg',o:''},
 {cat:'cat-upper',n:'Face pulls + Remo polea',s:'3×12 c/u',o:''},
-{cat:'cat-grip',n:'Dead hang',s:'3×max',o:''}
+{cat:'cat-grip',n:'Dead hang',s:'3×max',o:''},
+{cat:'cat-core',n:'Bird dog + Superman',s:'3×10 c/u',o:'LUMBAR. Recuperación activa.'},
+{cat:'cat-core',n:'Jefferson curl',s:'3×8 · barra vacía',o:''}
 ],cd:''},
-{n:'Miércoles',t:'Movilidad profunda',p:'rest',c:'#A8A79F',rpe:2,dur:'40 min',wu:'',
-ex:[{cat:'',n:'Movilidad global',s:'40 min',o:''}],cd:''},
-{n:'Jueves',t:'Trote + Cadencia + Drills ligeros',p:'run',c:'#1A6FDB',rpe:3,dur:'45 min',wu:'',
-ex:[
-{cat:'cat-run',n:'Drills básicos ligeros',s:'10 min',o:''},
-{cat:'cat-cadence',n:'Trote Z1 · metrónomo 180',s:'20 min',o:''},
-{cat:'cat-run',n:'4×100 m · 80 %',s:'182 ppm',o:''}
+{n:'Miércoles',t:'Movilidad profunda',p:'rest',c:'#A8A79F',rpe:2,dur:'40 min',
+wu:'',ex:[{cat:'',n:'Movilidad global',s:'40 min',o:''}],cd:''},
+{n:'Jueves',t:'Trote + Drills ligeros',p:'run',c:'#1A6FDB',rpe:3,dur:'45 min',
+wu:'',ex:[
+{cat:'cat-run',n:'Drills ligeros',s:'10 min · A y B',o:''},
+{cat:'cat-run',n:'Trote Z1–Z2',s:'22 min · FC máx 125 ppm',o:''},
+{cat:'cat-run',n:'4×100 m · 80% · FC 150–160 ppm',s:'',o:''}
 ],cd:''},
-{n:'Viernes',t:'Estaciones suaves + Core ligero',p:'hyrox',c:'#E8570A',rpe:4,dur:'55 min',wu:'',
-ex:[
-{cat:'cat-run',n:'Estaciones al 50 %',s:'2 series cada una',o:''},
-{cat:'cat-core',n:'Core ligero',s:'Ab wheel 3×8, dead bug 3×10',o:''}
+{n:'Viernes',t:'Estaciones suaves + Core ligero',p:'hyrox',c:'#E8570A',rpe:4,dur:'50 min',
+wu:'',ex:[
+{cat:'cat-hyrox',n:'Estaciones al 50%',s:'2 series cada una',o:''},
+{cat:'cat-core',n:'Core ligero',s:'Ab wheel 3×8, bird dog 3×10, back extension 3×12',o:'LUMBAR incluida.'}
 ],cd:''},
-{n:'Sábado',t:'Mini-HYROX activación',p:'hyrox',c:'#E8570A',rpe:4,dur:'55 min',wu:'',
-ex:[{cat:'cat-run',n:'4 km + 4 estaciones suaves',s:'pace 4:30/km · 178 ppm',o:''}],cd:''},
-{n:'Domingo',t:'Descanso total',p:'rest',c:'#A8A79F',rpe:0,dur:'Libre',wu:'',
-ex:[{cat:'',n:'Descanso completo',s:'',o:''}],cd:''}
+{n:'Sábado',t:'Mini-HYROX activación',p:'hyrox',c:'#E8570A',rpe:4,dur:'50 min',
+wu:'',ex:[{cat:'cat-hyrox',n:'4 km + 4 estaciones suaves',s:'FC 130–145 ppm',o:''}],cd:''}
 ]},
+
 18:{phase:3,name:'Sem 18 · Pre-tapering',col:'#E8570A',deload:false,
-fc:'Última semana alta intensidad. Z4 en series.',
+fc:'Última semana alta intensidad. Z4 (150–167 ppm) en series.',
 days:[
-{n:'Lunes',t:'Intervalos race pace',p:'run',c:'#1A6FDB',rpe:9,dur:'75 min',
+{n:'Lunes',t:'Intervalos race pace + Hill',p:'run',c:'#1A6FDB',rpe:9,dur:'75 min',
 wu:'Drills + bounds + depth jump.',
 ex:[
-{cat:'cat-run',n:'8×1000 m',s:'3:48/km · pausa 2 min · 184 ppm',o:'2 s bajo el objetivo.'},
-{cat:'cat-run',n:'Técnica post-fatiga completa',s:'5×30 m',o:'Última sesión de técnica de alta intensidad.'}
+{cat:'cat-run',n:'8×1000 m',s:'3:48/km · pausa 2 min · FC 158–165 ppm',o:'2 s bajo el objetivo.'},
+{cat:'cat-run',n:'Hill sprints',s:'5×15 s · FC >170 ppm',o:''},
+{cat:'cat-run',n:'Técnica post-fatiga',s:'5×30 m',o:''}
 ],cd:'10 min Z1.'},
-{n:'Martes',t:'Fuerza · Mantenimiento',p:'strength',c:'#1C8A48',rpe:8,dur:'80 min',wu:'',
-ex:[
-{cat:'cat-lower',n:'Sled push',s:'10×20 m · 102 kg',o:''},
-{cat:'cat-lower',n:'Sentadilla',s:'4×4 · 85 % RM',o:''},
-{cat:'cat-upper',n:'Press banca + Remo polea',s:'3×8 c/u · 75 % RM',o:''},
-{cat:'cat-grip',n:'Farmer carry · carga comp.',s:'5×50 m · KB 32 kg c/u',o:''}
+{n:'Martes',t:'Fuerza · Mantenimiento',p:'strength',c:'#1C8A48',rpe:8,dur:'75 min',
+wu:'',ex:[
+{cat:'cat-lower',n:'Power clean',s:'4×3 · 70% RM',o:'Mantenimiento potencia.'},
+{cat:'cat-hyrox',n:'Sled push',s:'10×20 m · 102 kg',o:''},
+{cat:'cat-lower',n:'Sentadilla',s:'4×4 · 85% RM',o:''},
+{cat:'cat-upper',n:'Press banca + Remo Pendlay',s:'3×8 c/u · 75% RM',o:''},
+{cat:'cat-upper',n:'Face pulls',s:'3×15',o:''},
+{cat:'cat-core',n:'Good morning + Hiperextensión',s:'3×8 c/u',o:'LUMBAR. Mantenimiento.'},
+{cat:'cat-grip',n:'Farmer carry',s:'5×50 m · KB 32 kg c/u',o:''}
 ],cd:''},
-{n:'Miércoles',t:'Z2 + Remo largo',p:'cardio',c:'#0E7EC2',rpe:4,dur:'70 min',wu:'',
-ex:[
-{cat:'cat-run',n:'Carrera Z2',s:'25 min · 4:45/km · 180 ppm',o:''},
-{cat:'cat-run',n:'Remo Z2',s:'35 min',o:''}
+{n:'Miércoles',t:'Z2 + Remo largo',p:'cardio',c:'#0E7EC2',rpe:4,dur:'65 min',
+wu:'',ex:[
+{cat:'cat-run',n:'Carrera Z2',s:'22 min · FC 113–130 ppm',o:''},
+{cat:'cat-hyrox',n:'Remo Z2',s:'32 min',o:''}
 ],cd:''},
-{n:'Jueves',t:'Simulacro parcial · Transiciones',p:'hyrox',c:'#E8570A',rpe:8,dur:'85 min',
+{n:'Jueves',t:'Simulacro parcial + Transiciones',p:'hyrox',c:'#E8570A',rpe:8,dur:'75 min',
 wu:'8 min activación.',
 ex:[
-{cat:'cat-run',n:'4 km · 3:50/km · 180ppm + Ski erg + Remo',s:'',o:''},
-{cat:'cat-run',n:'4 km · 3:50/km · 180ppm + Sled push + Sled pull',s:'',o:''},
-{cat:'cat-run',n:'Práctica transiciones',s:'8×(200 m carrera + cambio de estación)',o:'Mínimo tiempo de transición.'}
+{cat:'cat-hyrox',n:'4 km · 3:50/km · FC155–163 + Ski erg + Remo',s:'',o:''},
+{cat:'cat-hyrox',n:'4 km · 3:50/km + Sled push + Sled pull',s:'',o:''},
+{cat:'cat-run',n:'Práctica transiciones',s:'8×(200 m + cambio estación)',o:'<10 s.'}
 ],cd:''},
-{n:'Viernes',t:'Fuerza superior ligera + Core',p:'strength',c:'#1C8A48',rpe:6,dur:'65 min',wu:'',
-ex:[
-{cat:'cat-upper',n:'Press banca',s:'3×8 · 75 % RM',o:''},
+{n:'Viernes',t:'Fuerza superior ligera',p:'strength',c:'#1C8A48',rpe:6,dur:'60 min',
+wu:'',ex:[
+{cat:'cat-upper',n:'Press banca',s:'3×8 · 75% RM',o:''},
 {cat:'cat-upper',n:'Dominadas sin lastre',s:'3×8',o:''},
+{cat:'cat-upper',n:'Chin-up sin lastre',s:'3×8',o:''},
 {cat:'cat-upper',n:'Face pulls',s:'3×15',o:''},
-{cat:'cat-core',n:'Core ligero',s:'Ab wheel 3×8, pallof press 3×10',o:''}
+{cat:'cat-core',n:'Core completo ligero',s:'Ab wheel 3×8, bird dog 3×10, back extension 3×12, jefferson curl 3×8',o:'LUMBAR. Sesión completa de core.'}
 ],cd:''},
-{n:'Sábado',t:'Carrera larga + Estaciones',p:'hyrox',c:'#E8570A',rpe:7,dur:'90 min',
+{n:'Sábado',t:'Carrera larga + Estaciones',p:'hyrox',c:'#E8570A',rpe:7,dur:'80 min',
 wu:'10 min trote.',
-ex:[
-{cat:'cat-run',n:'10 km Z2–Z3 · 180 ppm + 4 estaciones al 85 %',s:'pace 4:10/km',o:'Última sesión larga.'}
-],cd:''},
-{n:'Domingo',t:'Descanso activo',p:'rest',c:'#A8A79F',rpe:1,dur:'30 min',wu:'',
-ex:[{cat:'',n:'Caminar + movilidad',s:'30 min',o:''}],cd:''}
+ex:[{cat:'cat-hyrox',n:'10 km Z2–Z3 FC130–149 + 4 est. al 85%',s:'pace 4:10/km',o:'Última sesión larga.'}],cd:''}
 ]},
+
 19:{phase:4,name:'Sem 19 · Tapering inicio',col:'#C0392B',deload:false,
-fc:'Z2 en continuas. Series al pace comp. Acumula frescura.',
+fc:'Z2 (113–130 ppm) continuas. Series: FC 155–163 ppm. Acumula frescura.',
 days:[
-{n:'Lunes',t:'Carrera · Reducción volumen',p:'run',c:'#1A6FDB',rpe:5,dur:'60 min',
-wu:'8 min progresivo.',
-ex:[
-{cat:'cat-run',n:'Carrera mixta',s:'45 min · Z2 180ppm + 4×200 m a 3:50/km 182ppm',o:'Volumen −30 % vs sem 18.'}
+{n:'Lunes',t:'Carrera · −30% volumen',p:'run',c:'#1A6FDB',rpe:5,dur:'55 min',
+wu:'',ex:[{cat:'cat-run',n:'Carrera mixta',s:'40 min · Z2 FC113–130 + 4×200 m a 3:50/km FC158–165',o:''}],cd:''},
+{n:'Martes',t:'Fuerza · Reducción',p:'strength',c:'#1C8A48',rpe:6,dur:'60 min',
+wu:'',ex:[
+{cat:'cat-hyrox',n:'Sled push',s:'6×20 m · 90 kg',o:''},
+{cat:'cat-lower',n:'Sentadilla',s:'3×4 · 80% RM',o:''},
+{cat:'cat-upper',n:'Face pulls + Remo polea',s:'3×12 c/u',o:''},
+{cat:'cat-core',n:'Bird dog + Good morning',s:'3×10 c/u',o:'LUMBAR. Mantenimiento.'},
+{cat:'cat-grip',n:'Farmer carry',s:'4×40 m · KB 32 kg c/u',o:''}
 ],cd:''},
-{n:'Martes',t:'Fuerza · Reducción',p:'strength',c:'#1C8A48',rpe:6,dur:'65 min',wu:'',
-ex:[
-{cat:'cat-lower',n:'Sled push',s:'6×20 m · 90 kg',o:''},
-{cat:'cat-lower',n:'Sentadilla',s:'3×4 · 80 % RM',o:''},
-{cat:'cat-upper',n:'Face pulls + Remo polea',s:'3×12 c/u',o:'Mantenimiento escapular.'},
-{cat:'cat-lower',n:'Farmer carry',s:'4×40 m · KB 32 kg c/u',o:''}
-],cd:''},
-{n:'Miércoles',t:'Z2 · Recovery',p:'rest',c:'#A8A79F',rpe:3,dur:'45 min',wu:'',
-ex:[{cat:'cat-run',n:'Bici o remo Z2',s:'35 min',o:''}],cd:''},
-{n:'Jueves',t:'Intervalos cortos · Mantenimiento',p:'run',c:'#1A6FDB',rpe:7,dur:'55 min',
+{n:'Miércoles',t:'Z2 recovery',p:'rest',c:'#A8A79F',rpe:3,dur:'40 min',
+wu:'',ex:[{cat:'cat-run',n:'Bici o remo Z2',s:'30 min · FC 113–125 ppm',o:''}],cd:''},
+{n:'Jueves',t:'Intervalos cortos',p:'run',c:'#1A6FDB',rpe:7,dur:'55 min',
 wu:'Drills + 3 bounds.',
 ex:[
-{cat:'cat-run',n:'6×600 m',s:'3:48/km · pausa 90 s · 182 ppm',o:''},
-{cat:'cat-run',n:'Drills ligeros post',s:'3×20 m',o:''}
+{cat:'cat-run',n:'6×600 m',s:'3:48/km · pausa 90 s · FC 155–163 ppm',o:''},
+{cat:'cat-run',n:'Hill sprints',s:'3×12 s · FC >165 ppm',o:'Reduciendo volumen de cuestas.'}
 ],cd:''},
-{n:'Viernes',t:'Activación HYROX',p:'hyrox',c:'#E8570A',rpe:5,dur:'50 min',wu:'',
-ex:[{cat:'cat-run',n:'Mini-simulacro',s:'4 km + 4 estaciones · 75 % · 178 ppm',o:''}],cd:''},
-{n:'Sábado',t:'Descanso activo',p:'rest',c:'#A8A79F',rpe:2,dur:'30 min',wu:'',
-ex:[{cat:'',n:'Caminar + carbos extra en cena',s:'30 min',o:''}],cd:''},
-{n:'Domingo',t:'Descanso total',p:'rest',c:'#A8A79F',rpe:0,dur:'Libre',wu:'',
-ex:[{cat:'',n:'Descanso completo',s:'',o:''}],cd:''}
+{n:'Viernes',t:'Activación HYROX',p:'hyrox',c:'#E8570A',rpe:5,dur:'45 min',
+wu:'',ex:[{cat:'cat-hyrox',n:'Mini-simulacro',s:'4 km + 4 estaciones · 75% · FC 140–155 ppm',o:''}],cd:''},
+{n:'Sábado',t:'Descanso activo',p:'rest',c:'#A8A79F',rpe:2,dur:'30 min',
+wu:'',ex:[{cat:'',n:'Caminar 30 min',s:'',o:'Aumenta carbohidratos en cenas.'}],cd:''}
 ]},
+
 20:{phase:4,name:'Sem 20 · Tapering profundo',col:'#C0392B',deload:false,
-fc:'Todo Z1–Z2. FC máx 150. El fitness ya está.',
+fc:'Todo Z1 (93–112) – Z2 (113–130 ppm). FC máx 130. El fitness ya está.',
 days:[
-{n:'Lunes',t:'Carrera corta + Cadencia',p:'run',c:'#1A6FDB',rpe:4,dur:'40 min',wu:'',
-ex:[
-{cat:'cat-run',n:'Carrera Z2',s:'25 min · 4:50/km · 180 ppm',o:''},
-{cat:'cat-run',n:'4×100 m · 90 % · 182 ppm',s:'',o:''}
+{n:'Lunes',t:'Carrera corta + Control FC',p:'run',c:'#1A6FDB',rpe:4,dur:'40 min',
+wu:'',ex:[
+{cat:'cat-run',n:'Carrera Z2',s:'22 min · FC 113–125 ppm',o:'Volumen −50%.'},
+{cat:'cat-run',n:'4×100 m · 90% · FC 155–165 ppm',s:'',o:''}
 ],cd:''},
-{n:'Martes',t:'Fuerza mínima',p:'strength',c:'#1C8A48',rpe:5,dur:'50 min',wu:'',
-ex:[
-{cat:'cat-lower',n:'Sentadilla',s:'2×3 · 80 % RM',o:''},
-{cat:'cat-lower',n:'Sled push',s:'4×20 m · 80 kg',o:''},
-{cat:'cat-upper',n:'Face pulls',s:'2×15',o:'Mantenimiento.'},
-{cat:'cat-lower',n:'Wall ball',s:'2×15 · 9 kg',o:''}
+{n:'Martes',t:'Fuerza mínima',p:'strength',c:'#1C8A48',rpe:5,dur:'45 min',
+wu:'',ex:[
+{cat:'cat-lower',n:'Sentadilla',s:'2×3 · 80% RM',o:''},
+{cat:'cat-hyrox',n:'Sled push',s:'4×20 m · 80 kg',o:''},
+{cat:'cat-upper',n:'Face pulls',s:'2×15',o:''},
+{cat:'cat-hyrox',n:'Wall ball',s:'2×15 · 9 kg',o:''},
+{cat:'cat-core',n:'Bird dog + Back extension',s:'2×10 c/u',o:'LUMBAR. Mínimo mantenimiento.'}
 ],cd:''},
-{n:'Miércoles',t:'Descanso activo',p:'rest',c:'#A8A79F',rpe:1,dur:'30 min',wu:'',
-ex:[{cat:'',n:'Caminar + movilidad',s:'30 min',o:''}],cd:''},
-{n:'Jueves',t:'Activación pace + Drills ligeros',p:'run',c:'#1A6FDB',rpe:4,dur:'40 min',wu:'',
-ex:[
-{cat:'cat-run',n:'Drills ligeros',s:'8 min · A y B',o:''},
-{cat:'cat-cadence',n:'Trote + 4×200 m a 3:50/km',s:'182 ppm · pausa 90 s',o:'Sentir el pace con piernas frescas.'}
+{n:'Miércoles',t:'Descanso activo',p:'rest',c:'#A8A79F',rpe:1,dur:'30 min',
+wu:'',ex:[{cat:'',n:'Caminar + movilidad',s:'30 min',o:''}],cd:''},
+{n:'Jueves',t:'Activación pace + FC',p:'run',c:'#1A6FDB',rpe:4,dur:'40 min',
+wu:'',ex:[
+{cat:'cat-run',n:'Drills ligeros',s:'8 min',o:''},
+{cat:'cat-run',n:'Trote + 4×200 m a 3:50/km',s:'FC 155–163 ppm · pausa 90 s',o:'Sentir el pace con piernas frescas.'}
 ],cd:''},
-{n:'Viernes',t:'Mini-HYROX sensaciones',p:'hyrox',c:'#E8570A',rpe:4,dur:'35 min',wu:'',
-ex:[{cat:'cat-run',n:'2 km · 3:50/km · 180ppm + 2 estaciones · 60 %',s:'',o:'Terminar con buenas sensaciones.'}],cd:''},
-{n:'Sábado',t:'Descanso · Carga carbos',p:'rest',c:'#A8A79F',rpe:1,dur:'30 min',wu:'',
-ex:[{cat:'',n:'Paseo 30 min + cena pasta abundante',s:'',o:'Carbohidratos +20 %.'}],cd:''},
-{n:'Domingo',t:'Descanso total · Logística',p:'rest',c:'#A8A79F',rpe:0,dur:'Libre',wu:'',
-ex:[{cat:'',n:'Descanso + preparación material',s:'',o:'Bolsa: zapatillas, ropa, geles, electrolitos, dorsal. Metrónomo cargado. Visualiza.'}],cd:''}
+{n:'Viernes',t:'Mini-HYROX sensaciones',p:'hyrox',c:'#E8570A',rpe:4,dur:'35 min',
+wu:'',ex:[{cat:'cat-hyrox',n:'2 km · 3:50/km · FC155–163 + 2 estaciones · 60%',s:'',o:'Terminar con muy buenas sensaciones.'}],cd:''},
+{n:'Sábado',t:'Descanso · Carga carbos',p:'rest',c:'#A8A79F',rpe:1,dur:'30 min',
+wu:'',ex:[{cat:'',n:'Paseo 30 min',s:'',o:'Carbohidratos +20% en cena.'}],cd:''}
 ]},
+
 21:{phase:4,name:'Sem 21 · Pre-competición',col:'#C0392B',deload:false,
-fc:'Todo Z1. Frescura total.',
+fc:'Todo Z1 (93–112 ppm). FC máx 112. Frescura total.',
 days:[
-{n:'Lunes',t:'Activación suave',p:'run',c:'#1A6FDB',rpe:3,dur:'30 min',wu:'',
-ex:[{cat:'cat-run',n:'Trote Z1 + 4×80 m · 75 % · 180 ppm',s:'',o:''}],cd:''},
-{n:'Martes',t:'Movimiento mínimo',p:'rest',c:'#A8A79F',rpe:2,dur:'20 min',wu:'',
-ex:[{cat:'',n:'Bici Z1 · 15 min',s:'',o:''}],cd:''},
-{n:'Miércoles',t:'Descanso · Carga carbos máxima',p:'rest',c:'#A8A79F',rpe:0,dur:'Libre',wu:'',
-ex:[{cat:'',n:'Descanso + carbohidratos +30 %',s:'',o:'3.5 L agua. 8h+ sueño.'}],cd:''},
-{n:'Jueves',t:'Activación brevísima',p:'hyrox',c:'#E8570A',rpe:2,dur:'20 min',wu:'',
-ex:[{cat:'cat-run',n:'Trote 8 min + 2 reps cada estación · 40 %',s:'180 ppm',o:'Solo patrón motor.'}],cd:''},
-{n:'Viernes',t:'Descanso + Logística',p:'rest',c:'#A8A79F',rpe:0,dur:'Libre',wu:'',
-ex:[{cat:'',n:'Descanso total',s:'',o:'Cena 19:30h: pasta + tomate + pollo. Sin fibra alta. Duerme antes de las 22h.'}],cd:''},
-{n:'Sábado',t:'Descanso pre-competición',p:'rest',c:'#A8A79F',rpe:0,dur:'Libre',wu:'',
-ex:[{cat:'',n:'Descanso absoluto',s:'',o:'Cena igual pero más ligera. Alarma 2.5h antes. 21 semanas de trabajo.'}],cd:''},
-{n:'Domingo',t:'Descanso',p:'rest',c:'#A8A79F',rpe:0,dur:'Libre',wu:'',
-ex:[{cat:'',n:'Descanso',s:'',o:'Mañana es el día.'}],cd:''}
+{n:'Lunes',t:'Activación suave',p:'run',c:'#1A6FDB',rpe:3,dur:'30 min',
+wu:'',ex:[{cat:'cat-run',n:'Trote Z1 + 4×80 m · 75% · FC 150–160 ppm',s:'',o:''}],cd:''},
+{n:'Martes',t:'Movimiento mínimo',p:'rest',c:'#A8A79F',rpe:2,dur:'20 min',
+wu:'',ex:[{cat:'',n:'Bici Z1 · 15 min · FC 93–112 ppm',s:'',o:''}],cd:''},
+{n:'Miércoles',t:'Descanso · Carga carbos',p:'rest',c:'#A8A79F',rpe:0,dur:'Libre',
+wu:'',ex:[{cat:'',n:'Descanso + carbohidratos +30%',s:'',o:'3.5 L agua. 8h+ sueño.'}],cd:''},
+{n:'Jueves',t:'Activación brevísima',p:'hyrox',c:'#E8570A',rpe:2,dur:'20 min',
+wu:'',ex:[{cat:'cat-hyrox',n:'Trote 8 min · FC 113–125 ppm + 2 reps cada est. · 40%',s:'',o:'Solo patrón motor.'}],cd:''},
+{n:'Viernes',t:'Descanso + Logística',p:'rest',c:'#A8A79F',rpe:0,dur:'Libre',
+wu:'',ex:[{cat:'',n:'Descanso total',s:'',o:'Cena 19:30h: pasta + tomate + pollo. Sin fibra alta. Duerme antes de las 22h.'}],cd:''},
+{n:'Sábado',t:'Descanso pre-competición',p:'rest',c:'#A8A79F',rpe:0,dur:'Libre',
+wu:'',ex:[{cat:'',n:'Descanso absoluto',s:'',o:'Cena igual pero más ligera. Alarma 2.5h antes.'}],cd:''},
+{n:'Domingo',t:'Descanso',p:'rest',c:'#A8A79F',rpe:0,dur:'Libre',
+wu:'',ex:[{cat:'',n:'Descanso',s:'',o:'Mañana es el día.'}],cd:''}
 ]},
-22:{phase:4,name:'Sem 22 · 🏁 COMPETICIÓN 18 Oct',col:'#C0392B',deload:false,
-fc:'El domingo FC al máximo. 180 ppm sostenido en cada km.',
+
+22:{phase:4,name:'Sem 22 · 🏁 COMPETICIÓN 27 Oct',col:'#C0392B',deload:false,
+fc:'El domingo 27: carrera Z4 (150–167 ppm). Estaciones Z4–Z5 (150–186 ppm).',
 days:[
-{n:'Lunes',t:'Activación final',p:'run',c:'#1A6FDB',rpe:3,dur:'25 min',wu:'',
-ex:[{cat:'cat-run',n:'Trote muy suave + 4×100 m · 75 % · 180 ppm',s:'',o:''}],cd:''},
-{n:'Martes',t:'Descanso activo',p:'rest',c:'#A8A79F',rpe:1,dur:'20 min',wu:'',
-ex:[{cat:'',n:'Bici Z1 · 15 min · movilidad',s:'',o:''}],cd:''},
-{n:'Miércoles',t:'Descanso · Carga carbos',p:'rest',c:'#A8A79F',rpe:0,dur:'Libre',wu:'',
-ex:[{cat:'',n:'Descanso + carbohidratos máximos',s:'',o:''}],cd:''},
-{n:'Jueves',t:'Activación mínima',p:'hyrox',c:'#E8570A',rpe:2,dur:'15 min',wu:'',
-ex:[{cat:'cat-run',n:'Trote 8 min + 2 reps cada estación · 30 %',s:'',o:''}],cd:''},
-{n:'Viernes',t:'Descanso total',p:'rest',c:'#A8A79F',rpe:0,dur:'Libre',wu:'',
-ex:[{cat:'',n:'Cena de carga',s:'',o:'Pasta abundante. Duerme 8–9h.'}],cd:''},
-{n:'Sábado',t:'Descanso pre-carrera',p:'rest',c:'#A8A79F',rpe:0,dur:'Libre',wu:'',
-ex:[{cat:'',n:'Descanso absoluto',s:'',o:'Cena: arroz blanco + pollo + poco aceite. Duerme temprano.'}],cd:''},
-{n:'Domingo 18 Oct',t:'🏁 HYROX · COMPETICIÓN',p:'hyrox',c:'#E8570A',rpe:10,dur:'~85 min',
-wu:'30 min antes: trote 10 min + movilidad + 3 aceleraciones + 5 min metrónomo 180 ppm.',
+{n:'Lunes',t:'Activación final',p:'run',c:'#1A6FDB',rpe:3,dur:'25 min',
+wu:'',ex:[{cat:'cat-run',n:'Trote muy suave + 4×100 m · 75% · FC 150–158 ppm',s:'',o:''}],cd:''},
+{n:'Martes',t:'Descanso activo',p:'rest',c:'#A8A79F',rpe:1,dur:'20 min',
+wu:'',ex:[{cat:'',n:'Bici Z1 · 15 min · movilidad',s:'',o:''}],cd:''},
+{n:'Miércoles',t:'Descanso · Carga carbos',p:'rest',c:'#A8A79F',rpe:0,dur:'Libre',
+wu:'',ex:[{cat:'',n:'Carbohidratos máximos',s:'',o:'Arroz, pasta, plátano. 3.5 L agua.'}],cd:''},
+{n:'Jueves',t:'Activación mínima',p:'hyrox',c:'#E8570A',rpe:2,dur:'15 min',
+wu:'',ex:[{cat:'cat-hyrox',n:'Trote 8 min · FC 113–125 ppm + 2 reps cada est. · 30%',s:'',o:''}],cd:''},
+{n:'Viernes',t:'Descanso total',p:'rest',c:'#A8A79F',rpe:0,dur:'Libre',
+wu:'',ex:[{cat:'',n:'Cena de carga',s:'',o:'Pasta abundante. Duerme 8–9h.'}],cd:''},
+{n:'Sábado',t:'Descanso pre-carrera',p:'rest',c:'#A8A79F',rpe:0,dur:'Libre',
+wu:'',ex:[{cat:'',n:'Descanso absoluto',s:'',o:'Cena: arroz blanco + pollo + poco aceite. Duerme temprano.'}],cd:''},
+{n:'Domingo 27 Oct',t:'🏁 HYROX · COMPETICIÓN',p:'hyrox',c:'#E8570A',rpe:10,dur:'~85 min',
+wu:'30 min antes: trote 10 min (FC 113–125 ppm) + movilidad + 3 aceleraciones progresivas.',
 ex:[
-{cat:'cat-run',n:'3h antes: desayuno',s:'80g avena + plátano + miel + café',o:'Sin fibra ni grasas. Digestión fácil.'},
+{cat:'cat-run',n:'3h antes: desayuno',s:'80g avena + plátano + miel + café',o:'Sin fibra alta ni grasas.'},
 {cat:'cat-run',n:'45 min antes',s:'Gel cafeína 100mg + 300ml agua',o:''},
-{cat:'cat-cadence',n:'Estrategia pace · metrónomo',s:'Km 1: 4:00/km · 178 ppm',o:'La adrenalina engaña. Sal conservador. Km 2–5: 3:52/km · 180 ppm. Km 6–8: 3:50/km · 182 ppm. Metrónomo activo toda la carrera.'},
-{cat:'cat-run',n:'Durante: gel c/35 min',s:'Agua en cada punto',o:''},
-{cat:'cat-run',n:'Transiciones',s:'<10 s carrera→estación',o:'Patrón de 18 semanas. Entra directo.'},
-{cat:'cat-run',n:'🎉 Post: batido 40g proteína',s:'+ carbos rápidos en 30 min',o:'22 semanas. Celebra.'}
+{cat:'cat-run',n:'Estrategia pace · FC objetivo',s:'Km 1: 4:00/km · FC 150–155 ppm',o:'La adrenalina engaña. Sal conservador. Km 2–5: 3:52/km · FC 157–163 ppm. Km 6–8: 3:50/km · FC 163–170 ppm. Controla la FC en tu reloj.'},
+{cat:'cat-run',n:'Durante: gel c/35 min',s:'Agua en cada punto',o:'Aunque no tengas sed.'},
+{cat:'cat-run',n:'Transiciones',s:'<10 s carrera→estación',o:'Entra directo. Sin parar.'},
+{cat:'cat-run',n:'🎉 Post: batido 40g proteína',s:'+ carbos rápidos en 30 min',o:'22 semanas trabajadas. Celebra.'}
 ],cd:''}
 ]}
+
 };
 
-const menuData={
-train:{label:'Fuerza',title:'Día fuerza · ~3100 kcal · IF',items:[
-{name:'Al despertar',kcal:'0 kcal',meals:[{l:'Hidratación',f:'500 ml agua + sal marina + limón'},{l:'Colágeno',f:'15g colágeno + 200mg vitamina C (30 min antes del entreno)'}]},
-{name:'1.ª Comida · 12:00 · post-entreno',kcal:'~850 kcal',meals:[{l:'Proteína',f:'200g pechuga pollo plancha o 180g atún'},{l:'Carbos',f:'180g arroz integral + 1 plátano'},{l:'Grasa',f:'½ aguacate + AOVE'},{l:'Verdura',f:'Ensalada grande'}]},
-{name:'2.ª Comida · 15:30',kcal:'~780 kcal',meals:[{l:'Proteína',f:'200g salmón al horno'},{l:'Carbos',f:'300g boniato asado + yogur griego 200g'},{l:'Extra',f:'30g nueces'}]},
-{name:'Merienda · 18:30',kcal:'~420 kcal',meals:[{l:'Opción A',f:'80g avena + leche + mantequilla cacahuete + canela'},{l:'Opción B',f:'150g requesón + frutos secos + miel'}]},
-{name:'Cena · 21:00',kcal:'~820 kcal',meals:[{l:'Opción A',f:'200g ternera + 200g pasta integral + tomate + parmesano'},{l:'Opción B',f:'3 huevos + 150g pavo + 200g arroz + verduras'},{l:'Antes dormir',f:'200g cottage cheese + canela'}]}
-]},
-run:{label:'Carrera',title:'Día carrera · ~2850 kcal · IF',items:[
-{name:'Pre-entreno (si es mañana)',kcal:'Opcional',meals:[{l:'Colágeno',f:'15g + vit C, 30 min antes'},{l:'>60 min',f:'1–2 dátiles o gel. <60 min: ayunas.'}]},
-{name:'1.ª Comida · post-carrera · ~12:00',kcal:'~820 kcal',meals:[{l:'Proteína',f:'200g pechuga + 3 huevos o atún'},{l:'Carbos',f:'160g arroz basmati + 1 plátano'},{l:'Electrolitos',f:'500ml agua + limón + sal + miel'}]},
-{name:'2.ª Comida · 15:00',kcal:'~700 kcal',meals:[{l:'Proteína',f:'200g lubina o dorada al horno'},{l:'Carbos',f:'260g patata o 150g arroz'},{l:'Grasa',f:'20ml AOVE'}]},
-{name:'Merienda · 18:00',kcal:'~360 kcal',meals:[{l:'Opción',f:'Fruta + almendras + batido proteína 20g'}]},
-{name:'Cena · 21:00',kcal:'~720 kcal',meals:[{l:'Proteína',f:'160g pollo al horno'},{l:'Carbos',f:'200g quinoa + pimiento + aguacate'},{l:'Antes dormir',f:'200g requesón + canela'}]}
-]},
-rest:{label:'Descanso',title:'Día descanso · ~2450 kcal · IF',items:[
-{name:'1.ª Comida · 13:00',kcal:'~700 kcal',meals:[{l:'Proteína',f:'200g sardinas o atún al natural'},{l:'Verdura',f:'Ensalada grande con AOVE'},{l:'Legumbre',f:'100g lentejas o garbanzos'}]},
-{name:'2.ª Comida · 16:30',kcal:'~610 kcal',meals:[{l:'Proteína',f:'2 huevos + 150g salmón ahumado'},{l:'Carbos',f:'Pan centeno + plátano'},{l:'Grasa',f:'½ aguacate'}]},
-{name:'Merienda · 19:00',kcal:'~300 kcal',meals:[{l:'Opción',f:'Yogur griego + frutas del bosque + semillas cáñamo'}]},
-{name:'Cena · 21:30',kcal:'~720 kcal',meals:[{l:'Proteína',f:'250g pollo al horno'},{l:'Verdura',f:'Verdura asada + AOVE'},{l:'Carbos',f:'100g arroz (reducido)'}]}
-]},
-comp:{label:'Competición',title:'Semana competición · Carga carbos · 18 Oct',items:[
-{name:'Lun–Mié · Carga progresiva · +30 % carbos',kcal:'~3200 kcal',meals:[{l:'Aumenta',f:'Arroz, pasta, boniato, avena, plátano'},{l:'Mantén',f:'Proteína 185g. Reduce grasas.'},{l:'Evita',f:'Alimentos nuevos.'}]},
-{name:'Jue–Vie · Carga máxima',kcal:'~3400 kcal',meals:[{l:'Cena jue',f:'300g pasta + tomate + carne magra'},{l:'Cena vie',f:'300g arroz blanco + pollo + poco aceite'},{l:'Reduce',f:'Fibra y grasas.'}]},
-{name:'Mañana competición · 3h antes',kcal:'~700 kcal',meals:[{l:'3h antes',f:'80g avena + plátano + miel + café'},{l:'45 min',f:'Gel cafeína 100mg + agua'},{l:'Evita',f:'Fibra alta, grasas, lácteos.'}]},
-{name:'Durante la prueba',kcal:'Según duración',meals:[{l:'Geles',f:'1 gel c/35 min si >75 min.'},{l:'Agua',f:'En cada punto.'},{l:'Metrónomo',f:'Activo en el móvil toda la carrera.'}]},
-{name:'🎉 Post-competición',kcal:'Sin restricción',meals:[{l:'30 min',f:'Batido 40g proteína + carbos rápidos'},{l:'Celebra',f:'22 semanas. Come lo que quieras.'}]}
-]}
-};
+
 
 const phaseCards=[
 {phase:'Fase 1 · Base aeróbica',weeks:'Semanas 1–7 · Mayo–Junio',color:'#1A6FDB',
-desc:'El 70% en Z2. Cadencia 178–180 ppm desde el día 1. Se introduce pliometría básica (box jump, broad jump, bounds) y el protocolo de técnica bajo fatiga desde la sem 3. Tren superior completo desde la semana 1.',
-goals:['Volumen carrera: 38–46 km/sem','Cadencia 178→180 ppm automatizada','Pliometría: box jump, broad jump, depth jump, bounds','Core F1: plancha, dead bug, hollow hold, ab wheel','Grip: dead hang, farmer carry pronación','Deload sem 4']},
+desc:'El 70% en Z2. Cadencia 178–FC 120–130 ppm desde el día 1. Se introduce pliometría básica (box jump, broad jump, bounds) y el protocolo de técnica bajo fatiga desde la sem 3. Tren superior completo desde la semana 1.',
+goals:['Volumen carrera: 38–46 km/sem','Cadencia 178→FC 120–130 ppm automatizada','Pliometría: box jump, broad jump, depth jump, bounds','Core F1: plancha, dead bug, hollow hold, ab wheel','Grip: dead hang, farmer carry pronación','Deload sem 4']},
 {phase:'Fase 2 · Fuerza + Específico',weeks:'Semanas 8–13 · Jul–Ago',color:'#1C8A48',
 desc:'Fuerza máxima (87–93% RM) combinada con simulacros completos. Se añade grip específico (wrist roller, towel pull-up), core F2 (pallof press, L-sit, stir the pot) y técnica de carrera post-estación.',
-goals:['Sled push/pull al 100% carga comp. (sem 12)','Cadencia 180–182 ppm en todo','Core F2: pallof press, L-sit, stir the pot','Grip: wrist roller, towel pull-up, farmer carry pronación','Técnica post-fatiga en cada sesión de intervalos','Deloads sem 8 y 13']},
+goals:['Sled push/pull al 100% carga comp. (sem 12)','Cadencia Z2–Z3 (120–149 ppm) en todo','Core F2: pallof press, L-sit, stir the pot','Grip: wrist roller, towel pull-up, farmer carry pronación','Técnica post-fatiga en cada sesión de intervalos','Deloads sem 8 y 13']},
 {phase:'Fase 3 · Intensidad máxima',weeks:'Semanas 14–18 · Sep–Oct',color:'#E8570A',
-desc:'3:50/km en simulacro completo. Tests HYROX al 100% en sem 14 y 16. Core F3 (dragon flag, ab wheel desde pie). Práctica específica de transiciones. Cadencia 182–184 ppm en intervalos.',
+desc:'3:50/km en simulacro completo. Tests HYROX al 100% en sem 14 y 16. Core F3 (dragon flag, ab wheel desde pie). Práctica específica de transiciones. Cadencia 182–FC 150–165 ppm en intervalos.',
 goals:['3:50/km en simulacro (sem 16)','Core F3: dragon flag, ab wheel desde pie','Práctica transiciones: 8×(200 m + estación)','Intervalos a 3:45/km (bajo el objetivo)','Técnica postura bajo carga: carry → carrera','Deload sem 17']},
 {phase:'Fase 4 · Tapering',weeks:'Semanas 19–22 · Oct',color:'#C0392B',
-desc:'Menos es más. Reducción progresiva. Cadencia y mecánica mantenidas con series muy cortas. Carga de carbohidratos los últimos 4 días. El metrónomo estará activo el día de la competición.',
-goals:['Volumen −30% sem 19 · −50% sem 20 · −70% sem 21','Cadencia mantenida con activaciones cortas','Carga carbos +30% los 4 días anteriores','3.5 L agua/día últimos 3 días','Metrónomo activo toda la carrera en competición']}
+desc:'Menos es más. Reducción progresiva. Cadencia y mecánica mantenidas con series muy cortas. Carga de carbohidratos los últimos 4 días. El pulsómetro estará activo el día de la competición.',
+goals:['Volumen −30% sem 19 · −50% sem 20 · −70% sem 21','Cadencia mantenida con activaciones cortas','Carga carbos +30% los 4 días anteriores','3.5 L agua/día últimos 3 días','pulsómetro activo toda la carrera en competición']}
 ];
 
 function showTab(n,btn){
@@ -1273,7 +1224,7 @@ function renderWeek(k){
     const wuH=d.wu?`<div class="wu-box"><div class="wu-box-title">🔥 Calentamiento</div><div class="wu-box-text">${d.wu}</div></div>`:'';
     const cdH=d.cd?`<div class="cd-box"><div class="cd-box-title">❄️ Vuelta a la calma</div><div class="wu-box-text" style="color:#1A5A7A">${d.cd}</div></div>`:'';
     const exH=d.ex.map(e=>`<div class="ex-item">${e.cat?`<div class="ex-cat ${e.cat}">${{
-      'cat-lower':'Tren inferior','cat-upper':'Tren superior','cat-core':'Core','cat-grip':'Grip','cat-plyo':'Pliometría','cat-run':'Carrera','cat-cadence':'Cadencia','cat-':''
+      'cat-lower':'Tren inferior','cat-upper':'Tren superior','cat-core':'Core','cat-grip':'Grip','cat-plyo':'Pliometría','cat-run':'Carrera','cat-cadence':'FC objetivo','cat-':''
     }[e.cat]||''}</div>`:''}<div class="ex-row"><span class="ex-name">${e.n}</span>${e.s?`<span class="ex-params">${e.s}</span>`:''}</div>${e.o?`<div class="ex-notes">${e.o}</div>`:''}</div>`).join('');
     return`<div class="day-item" onclick="toggleDay(${i})"><div class="day-dot" style="background:${d.c}"></div><div class="day-main"><div class="day-name">${d.n}</div><div class="day-type">${d.t}</div><div class="day-meta"><span class="pill pill-${d.p}">${pillL}</span><span style="font-size:11px;color:var(--text3)">${d.dur}</span></div><div class="rpe-mini"><span style="font-size:11px;color:var(--text3)">RPE</span><div class="rpe-dots">${dots}</div><span style="font-size:11px;color:${rpeC};font-weight:700;margin-left:2px">${d.rpe}/10</span></div></div></div><div class="day-expand" id="dexp-${i}">${wuH}${exH}${cdH}</div>`;
   }).join('');
@@ -1286,28 +1237,12 @@ function toggleDay(i){
   if(!isOpen)el.classList.add('open');
 }
 
-function initMenu(){
-  const tabs=document.getElementById('menuTabs');
-  tabs.innerHTML=Object.keys(menuData).map(k=>`<button class="menu-tab-btn${k==='train'?' active':''}" onclick="selectMenu('${k}',this)">${menuData[k].label}</button>`).join('');
-  renderMenu('train');
-}
-function selectMenu(k,btn){
-  document.querySelectorAll('.menu-tab-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  renderMenu(k);
-}
-function renderMenu(k){
-  const m=menuData[k];
-  document.getElementById('menuContent').innerHTML=`<div style="font-size:13px;font-weight:600;color:var(--text2);padding:0 16px 10px">${m.title}</div>`+m.items.map((item,i)=>`<div class="menu-day-card"><div class="menu-day-header" onclick="toggleMI(${i})"><span class="menu-day-name">${item.name}</span><span class="menu-day-kcal">${item.kcal}</span></div><div class="menu-day-body" id="mi-${i}">${item.meals.map(ml=>`<div class="meal-row"><span class="meal-label">${ml.l}</span><span class="meal-food">${ml.f}</span></div>`).join('')}</div></div>`).join('');
-}
-function toggleMI(i){document.getElementById('mi-'+i).classList.toggle('open');}
 
 function renderPhases(){
   document.getElementById('phaseCards').innerHTML=phaseCards.map(p=>`<div class="phase-card"><div class="phase-header" style="border-color:${p.color};background:${p.color}12"><div class="phase-title" style="color:${p.color}">${p.phase}</div><div class="phase-weeks">${p.weeks}</div></div><div class="phase-body"><div class="phase-desc">${p.desc}</div><div class="phase-goals-title">Objetivos</div>${p.goals.map(g=>`<div class="phase-goal"><span class="phase-goal-dot">·</span><span>${g}</span></div>`).join('')}</div></div>`).join('');
 }
 
 initChips();
-initMenu();
 renderPhases();
 </script>
 </body>
