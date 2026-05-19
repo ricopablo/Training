@@ -5,208 +5,255 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<title>HYROX · Pablo · Oct 2026</title>
+<title>HYROX · Pablo · 27 Oct 2026</title>
 <style>
 :root{
-  --bg:#F2F1ED;--bg2:#E8E7E2;--bg3:#DDDCD7;
-  --card:#FFFFFF;--card2:#FAFAF8;
-  --border:#E2E1DB;--border2:#D4D3CC;
-  --text:#1A1917;--text2:#6B6A65;--text3:#A8A79F;
+  --bg:#EFEDE8;--bg2:#E4E2DC;--bg3:#D8D6CF;
+  --card:#FFFFFF;--card2:#F8F7F4;
+  --border:#D9D7D0;--border2:#C8C6BE;
+  --text:#18171A;--text2:#64635E;--text3:#9E9D97;
   --accent:#E8570A;--accent-l:#FEF0E8;--accent-m:#F4A574;
   --blue:#1A6FDB;--blue-l:#EBF2FD;
   --green:#1C8A48;--green-l:#E8F5ED;
   --red:#C0392B;--red-l:#FDECEA;
-  --yellow:#CC8209;--yellow-l:#FDF5E3;
+  --yellow:#B87005;--yellow-l:#FDF3E3;
   --purple:#7C3AED;--purple-l:#F3EFFE;
   --teal:#0E7EC2;--teal-l:#EDF6FF;
   --pink:#C2185B;--pink-l:#FCE4EC;
   --r:14px;--r-sm:10px;--r-xs:6px;
-  --shadow:0 1px 3px rgba(0,0,0,0.07),0 4px 12px rgba(0,0,0,0.04);
-  --shadow-sm:0 1px 2px rgba(0,0,0,0.05);
+  --shadow:0 1px 4px rgba(0,0,0,0.09),0 6px 16px rgba(0,0,0,0.06);
+  --shadow-sm:0 1px 3px rgba(0,0,0,0.08),0 2px 6px rgba(0,0,0,0.05);
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
 html,body{height:100%;overflow:hidden;}
 body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.5;}
 .app{display:flex;flex-direction:column;height:100vh;height:100dvh;}
-.header{padding:52px 20px 12px;background:var(--card);border-bottom:1px solid var(--border);flex-shrink:0;box-shadow:var(--shadow-sm);}
+
+/* ── HEADER ── */
+.header{padding:48px 16px 10px;background:var(--card);border-bottom:1.5px solid var(--border);flex-shrink:0;box-shadow:var(--shadow-sm);}
 @supports(padding-top:env(safe-area-inset-top)){
-  .header{padding-top:max(52px,calc(env(safe-area-inset-top)+12px));}
-  .bottom-nav{padding-bottom:max(18px,env(safe-area-inset-bottom));}
+  .header{padding-top:max(48px,calc(env(safe-area-inset-top)+10px));}
+  .bottom-nav{padding-bottom:max(16px,env(safe-area-inset-bottom));}
 }
-.header-row{display:flex;align-items:center;justify-content:space-between;}
-.header-title{font-size:24px;font-weight:700;letter-spacing:-.4px;color:var(--text);}
+.header-row{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.header-left{flex:1;min-width:0;}
+.header-title{font-size:22px;font-weight:700;letter-spacing:-.4px;white-space:nowrap;}
 .header-title span{color:var(--accent);}
-.header-sub{font-size:12px;color:var(--text3);margin-top:2px;}
-.cd-pill{background:var(--accent);color:#fff;font-size:11px;font-weight:700;padding:5px 11px;border-radius:99px;white-space:nowrap;}
+.header-meta{display:flex;align-items:center;gap:8px;margin-top:3px;flex-wrap:wrap;}
+.header-sub{font-size:11px;color:var(--text3);}
+.cd-pill{background:var(--accent);color:#fff;font-size:12px;font-weight:700;padding:5px 12px;border-radius:99px;white-space:nowrap;box-shadow:0 2px 6px rgba(232,87,10,.35);}
+
+/* ── NAV ── */
 .scroll{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;}
 .tab-body{display:none;padding-bottom:100px;}
 .tab-body.active{display:block;}
-.bottom-nav{display:flex;background:var(--card);border-top:1px solid var(--border);padding:8px 0 18px;flex-shrink:0;}
-.nav-btn{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:5px 0;background:none;border:none;color:var(--text3);font-size:10px;font-weight:500;cursor:pointer;transition:color .15s;}
+.bottom-nav{display:flex;background:var(--card);border-top:1.5px solid var(--border);padding:8px 0 16px;flex-shrink:0;box-shadow:0 -2px 8px rgba(0,0,0,0.06);}
+.nav-btn{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:5px 0;background:none;border:none;color:var(--text3);font-size:10px;font-weight:600;cursor:pointer;transition:color .15s;letter-spacing:.02em;}
 .nav-btn.active{color:var(--accent);}
-.nav-icon{font-size:20px;line-height:1;}
-.section-label{font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;padding:18px 20px 8px;}
-.section-label:first-child{padding-top:14px;}
-.metrics-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:14px 16px 4px;}
-.metric{background:var(--card);border:1px solid var(--border);border-radius:var(--r-sm);padding:10px 8px;text-align:center;box-shadow:var(--shadow-sm);}
-.metric-val{font-size:17px;font-weight:700;color:var(--accent);line-height:1.1;}
-.metric-unit{font-size:9px;color:var(--text2);font-weight:500;}
-.metric-lbl{font-size:10px;color:var(--text3);margin-top:2px;}
-.week-scroll{display:flex;overflow-x:auto;gap:6px;padding:8px 16px 10px;scrollbar-width:none;}
-.week-scroll::-webkit-scrollbar{display:none;}
-.wchip{flex-shrink:0;padding:7px 13px;border-radius:99px;background:var(--card);border:1px solid var(--border);color:var(--text2);font-size:12px;font-weight:500;cursor:pointer;white-space:nowrap;transition:all .15s;box-shadow:var(--shadow-sm);}
-.wchip.active{background:var(--accent);border-color:var(--accent);color:#fff;}
-.wchip.deload{border-color:var(--purple);}
-.wchip.deload.active{background:var(--purple);border-color:var(--purple);}
-.phase-banner{margin:0 16px 6px;padding:10px 14px;border-radius:var(--r-sm);border-left:3px solid;font-size:13px;}
-.info-box{background:var(--card);border:1px solid var(--border);border-radius:var(--r-sm);margin:4px 16px 8px;padding:11px 14px;box-shadow:var(--shadow-sm);}
-.info-box-title{font-size:11px;font-weight:600;color:var(--text2);margin-bottom:3px;}
-.info-box-text{font-size:13px;color:var(--text2);line-height:1.5;}
-.days-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);margin:0 16px;overflow:hidden;box-shadow:var(--shadow);}
-.day-item{display:flex;align-items:flex-start;gap:12px;padding:13px 16px;border-bottom:1px solid var(--border);cursor:pointer;}
+.nav-icon{font-size:21px;line-height:1;}
+
+/* ── SECTIONS ── */
+.section-label{font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;padding:18px 20px 8px;}
+
+/* ── METRICS ── */
+.metrics-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:12px 16px 4px;}
+.metric{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-sm);padding:10px 6px;text-align:center;box-shadow:var(--shadow-sm);}
+.metric.hi{background:var(--accent);border-color:var(--accent);}
+.metric-val{font-size:16px;font-weight:700;color:var(--accent);line-height:1.1;}
+.metric.hi .metric-val{color:#fff;}
+.metric-unit{font-size:9px;color:var(--text2);}
+.metric.hi .metric-unit{color:rgba(255,255,255,.8);}
+.metric-lbl{font-size:9px;color:var(--text3);margin-top:2px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;}
+.metric.hi .metric-lbl{color:rgba(255,255,255,.75);}
+
+/* ── FC ZONES BAR ── */
+.fc-zones{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;padding:0 16px 10px;}
+.fc-zone{border-radius:9px;padding:7px 3px;text-align:center;border:1.5px solid;}
+.fc-zone-num{font-size:10px;font-weight:800;letter-spacing:.03em;}
+.fc-zone-range{font-size:11px;font-weight:700;margin-top:1px;}
+.fc-zone-name{font-size:9px;margin-top:2px;font-weight:600;opacity:.8;}
+
+/* ── WEEK GRID ── */
+.week-grid-wrap{padding:4px 16px 10px;}
+.week-phase-group{margin-bottom:10px;}
+.week-phase-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px;padding:3px 8px;border-radius:99px;display:inline-block;}
+.week-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;}
+.wchip{
+  border-radius:var(--r-xs);padding:8px 4px;text-align:center;
+  background:var(--card);border:1.5px solid var(--border);
+  cursor:pointer;transition:all .15s;
+  box-shadow:var(--shadow-sm);
+}
+.wchip-num{font-size:12px;font-weight:700;line-height:1;}
+.wchip-label{font-size:9px;font-weight:500;margin-top:2px;color:var(--text3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.wchip.active{color:#fff !important;box-shadow:0 2px 8px rgba(0,0,0,0.2);}
+.wchip.active .wchip-label{color:rgba(255,255,255,.8) !important;}
+.wchip.deload{border-style:dashed;}
+
+/* ── PHASE BANNER ── */
+.phase-banner{margin:0 16px 8px;padding:11px 14px;border-radius:var(--r-sm);border-left:3px solid;display:flex;align-items:center;gap:8px;}
+.phase-banner-icon{font-size:20px;}
+.phase-banner-text{flex:1;}
+.phase-banner-name{font-size:13px;font-weight:700;}
+.phase-banner-fc{font-size:12px;margin-top:1px;opacity:.85;}
+
+/* ── INFO BOX ── */
+.info-box{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-sm);margin:4px 16px 8px;padding:12px 14px;box-shadow:var(--shadow-sm);}
+.info-box-title{font-size:11px;font-weight:700;color:var(--text2);margin-bottom:4px;text-transform:uppercase;letter-spacing:.05em;}
+.info-box-text{font-size:13px;color:var(--text2);line-height:1.55;}
+
+/* ── DAYS CARD ── */
+.days-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r);margin:0 16px;overflow:hidden;box-shadow:var(--shadow);}
+
+/* ── DAY ITEM ── */
+.day-item{display:flex;align-items:stretch;border-bottom:1.5px solid var(--border);cursor:pointer;transition:background .1s;}
 .day-item:active{background:var(--bg2);}
 .day-item:last-of-type{border-bottom:none;}
-.day-dot{width:8px;height:8px;border-radius:50%;margin-top:5px;flex-shrink:0;}
-.day-main{flex:1;}
-.day-name{font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:1px;}
-.day-type{font-size:15px;font-weight:600;margin-bottom:5px;color:var(--text);}
-.day-meta{display:flex;flex-wrap:wrap;gap:5px;align-items:center;}
-.pill{display:inline-flex;align-items:center;font-size:11px;font-weight:600;padding:2px 9px;border-radius:99px;}
+.day-stripe{width:4px;flex-shrink:0;}
+.day-icon-col{width:44px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;padding:12px 0;}
+.day-main{flex:1;padding:12px 12px 12px 4px;}
+.day-name{font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:2px;}
+.day-type{font-size:14px;font-weight:700;margin-bottom:6px;color:var(--text);line-height:1.3;}
+.day-meta{display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin-bottom:5px;}
+.pill{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:700;padding:2px 8px;border-radius:99px;letter-spacing:.02em;}
 .pill-run{background:var(--blue-l);color:var(--blue);}
 .pill-strength{background:var(--green-l);color:var(--green);}
 .pill-hyrox{background:var(--accent-l);color:var(--accent);}
 .pill-cardio{background:var(--teal-l);color:var(--teal);}
 .pill-rest{background:var(--bg2);color:var(--text3);}
-.pill-core{background:var(--purple-l);color:var(--purple);}
-.pill-plyo{background:var(--pink-l);color:var(--pink);}
-.rpe-mini{display:flex;align-items:center;margin-top:5px;}
-.rpe-dots{display:flex;gap:2px;margin:0 4px;}
-.rpe-dot{width:7px;height:7px;border-radius:50%;background:var(--bg3);}
-.day-expand{display:none;padding:0 16px 14px 36px;background:var(--card2);}
+.dur-pill{background:var(--bg2);color:var(--text3);font-size:10px;font-weight:600;padding:2px 8px;border-radius:99px;}
+/* Duration bar */
+.dur-bar-wrap{height:3px;background:var(--bg3);border-radius:99px;overflow:hidden;margin-top:5px;}
+.dur-bar-fill{height:100%;border-radius:99px;transition:width .3s;}
+/* RPE */
+.rpe-row{display:flex;align-items:center;gap:5px;margin-top:5px;}
+.rpe-label{font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.05em;}
+.rpe-dots{display:flex;gap:2px;}
+.rpe-dot{width:6px;height:6px;border-radius:50%;background:var(--bg3);}
+.rpe-num{font-size:10px;font-weight:800;margin-left:3px;}
+
+/* ── DAY EXPAND ── */
+.day-expand{display:none;background:var(--card2);border-bottom:1.5px solid var(--border);}
+.day-expand:last-child{border-bottom:none;}
 .day-expand.open{display:block;}
-.wu-box{background:var(--green-l);border-radius:var(--r-sm);padding:9px 12px;margin-bottom:9px;}
-.wu-box-title{font-size:11px;font-weight:600;color:var(--green);margin-bottom:3px;}
-.wu-box-text{font-size:12px;color:#2D6B40;line-height:1.5;}
-.focus-box{border-radius:var(--r-sm);padding:9px 12px;margin-bottom:9px;}
-.focus-box-title{font-size:11px;font-weight:600;margin-bottom:3px;}
-.ex-item{padding:8px 0;border-bottom:1px solid var(--border);}
+
+/* Blocks inside expand */
+.ex-block{padding:10px 14px;}
+.ex-block+.ex-block{border-top:1px dashed var(--border);}
+.ex-block-title{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;display:flex;align-items:center;gap:5px;}
+
+/* Exercise item */
+.ex-item{padding:7px 0;border-bottom:1px solid var(--border);}
 .ex-item:last-child{border-bottom:none;}
+.ex-tag{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:700;padding:2px 7px;border-radius:99px;margin-bottom:4px;}
 .ex-row{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;}
-.ex-name{font-size:14px;font-weight:600;color:var(--text);}
-.ex-params{font-size:12px;color:var(--accent);font-weight:700;white-space:nowrap;flex-shrink:0;}
-.ex-notes{font-size:12px;color:var(--text2);margin-top:2px;line-height:1.4;}
-.ex-cat{display:inline-block;font-size:10px;font-weight:600;padding:1px 6px;border-radius:99px;margin-bottom:3px;}
-.cat-lower{background:var(--blue-l);color:var(--blue);}
-.cat-upper{background:var(--green-l);color:var(--green);}
-.cat-core{background:var(--purple-l);color:var(--purple);}
-.cat-grip{background:var(--yellow-l);color:var(--yellow);}
-.cat-plyo{background:var(--pink-l);color:var(--pink);}
-.cat-run{background:var(--accent-l);color:var(--accent);}
-.cat-cadence{background:var(--teal-l);color:var(--teal);}
-.cd-box{background:var(--teal-l);border-radius:var(--r-sm);padding:9px 12px;margin-top:9px;}
-.cd-box-title{font-size:11px;font-weight:600;color:var(--teal);margin-bottom:3px;}
-.macro-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);margin:0 16px 10px;padding:14px 16px;box-shadow:var(--shadow-sm);}
-.macro-title{font-size:13px;font-weight:600;color:var(--text2);margin-bottom:11px;}
-.macro-row-item{display:flex;align-items:center;gap:10px;margin-bottom:9px;}
-.macro-row-item:last-child{margin-bottom:0;}
-.macro-name-col{font-size:12px;color:var(--text2);width:88px;flex-shrink:0;}
-.macro-bar-bg{flex:1;height:6px;background:var(--bg2);border-radius:99px;overflow:hidden;}
-.macro-bar-fill{height:100%;border-radius:99px;}
-.macro-g-col{font-size:12px;font-weight:700;color:var(--text);width:65px;text-align:right;}
-.hydration-card{background:var(--teal-l);border:1px solid rgba(14,126,194,.2);border-radius:var(--r);margin:0 16px 10px;padding:13px 16px;}
-.hydration-title{font-size:14px;font-weight:600;color:var(--teal);margin-bottom:8px;}
-.hydration-row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(14,126,194,.12);font-size:13px;}
-.hydration-row:last-child{border-bottom:none;}
-.hydration-moment{color:var(--text2);}
-.hydration-amount{color:var(--teal);font-weight:600;text-align:right;max-width:56%;}
-.menu-tabs{display:flex;overflow-x:auto;gap:6px;padding:6px 16px 10px;scrollbar-width:none;}
-.menu-tabs::-webkit-scrollbar{display:none;}
-.menu-tab-btn{flex-shrink:0;padding:7px 14px;border-radius:99px;background:var(--card);border:1px solid var(--border);color:var(--text2);font-size:13px;cursor:pointer;transition:all .15s;}
-.menu-tab-btn.active{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600;}
-.menu-day-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);margin:0 16px 8px;overflow:hidden;box-shadow:var(--shadow-sm);}
-.menu-day-header{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;cursor:pointer;}
-.menu-day-name{font-size:14px;font-weight:600;color:var(--text);}
-.menu-day-kcal{font-size:12px;color:var(--accent);font-weight:700;}
-.menu-day-body{display:none;border-top:1px solid var(--border);}
-.menu-day-body.open{display:block;}
-.meal-row{display:flex;gap:8px;padding:9px 16px;border-bottom:1px solid var(--border);align-items:flex-start;}
-.meal-row:last-child{border-bottom:none;}
-.meal-label{font-size:11px;font-weight:600;color:var(--text3);width:72px;flex-shrink:0;padding-top:1px;text-transform:uppercase;letter-spacing:.04em;}
-.meal-food{font-size:13px;color:var(--text2);flex:1;line-height:1.5;}
-.supp-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);margin:0 16px 8px;padding:13px 16px;box-shadow:var(--shadow-sm);}
-.supp-title{font-size:14px;font-weight:600;color:var(--text);margin-bottom:8px;}
-.supp-row{display:flex;justify-content:space-between;align-items:flex-start;padding:7px 0;border-bottom:1px solid var(--border);gap:8px;}
-.supp-row:last-child{border-bottom:none;}
-.supp-name{font-size:13px;font-weight:600;color:var(--text);flex:1;}
-.supp-dose{font-size:12px;color:var(--accent);font-weight:700;white-space:nowrap;}
-.supp-note{font-size:11px;color:var(--text3);margin-top:2px;}
-.timeline-container{margin:0 16px 14px;}
-.timeline-bar{height:7px;border-radius:99px;overflow:hidden;display:flex;margin-bottom:8px;}
+.ex-name{font-size:14px;font-weight:700;color:var(--text);line-height:1.3;}
+.ex-params{font-size:11px;color:var(--accent);font-weight:700;white-space:nowrap;flex-shrink:0;background:var(--accent-l);padding:2px 8px;border-radius:99px;}
+.ex-notes{font-size:12px;color:var(--text2);margin-top:3px;line-height:1.45;}
+
+/* WU / CD boxes */
+.wu-box{background:var(--green-l);border-radius:var(--r-sm);padding:10px 12px;border-left:3px solid var(--green);}
+.wu-title{font-size:10px;font-weight:800;color:var(--green);margin-bottom:4px;text-transform:uppercase;letter-spacing:.06em;}
+.wu-text{font-size:12px;color:#2D6B40;line-height:1.5;}
+.cd-box{background:var(--teal-l);border-radius:var(--r-sm);padding:10px 12px;border-left:3px solid var(--teal);}
+.cd-title{font-size:10px;font-weight:800;color:var(--teal);margin-bottom:4px;text-transform:uppercase;letter-spacing:.06em;}
+
+/* ── FASES TAB ── */
+.timeline-wrap{padding:0 16px 14px;}
+.timeline-bar{height:8px;border-radius:99px;overflow:hidden;display:flex;margin-bottom:6px;box-shadow:inset 0 1px 3px rgba(0,0,0,.1);}
 .tl-ph{height:100%;}
-.timeline-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--text3);}
-.deload-card{background:var(--purple-l);border:1px solid rgba(124,58,237,.2);border-radius:var(--r-sm);padding:12px 14px;margin:0 16px 10px;}
-.deload-title{font-size:13px;font-weight:600;color:var(--purple);margin-bottom:4px;}
+.timeline-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--text3);font-weight:600;}
+/* progress indicator */
+.progress-marker{position:relative;height:12px;margin-bottom:4px;}
+.progress-marker-dot{width:12px;height:12px;border-radius:50%;background:var(--accent);border:2px solid #fff;box-shadow:0 0 0 2px var(--accent);position:absolute;top:0;transform:translateX(-50%);}
+
+.deload-card{background:var(--purple-l);border:1.5px solid rgba(124,58,237,.25);border-radius:var(--r-sm);padding:12px 14px;margin:0 16px 12px;}
+.deload-title{font-size:12px;font-weight:700;color:var(--purple);margin-bottom:4px;}
 .deload-text{font-size:13px;color:#5B3FA0;line-height:1.5;}
-.phase-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);margin:0 16px 10px;overflow:hidden;box-shadow:var(--shadow-sm);}
-.phase-header{padding:13px 16px;border-left:3px solid;}
-.phase-title{font-size:16px;font-weight:700;}
-.phase-weeks{font-size:12px;color:var(--text2);margin-top:1px;}
+
+.phase-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r);margin:0 16px 10px;overflow:hidden;box-shadow:var(--shadow-sm);}
+.phase-header{padding:14px 16px;border-left:4px solid;display:flex;align-items:center;gap:10px;}
+.phase-header-icon{font-size:24px;}
+.phase-header-text{flex:1;}
+.phase-title{font-size:15px;font-weight:700;}
+.phase-weeks{font-size:11px;color:var(--text2);margin-top:1px;font-weight:600;}
 .phase-body{padding:12px 16px;}
-.phase-desc{font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:9px;}
-.phase-goals-title{font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px;}
-.phase-goal{display:flex;gap:7px;font-size:13px;padding:3px 0;color:var(--text);}
-.phase-goal-dot{color:var(--accent);font-weight:700;}
-.legend-row{display:flex;flex-wrap:wrap;gap:6px;padding:0 16px 12px;}
-.legend-item{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--text2);}
-.legend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.phase-desc{font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:10px;}
+.phase-goals{display:flex;flex-direction:column;gap:5px;}
+.phase-goal{display:flex;align-items:flex-start;gap:8px;font-size:13px;padding:5px 8px;background:var(--card2);border-radius:var(--r-xs);border:1px solid var(--border);}
+.phase-goal-icon{font-size:14px;flex-shrink:0;}
+
+/* ── PROGRESSION TABLE ── */
+.prog-table-wrap{margin:0 16px 12px;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.prog-table{width:100%;border-collapse:collapse;font-size:11px;}
+.prog-table th{background:var(--bg2);padding:6px 8px;text-align:left;font-weight:700;color:var(--text2);border-bottom:2px solid var(--border);white-space:nowrap;font-size:10px;text-transform:uppercase;letter-spacing:.05em;}
+.prog-table th:first-child{border-radius:var(--r-xs) 0 0 0;min-width:90px;}
+.prog-table th:last-child{border-radius:0 var(--r-xs) 0 0;}
+.prog-table td{padding:6px 8px;border-bottom:1px solid var(--border);color:var(--text);white-space:nowrap;vertical-align:middle;}
+.prog-table tr:last-child td{border-bottom:none;}
+.prog-table tr:nth-child(even) td{background:var(--card2);}
+.prog-table td:first-child{font-weight:700;color:var(--text2);font-size:10px;text-transform:uppercase;}
+.prog-cell{display:inline-block;padding:2px 6px;border-radius:99px;font-weight:700;font-size:11px;}
+.cell-f1{background:var(--blue-l);color:var(--blue);}
+.cell-f2{background:var(--green-l);color:var(--green);}
+.cell-f3{background:var(--accent-l);color:var(--accent);}
+.cell-d{background:var(--purple-l);color:var(--purple);font-size:9px;}
+.cell-t{background:var(--bg2);color:var(--text3);font-size:9px;}
 </style>
 </head>
 <body>
 <div class="app">
   <div class="header">
     <div class="header-row">
-      <div>
+      <div class="header-left">
         <div class="header-title">HYROX <span>Pablo</span></div>
-        <div class="header-sub">18 Oct 2026 · 22 semanas · Objetivo 3:50/km · v4 Avanzado</div>
+        <div class="header-meta">
+          <span class="header-sub">27 Oct 2026 · 22 sem · 3:50/km · FCmax 186 ppm</span>
+        </div>
       </div>
       <div class="cd-pill" id="cdPill">...</div>
     </div>
   </div>
+
   <div class="scroll">
 
-    <!-- PLAN -->
+    <!-- ── PLAN ── -->
     <div id="tab-plan" class="tab-body active">
+
+      <!-- Metrics -->
       <div class="metrics-row">
-        <div class="metric"><div class="metric-val">3:50</div><div class="metric-unit">/km</div><div class="metric-lbl">Objetivo</div></div>
+        <div class="metric hi"><div class="metric-val">3:50</div><div class="metric-unit">/km</div><div class="metric-lbl">Objetivo</div></div>
         <div class="metric"><div class="metric-val">4:45</div><div class="metric-unit">/km</div><div class="metric-lbl">Actual</div></div>
         <div class="metric"><div class="metric-val">22</div><div class="metric-unit">sem</div><div class="metric-lbl">Duración</div></div>
-        <div class="metric"><div class="metric-val">6</div><div class="metric-unit">ses</div><div class="metric-lbl">Semana</div></div>
+        <div class="metric"><div class="metric-val">80</div><div class="metric-unit">min</div><div class="metric-lbl">Máx/ses</div></div>
       </div>
-      <div class="legend-row">
-        <div class="legend-item"><div class="legend-dot" style="background:var(--blue)"></div>Carrera</div>
-        <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div>Fuerza</div>
-        <div class="legend-item"><div class="legend-dot" style="background:var(--accent)"></div>HYROX</div>
-        <div class="legend-item"><div class="legend-dot" style="background:var(--teal)"></div>Cardio Z2</div>
-        <div class="legend-item"><div class="legend-dot" style="background:var(--purple)"></div>Deload ⚡</div>
-        <div class="legend-item"><div class="legend-dot" style="background:var(--pink)"></div>Pliometría</div>
+
+      <!-- FC Zones -->
+      <div class="fc-zones">
+        <div class="fc-zone" style="background:#EDF6FF;border-color:#9DCFEE;"><div class="fc-zone-num" style="color:#0E7EC2">Z1</div><div class="fc-zone-range" style="color:#0E7EC2">93–112</div><div class="fc-zone-name" style="color:#2E8FB5">Recovery</div></div>
+        <div class="fc-zone" style="background:#E8F5ED;border-color:#8FD4A8;"><div class="fc-zone-num" style="color:#1C8A48">Z2</div><div class="fc-zone-range" style="color:#1C8A48">113–130</div><div class="fc-zone-name" style="color:#2E9455">Base</div></div>
+        <div class="fc-zone" style="background:#FDF3E3;border-color:#E8C070;"><div class="fc-zone-num" style="color:#B87005">Z3</div><div class="fc-zone-range" style="color:#B87005">131–149</div><div class="fc-zone-name" style="color:#C07820">Tempo</div></div>
+        <div class="fc-zone" style="background:#FEF0E8;border-color:#F4A574;"><div class="fc-zone-num" style="color:#E8570A">Z4</div><div class="fc-zone-range" style="color:#E8570A">150–167</div><div class="fc-zone-name" style="color:#E06520">Umbral</div></div>
+        <div class="fc-zone" style="background:#FDECEA;border-color:#F0A0A0;"><div class="fc-zone-num" style="color:#C0392B">Z5</div><div class="fc-zone-range" style="color:#C0392B">168–186</div><div class="fc-zone-name" style="color:#C84535">Máximo</div></div>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:5px;padding:0 16px 8px;">
-        <div style="background:#EDF6FF;border-radius:8px;padding:7px 3px;text-align:center;border:1px solid #BDE0F9;"><div style="font-size:10px;font-weight:700;color:#0E7EC2">Z1</div><div style="font-size:11px;font-weight:700;color:#0E7EC2">93–112</div><div style="font-size:9px;color:#5BA3C9">Recovery</div></div>
-        <div style="background:#E8F5ED;border-radius:8px;padding:7px 3px;text-align:center;border:1px solid #A8D9BB;"><div style="font-size:10px;font-weight:700;color:#1C8A48">Z2</div><div style="font-size:11px;font-weight:700;color:#1C8A48">113–130</div><div style="font-size:9px;color:#4CAF77">Base</div></div>
-        <div style="background:#FDF5E3;border-radius:8px;padding:7px 3px;text-align:center;border:1px solid #F0D090;"><div style="font-size:10px;font-weight:700;color:#CC8209">Z3</div><div style="font-size:11px;font-weight:700;color:#CC8209">131–149</div><div style="font-size:9px;color:#D49A30">Tempo</div></div>
-        <div style="background:#FEF0E8;border-radius:8px;padding:7px 3px;text-align:center;border:1px solid #F4A574;"><div style="font-size:10px;font-weight:700;color:#E8570A">Z4</div><div style="font-size:11px;font-weight:700;color:#E8570A">150–167</div><div style="font-size:9px;color:#F07040">Umbral</div></div>
-        <div style="background:#FDECEA;border-radius:8px;padding:7px 3px;text-align:center;border:1px solid #F0A0A0;"><div style="font-size:10px;font-weight:700;color:#C0392B">Z5</div><div style="font-size:11px;font-weight:700;color:#C0392B">168–186</div><div style="font-size:9px;color:#D06050">Máximo</div></div>
-      </div>
-      <div class="week-scroll" id="weekChips"></div>
+
+      <!-- Week Grid -->
+      <div class="section-label">Selecciona semana</div>
+      <div class="week-grid-wrap" id="weekGrid"></div>
+
+      <!-- Phase Banner -->
       <div id="phaseBanner" class="phase-banner"></div>
       <div id="fcInfo"></div>
+
+      <!-- Days -->
       <div class="days-card" id="dayList"></div>
     </div>
 
-    <!-- FASES -->
+    <!-- ── FASES ── -->
     <div id="tab-fases" class="tab-body">
-      <div class="section-label">Línea de tiempo · 22 semanas</div>
-      <div class="timeline-container">
+      <div class="section-label">Periodización · 22 semanas</div>
+      <div class="timeline-wrap">
+        <div class="progress-marker" id="progressMarker"></div>
         <div class="timeline-bar">
           <div class="tl-ph" style="flex:7;background:var(--blue)"></div>
           <div class="tl-ph" style="flex:6;background:var(--green)"></div>
@@ -215,23 +262,30 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif;backg
         </div>
         <div class="timeline-labels"><span>Mayo</span><span>Jun–Jul</span><span>Ago–Sep</span><span>Oct</span></div>
       </div>
+
       <div class="deload-card">
-        <div class="deload-title">⚡ Semanas de descarga (deload) — sem 4, 8, 13, 17</div>
-        <div class="deload-text">Reduce volumen 40–50 % manteniendo algo de intensidad. Son las semanas más importantes: el fitness crece en la recuperación. No las saltes aunque te sientas bien.</div>
+        <div class="deload-title">⚡ Semanas de descarga — sem 4, 8, 13, 17</div>
+        <div class="deload-text">Reduce volumen 40–50 % manteniendo algo de intensidad. Las semanas más importantes: el fitness crece en la recuperación. No las saltes aunque te sientas bien. Si FC en reposo +5 ppm, rendimiento cae 2 días o sueño alterado: aplica deload inmediatamente.</div>
       </div>
+
+      <div class="section-label">Las 4 fases</div>
       <div id="phaseCards"></div>
-      <div class="section-label">Nuevos bloques en v4</div>
-      <div class="info-box"><div class="info-box-title">🔵 Core progresivo por fases</div><div class="info-box-text">Fase 1: plancha, dead bug, hollow hold. Fase 2: ab wheel, pallof press, L-sit. Fase 3: dragon flag, ab wheel de pie, stir the pot. El core es la base de la postura en carrera post-fatiga.</div></div>
-      <div class="info-box"><div class="info-box-title">🟢 Tren superior completo</div><div class="info-box-text">Añadidos: face pulls (equilibrio escapular), remo en polea (tracción horizontal), remo pronación (dorsales), dead hang y farmer carry en pronación (grip). Volumen de tracción = volumen de empuje.</div></div>
-      <div class="info-box"><div class="info-box-title">🟠 Técnica de carrera bajo fatiga</div><div class="info-box-text">Sesiones específicas post-estación en fases 2 y 3. Protocolo de control de FC con pulsómetro a Z2–Z3 (113–149 ppm). Objetivo: mantener la mecánica cuando las piernas están destrozadas.</div></div>
-      <div class="info-box"><div class="info-box-title">🩷 Pliometría y economía de carrera</div><div class="info-box-text">Desde sem 5: bounds, single-leg hops, skipping con resistencia. Mejoran la stiffness del tendón de Aquiles y reducen el coste energético por zancada. La diferencia entre un plan intermedio y uno avanzado.</div></div>
-      <div class="info-box"><div class="info-box-title">🟡 Grip y antebrazo específico</div><div class="info-box-text">Desde fase 2: dead hang, towel pull-up, wrist roller, farmer carry en pronación. El grip es el limitante invisible en farmer carry, sled pull y burpees en competición.</div></div>
-      <div class="section-label">Gestión de cargas</div>
-      <div class="info-box"><div class="info-box-title">Progresión semanal</div><div class="info-box-text">Máximo +8–10 % de volumen por semana. Cada 4.ª semana deload. Si FC reposo +5 ppm sobre tu media, rendimiento cae 2 días seguidos o sueño alterado: aplica deload inmediatamente.</div></div>
-      <div class="info-box"><div class="info-box-title">Km de carrera por fase</div><div class="info-box-text">Fase 1: 38–46 km/sem · Fase 2: 44–52 km/sem · Fase 3: 48–55 km/sem · Deloads: −40 % · Tapering: 25 → 12 → competición</div></div>
+
+      <div class="section-label">Progresión de cargas clave</div>
+      <div class="info-box" style="margin-bottom:8px"><div class="info-box-title">Cómo leer la tabla</div><div class="info-box-text">Cada celda muestra la carga o el objetivo de la semana para ese ejercicio. Las semanas deload en morado, tapering en gris. Los % son sobre tu RM estimado del test de la sem 7.</div></div>
+      <div class="prog-table-wrap">
+        <table class="prog-table" id="progTable"></table>
+      </div>
+
+      <div class="section-label">Principios del plan</div>
+      <div class="info-box"><div class="info-box-title">💪 Equilibrio empuje/tracción</div><div class="info-box-text">Por cada serie de press hay una serie de remo o dominadas. Previene lesiones de hombro y mejora ski erg y remo ergómetro.</div></div>
+      <div class="info-box"><div class="info-box-title">🔥 Técnica bajo fatiga</div><div class="info-box-text">Desde la semana 3, después de intervalos se hacen drills de carrera. El objetivo es mantener la mecánica cuando las piernas están cargadas. Eso es el HYROX.</div></div>
+      <div class="info-box"><div class="info-box-title">🏔️ Hill sprints</div><div class="info-box-text">Desde sem 7. El ejercicio que más sube el VO2max por minuto de trabajo. 10–15 s al máximo en cuesta 6–8%. FC >168 ppm (Z5). Recupera bajando caminando.</div></div>
+      <div class="info-box"><div class="info-box-title">⚡ Power clean</div><div class="info-box-text">Hang power clean desde sem 9 (F2), power clean completo desde sem 14 (F3). Empieza ligero, técnica primero. El movimiento más explosivo del plan.</div></div>
     </div>
 
   </div>
+
   <div class="bottom-nav">
     <button class="nav-btn active" onclick="showTab('plan',this)"><span class="nav-icon">📅</span><span>Plan</span></button>
     <button class="nav-btn" onclick="showTab('fases',this)"><span class="nav-icon">📈</span><span>Fases</span></button>
@@ -239,11 +293,36 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif;backg
 </div>
 
 <script>
+// ── COUNTDOWN ─────────────────────────────────────────────────────
 (function(){
-  const comp=new Date('2026-10-18T09:00:00'),diff=comp-new Date();
+  const comp=new Date('2026-10-27T09:00:00'),diff=comp-new Date();
   if(diff<=0){document.getElementById('cdPill').textContent='🏁 HOY';return;}
-  document.getElementById('cdPill').textContent=Math.floor(diff/86400000/7)+' sem';
+  const d=Math.floor(diff/86400000);
+  document.getElementById('cdPill').textContent=Math.floor(d/7)+' sem';
 })();
+
+// ── CONFIG ────────────────────────────────────────────────────────
+const PHASE_CONF={
+  1:{col:'#1A6FDB',bg:'#EBF2FD',label:'Fase 1 · Base',icon:'🏃'},
+  2:{col:'#1C8A48',bg:'#E8F5ED',label:'Fase 2 · Fuerza',icon:'💪'},
+  3:{col:'#E8570A',bg:'#FEF0E8',label:'Fase 3 · Intensidad',icon:'🔥'},
+  4:{col:'#C0392B',bg:'#FDECEA',label:'Fase 4 · Tapering',icon:'🏁'},
+};
+const TYPE_ICON={run:'🏃',strength:'💪',hyrox:'🏋️',cardio:'🚴',rest:'😴'};
+const TYPE_LABEL={run:'Carrera',strength:'Fuerza',hyrox:'HYROX',cardio:'Cardio Z2',rest:'Descanso'};
+const TAG_CONF={
+  'cat-lower':  {icon:'🦵',label:'Tren inferior',bg:'#EBF2FD',col:'#1A6FDB'},
+  'cat-upper':  {icon:'💪',label:'Tren superior',bg:'#E8F5ED',col:'#1C8A48'},
+  'cat-core':   {icon:'🧠',label:'Core',bg:'#F3EFFE',col:'#7C3AED'},
+  'cat-grip':   {icon:'✊',label:'Grip',bg:'#FDF3E3',col:'#B87005'},
+  'cat-plyo':   {icon:'⚡',label:'Pliometría',bg:'#FCE4EC',col:'#C2185B'},
+  'cat-run':    {icon:'🏃',label:'Carrera',bg:'#FEF0E8',col:'#E8570A'},
+  'cat-cadence':{icon:'❤️',label:'FC objetivo',bg:'#EDF6FF',col:'#0E7EC2'},
+  'cat-hyrox':  {icon:'🏅',label:'HYROX',bg:'#FEF0E8',col:'#E8570A'},
+  'cat-':       {icon:'',label:'',bg:'',col:''},
+};
+
+// ── W DATA ────────────────────────────────────────────────────────
 
 const W={
 
@@ -1167,23 +1246,44 @@ ex:[
 
 };
 
-
-
+// ── PHASE CARDS DATA ─────────────────────────────────────────────
 const phaseCards=[
-{phase:'Fase 1 · Base aeróbica',weeks:'Semanas 1–7 · Mayo–Junio',color:'#1A6FDB',
-desc:'El 70% en Z2. Cadencia 178–FC 120–130 ppm desde el día 1. Se introduce pliometría básica (box jump, broad jump, bounds) y el protocolo de técnica bajo fatiga desde la sem 3. Tren superior completo desde la semana 1.',
-goals:['Volumen carrera: 38–46 km/sem','Cadencia 178→FC 120–130 ppm automatizada','Pliometría: box jump, broad jump, depth jump, bounds','Core F1: plancha, dead bug, hollow hold, ab wheel','Grip: dead hang, farmer carry pronación','Deload sem 4']},
-{phase:'Fase 2 · Fuerza + Específico',weeks:'Semanas 8–13 · Jul–Ago',color:'#1C8A48',
-desc:'Fuerza máxima (87–93% RM) combinada con simulacros completos. Se añade grip específico (wrist roller, towel pull-up), core F2 (pallof press, L-sit, stir the pot) y técnica de carrera post-estación.',
-goals:['Sled push/pull al 100% carga comp. (sem 12)','Cadencia Z2–Z3 (120–149 ppm) en todo','Core F2: pallof press, L-sit, stir the pot','Grip: wrist roller, towel pull-up, farmer carry pronación','Técnica post-fatiga en cada sesión de intervalos','Deloads sem 8 y 13']},
-{phase:'Fase 3 · Intensidad máxima',weeks:'Semanas 14–18 · Sep–Oct',color:'#E8570A',
-desc:'3:50/km en simulacro completo. Tests HYROX al 100% en sem 14 y 16. Core F3 (dragon flag, ab wheel desde pie). Práctica específica de transiciones. Cadencia 182–FC 150–165 ppm en intervalos.',
-goals:['3:50/km en simulacro (sem 16)','Core F3: dragon flag, ab wheel desde pie','Práctica transiciones: 8×(200 m + estación)','Intervalos a 3:45/km (bajo el objetivo)','Técnica postura bajo carga: carry → carrera','Deload sem 17']},
-{phase:'Fase 4 · Tapering',weeks:'Semanas 19–22 · Oct',color:'#C0392B',
-desc:'Menos es más. Reducción progresiva. Cadencia y mecánica mantenidas con series muy cortas. Carga de carbohidratos los últimos 4 días. El pulsómetro estará activo el día de la competición.',
-goals:['Volumen −30% sem 19 · −50% sem 20 · −70% sem 21','Cadencia mantenida con activaciones cortas','Carga carbos +30% los 4 días anteriores','3.5 L agua/día últimos 3 días','pulsómetro activo toda la carrera en competición']}
+{phase:'Fase 1 · Base aeróbica',weeks:'Semanas 1–7 · Mayo–Junio',color:'#1A6FDB',icon:'🏃',
+desc:'El 70% de la carrera en Z2 (113–130 ppm). Se introduce pliometría (box jump, depth jump, bounds), bird dog y back extension para el core lumbar, trap bar deadlift y split squat con déficit. Hill sprints en sem 7.',
+goals:[{i:'🎯',t:'Volumen carrera: 38–46 km/sem'},{i:'❤️',t:'Z2: FC 113–130 ppm automatizada'},{i:'⚡',t:'Pliometría: box jump, depth jump, bounds'},{i:'🧠',t:'Core lumbar: bird dog, back ext, good morning'},{i:'✊',t:'Grip: dead hang, farmer carry'},{i:'🏔️',t:'Hill sprints intro sem 7'},{i:'⚡',t:'Deload sem 4'}]},
+{phase:'Fase 2 · Fuerza + Específico HYROX',weeks:'Semanas 8–13 · Jul–Ago',color:'#1C8A48',icon:'💪',
+desc:'Fuerza máxima (87–93% RM) con simulacros completos. Se añade hang power clean, wrist roller, towel pull-up, L-sit. Core lumbar: jefferson curl, hiperextensión con carga. Sled llega a 102 kg en sem 12.',
+goals:[{i:'🏋️',t:'Sled push/pull a 102 kg (comp.) sem 12'},{i:'⚡',t:'Hang power clean desde sem 9'},{i:'🧠',t:'Core F2: L-sit, jefferson curl, hiperextensión'},{i:'✊',t:'Grip: wrist roller, towel pull-up'},{i:'🏔️',t:'Hill sprints progresivos'},{i:'⚡',t:'Deloads sem 8 y 13'}]},
+{phase:'Fase 3 · Intensidad máxima',weeks:'Semanas 14–18 · Sep–Oct',color:'#E8570A',icon:'🔥',
+desc:'3:50/km en simulacro completo. Tests al 100% en sem 14 y 16. Power clean completo desde sem 14. Core F3: dragon flag, ab wheel desde pie. Práctica de transiciones. FC en Z4 (150–167 ppm) en intervalos.',
+goals:[{i:'🎯',t:'3:50/km en simulacro completo (sem 16)'},{i:'⚡',t:'Power clean completo desde sem 14'},{i:'🧠',t:'Core F3: dragon flag, ab wheel desde pie'},{i:'🔄',t:'Transiciones <10 s: práctica específica'},{i:'🏔️',t:'Hill sprints a máxima intensidad'},{i:'⚡',t:'Deload sem 17'}]},
+{phase:'Fase 4 · Tapering',weeks:'Semanas 19–22 · Oct',color:'#C0392B',icon:'🏁',
+desc:'Menos es más. Reducción progresiva acumulando frescura. Carga de carbohidratos los 4 días anteriores. El fitness ya está construido.',
+goals:[{i:'📉',t:'Volumen −30% sem 19 · −50% sem 20 · −70% sem 21'},{i:'❤️',t:'FC mantenida con activaciones cortas'},{i:'🍝',t:'Carga carbos +30% los 4 días anteriores'},{i:'💧',t:'3.5 L agua/día últimos 3 días'},{i:'🏁',t:'Llegar descansado, confiado y hambriento'}]}
 ];
 
+// ── PROGRESSION TABLE DATA ────────────────────────────────────────
+const progData={
+  headers:['Ejercicio','Sem1','Sem2','Sem3','Sem4','Sem5','Sem6','Sem7','Sem8','Sem9','Sem10','Sem11','Sem12','Sem13','Sem14','Sem15','Sem16','Sem17','Sem18','Sem19','Sem20'],
+  rows:[
+    {name:'Sentadilla',phase:[1,1,1,'D',1,1,1,'D',2,2,2,2,'D',3,3,3,'D',3,4,4],
+     vals:['Goblet','70kg','77.5kg','⚡','82.5kg','87.5kg','RM','⚡','87%','90%','85%p','90%','⚡','93%×2','93%','90%','⚡','85%','80%','min']},
+    {name:'Trap Bar DL',phase:[1,1,1,'D',1,1,1,'D',2,2,2,2,'D',3,3,3,'D',3,4,4],
+     vals:['–','80kg','90kg','⚡','97.5kg','105kg','RM','⚡','87%','90%','80%d','90%','⚡','93%','93%','90%','⚡','85%','80%','min']},
+    {name:'Sled push',phase:[1,1,1,'D',1,1,1,'D',2,2,2,2,'D',3,3,3,'D',3,4,4],
+     vals:['–','40kg','60kg','⚡','75kg','82.5kg','90kg','⚡','90kg','95kg','98kg','102kg','⚡','102kg','102kg','102kg','⚡','102kg','90kg','80kg']},
+    {name:'Hang P.Clean',phase:[1,1,1,'D',1,1,1,'D',2,2,2,2,'D',3,3,3,'D',3,4,4],
+     vals:['–','–','–','–','–','–','–','–','50%','65%','65%','70%','⚡','→PC','→PC','→PC','⚡','70%','–','–']},
+    {name:'Power Clean',phase:[1,1,1,'D',1,1,1,'D',2,2,2,2,'D',3,3,3,'D',3,4,4],
+     vals:['–','–','–','–','–','–','–','–','–','–','–','–','–','65%','70%','72%','⚡','70%','–','–']},
+    {name:'Farmer carry',phase:[1,1,1,'D',1,1,1,'D',2,2,2,2,'D',3,3,3,'D',3,4,4],
+     vals:['22kg','22kg','24kg','⚡','24kg','26kg','26kg','⚡','28kg','28kg','32kg','32kg','⚡','32kg','32kg','32kg','⚡','32kg','32kg','32kg']},
+    {name:'Dead hang',phase:[1,1,1,'D',1,1,1,'D',2,2,2,2,'D',3,3,3,'D',3,4,4],
+     vals:['30s','35s','40s','⚡','45s','50s','55s','⚡','60s','60s+','60s+','60s+','⚡','max','max','max','⚡','max','max','–']},
+  ]
+};
+
+// ── SHOW TAB ──────────────────────────────────────────────────────
 function showTab(n,btn){
   document.querySelectorAll('.tab-body').forEach(t=>t.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
@@ -1192,58 +1292,226 @@ function showTab(n,btn){
   document.querySelector('.scroll').scrollTop=0;
 }
 
-const weekKeys=Object.keys(W).map(Number);
-function initChips(){
-  const c=document.getElementById('weekChips');
-  c.innerHTML=weekKeys.map(k=>{
-    const w=W[k];
-    return`<div class="wchip${w.deload?' deload':''}" id="chip-${k}" onclick="selectWeek(${k})">${w.name}</div>`;
+// ── WEEK GRID ─────────────────────────────────────────────────────
+const wk=Object.keys(W).map(Number);
+
+function initWeekGrid(){
+  const container=document.getElementById('weekGrid');
+  const groups={1:[],2:[],3:[],4:[]};
+  wk.forEach(k=>groups[W[k].phase].push(k));
+
+  container.innerHTML=Object.keys(groups).map(ph=>{
+    const conf=PHASE_CONF[ph];
+    const chips=groups[ph].map(k=>{
+      const w=W[k];
+      const shortName=w.name.replace(/Sem \d+ · /,'').substring(0,12);
+      return`<div class="wchip${w.deload?' deload':''}" id="chip-${k}"
+        style="border-color:${w.deload?'var(--purple)':conf.col+'60'}"
+        onclick="selWeek(${k})">
+        <div class="wchip-num" style="color:${conf.col}">S${k}${w.deload?' ⚡':''}</div>
+        <div class="wchip-label">${shortName}</div>
+      </div>`;
+    }).join('');
+    return`<div class="week-phase-group">
+      <span class="week-phase-label" style="background:${conf.bg};color:${conf.col}">${conf.icon} ${conf.label}</span>
+      <div class="week-grid">${chips}</div>
+    </div>`;
   }).join('');
-  selectWeek(1,true);
+
+  selWeek(1,true);
 }
 
-function selectWeek(k,init){
-  document.querySelectorAll('.wchip').forEach(c=>c.classList.remove('active'));
+function selWeek(k,init){
+  wk.forEach(i=>{
+    const ch=document.getElementById('chip-'+i);
+    if(!ch)return;
+    const ph=W[i].phase;
+    const conf=PHASE_CONF[ph];
+    ch.classList.remove('active');
+    ch.style.background=var_card();
+    ch.style.color='';
+  });
   const chip=document.getElementById('chip-'+k);
-  if(chip){chip.classList.add('active');if(!init)chip.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});}
+  if(chip){
+    chip.classList.add('active');
+    const conf=PHASE_CONF[W[k].phase];
+    chip.style.background=conf.col;
+    chip.style.borderColor=conf.col;
+    if(!init)chip.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+  }
   renderWeek(k);
 }
 
+function var_card(){return getComputedStyle(document.documentElement).getPropertyValue('--card').trim()||'#fff';}
+
+// ── RENDER WEEK ───────────────────────────────────────────────────
 function renderWeek(k){
   const w=W[k];
+  const pc=PHASE_CONF[w.phase];
+
+  // Banner
   const banner=document.getElementById('phaseBanner');
-  banner.style.borderColor=w.col;
-  banner.style.background=w.col+'18';
-  banner.innerHTML=`<span style="font-size:13px;font-weight:600;color:${w.col}">${w.name}</span>${w.deload?' <span style="font-size:11px;color:var(--purple);margin-left:8px;font-weight:600">⚡ Semana deload</span>':''}`;
-  document.getElementById('fcInfo').innerHTML=`<div class="info-box"><div class="info-box-title">🎯 FC + Cadencia esta semana</div><div class="info-box-text">${w.fc}</div></div>`;
+  banner.style.borderColor=pc.col;
+  banner.style.background=pc.bg;
+  banner.innerHTML=`
+    <div class="phase-banner-icon">${pc.icon}</div>
+    <div class="phase-banner-text">
+      <div class="phase-banner-name" style="color:${pc.col}">${w.name}${w.deload?' <span style="color:var(--purple);font-size:12px">⚡ Deload</span>':''}</div>
+      <div class="phase-banner-fc" style="color:${pc.col}">${w.fc}</div>
+    </div>`;
+
+  // FC info hidden (now in banner)
+  document.getElementById('fcInfo').innerHTML='';
+
+  // Days
   const list=document.getElementById('dayList');
   list.innerHTML=w.days.map((d,i)=>{
-    const pillL={run:'Carrera',strength:'Fuerza',hyrox:'HYROX',cardio:'Cardio Z2',rest:'Descanso'}[d.p];
+    const pc2=PHASE_CONF[w.phase];
+    const dc=d.c||pc2.col;
+    const icon=TYPE_ICON[d.p]||'📋';
     const rpeC=d.rpe>=8?'var(--red)':d.rpe>=6?'var(--accent)':d.rpe>=4?'var(--yellow)':'var(--green)';
     const dots=Array.from({length:10},(_,j)=>`<div class="rpe-dot"${j<d.rpe?` style="background:${rpeC}"`:''}>​</div>`).join('');
-    const wuH=d.wu?`<div class="wu-box"><div class="wu-box-title">🔥 Calentamiento</div><div class="wu-box-text">${d.wu}</div></div>`:'';
-    const cdH=d.cd?`<div class="cd-box"><div class="cd-box-title">❄️ Vuelta a la calma</div><div class="wu-box-text" style="color:#1A5A7A">${d.cd}</div></div>`:'';
-    const exH=d.ex.map(e=>`<div class="ex-item">${e.cat?`<div class="ex-cat ${e.cat}">${{
-      'cat-lower':'Tren inferior','cat-upper':'Tren superior','cat-core':'Core','cat-grip':'Grip','cat-plyo':'Pliometría','cat-run':'Carrera','cat-cadence':'FC objetivo','cat-':''
-    }[e.cat]||''}</div>`:''}<div class="ex-row"><span class="ex-name">${e.n}</span>${e.s?`<span class="ex-params">${e.s}</span>`:''}</div>${e.o?`<div class="ex-notes">${e.o}</div>`:''}</div>`).join('');
-    return`<div class="day-item" onclick="toggleDay(${i})"><div class="day-dot" style="background:${d.c}"></div><div class="day-main"><div class="day-name">${d.n}</div><div class="day-type">${d.t}</div><div class="day-meta"><span class="pill pill-${d.p}">${pillL}</span><span style="font-size:11px;color:var(--text3)">${d.dur}</span></div><div class="rpe-mini"><span style="font-size:11px;color:var(--text3)">RPE</span><div class="rpe-dots">${dots}</div><span style="font-size:11px;color:${rpeC};font-weight:700;margin-left:2px">${d.rpe}/10</span></div></div></div><div class="day-expand" id="dexp-${i}">${wuH}${exH}${cdH}</div>`;
+    const durPct=Math.min(100,Math.round((parseInt(d.dur)||80)/80*100));
+
+    // Build exercise blocks
+    const wuHtml=d.wu?`
+      <div class="ex-block">
+        <div class="wu-box"><div class="wu-title">🔥 Calentamiento</div><div class="wu-text">${d.wu}</div></div>
+      </div>`:'' ;
+
+    // Group exercises by cat for visual blocks
+    const mainEx=d.ex.filter(e=>e.cat&&!e.cat.includes('core'));
+    const coreEx=d.ex.filter(e=>e.cat&&e.cat.includes('core'));
+    const restEx=d.ex.filter(e=>!e.cat||e.cat==='cat-');
+
+    function renderEx(exList){
+      return exList.map(e=>{
+        const tc=TAG_CONF[e.cat]||{icon:'',label:'',bg:'',col:''};
+        return`<div class="ex-item">
+          ${tc.label?`<div class="ex-tag" style="background:${tc.bg};color:${tc.col}">${tc.icon} ${tc.label}</div>`:''}
+          <div class="ex-row">
+            <span class="ex-name">${e.n}</span>
+            ${e.s?`<span class="ex-params">${e.s}</span>`:''}
+          </div>
+          ${e.o?`<div class="ex-notes">${e.o}</div>`:''}
+        </div>`;
+      }).join('');
+    }
+
+    const blocksHtml=`
+      ${wuHtml}
+      ${(mainEx.length||restEx.length)?`
+        <div class="ex-block">
+          <div class="ex-block-title" style="color:${dc}">
+            ${icon} Sesión principal
+          </div>
+          ${renderEx([...mainEx,...restEx])}
+        </div>`:''}
+      ${coreEx.length?`
+        <div class="ex-block">
+          <div class="ex-block-title" style="color:var(--purple)">
+            🧠 Core y lumbar
+          </div>
+          ${renderEx(coreEx)}
+        </div>`:''}
+      ${d.cd?`
+        <div class="ex-block">
+          <div class="cd-box"><div class="cd-title">❄️ Vuelta a la calma</div><div class="wu-text" style="color:#1A5A7A">${d.cd}</div></div>
+        </div>`:''}`;
+
+    return`
+      <div class="day-item" onclick="togDay(${i})" style="border-bottom:1.5px solid var(--border)">
+        <div class="day-stripe" style="background:${dc}"></div>
+        <div class="day-icon-col">${icon}</div>
+        <div class="day-main">
+          <div class="day-name">${d.n}</div>
+          <div class="day-type">${d.t}</div>
+          <div class="day-meta">
+            <span class="pill pill-${d.p}">${icon} ${TYPE_LABEL[d.p]}</span>
+            <span class="dur-pill">${d.dur}</span>
+          </div>
+          <div class="dur-bar-wrap">
+            <div class="dur-bar-fill" style="width:${durPct}%;background:${dc}55"></div>
+          </div>
+          <div class="rpe-row">
+            <span class="rpe-label">RPE</span>
+            <div class="rpe-dots">${dots}</div>
+            <span class="rpe-num" style="color:${rpeC}">${d.rpe}/10</span>
+          </div>
+        </div>
+      </div>
+      <div class="day-expand" id="dexp-${i}">${blocksHtml}</div>`;
   }).join('');
 }
 
-function toggleDay(i){
+function togDay(i){
   const el=document.getElementById('dexp-'+i);
-  const isOpen=el.classList.contains('open');
+  const open=el.classList.contains('open');
   document.querySelectorAll('.day-expand').forEach(e=>e.classList.remove('open'));
-  if(!isOpen)el.classList.add('open');
+  if(!open)el.classList.add('open');
 }
 
-
+// ── RENDER PHASES ─────────────────────────────────────────────────
 function renderPhases(){
-  document.getElementById('phaseCards').innerHTML=phaseCards.map(p=>`<div class="phase-card"><div class="phase-header" style="border-color:${p.color};background:${p.color}12"><div class="phase-title" style="color:${p.color}">${p.phase}</div><div class="phase-weeks">${p.weeks}</div></div><div class="phase-body"><div class="phase-desc">${p.desc}</div><div class="phase-goals-title">Objetivos</div>${p.goals.map(g=>`<div class="phase-goal"><span class="phase-goal-dot">·</span><span>${g}</span></div>`).join('')}</div></div>`).join('');
+  document.getElementById('phaseCards').innerHTML=phaseCards.map(p=>`
+    <div class="phase-card">
+      <div class="phase-header" style="border-color:${p.color};background:${p.color}15">
+        <div class="phase-header-icon">${p.icon}</div>
+        <div class="phase-header-text">
+          <div class="phase-title" style="color:${p.color}">${p.phase}</div>
+          <div class="phase-weeks">${p.weeks}</div>
+        </div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-desc">${p.desc}</div>
+        <div class="phase-goals">
+          ${p.goals.map(g=>`<div class="phase-goal"><span class="phase-goal-icon">${g.i}</span><span>${g.t}</span></div>`).join('')}
+        </div>
+      </div>
+    </div>`).join('');
+
+  // Progress marker
+  const now=new Date();
+  const start=new Date('2026-05-12');
+  const end=new Date('2026-10-27');
+  const total=end-start;
+  const elapsed=Math.max(0,Math.min(total,now-start));
+  const pct=Math.round(elapsed/total*100);
+  const marker=document.getElementById('progressMarker');
+  if(marker&&pct>0&&pct<100){
+    marker.innerHTML=`<div class="progress-marker-dot" style="left:${pct}%"></div>`;
+    marker.title=`Hoy: ${pct}% del plan`;
+  }
 }
 
-initChips();
+// ── RENDER PROGRESSION TABLE ──────────────────────────────────────
+function renderProgTable(){
+  const t=document.getElementById('progTable');
+  const ph=[1,1,1,'D',1,1,1,'D',2,2,2,2,'D',3,3,3,'D',3,4,4];
+  const phC={'1':'cell-f1','2':'cell-f2','3':'cell-f3','D':'cell-d','4':'cell-t'};
+
+  let html=`<thead><tr>`;
+  progData.headers.forEach(h=>{
+    html+=`<th>${h}</th>`;
+  });
+  html+=`</tr></thead><tbody>`;
+
+  progData.rows.forEach(row=>{
+    html+=`<tr><td>${row.name}</td>`;
+    row.vals.forEach((v,i)=>{
+      const phaseClass=phC[String(row.phase[i])]||'cell-f1';
+      html+=`<td><span class="prog-cell ${phaseClass}">${v}</span></td>`;
+    });
+    html+=`</tr>`;
+  });
+  html+=`</tbody>`;
+  t.innerHTML=html;
+}
+
+// ── INIT ─────────────────────────────────────────────────────────
+initWeekGrid();
 renderPhases();
+renderProgTable();
 </script>
 </body>
 </html>
